@@ -119,6 +119,40 @@ static double average(NSDictionary *dictionary) {
         optUnmanaged.dateObj,
         managed.dateObj,
         optManaged.dateObj,
+        unmanaged.floatObj,
+        optUnmanaged.floatObj,
+        managed.floatObj,
+        optManaged.floatObj,
+        unmanaged.doubleObj,
+        optUnmanaged.doubleObj,
+        managed.doubleObj,
+        optManaged.doubleObj,
+        unmanaged.dataObj,
+        optUnmanaged.dataObj,
+        managed.dataObj,
+        optManaged.dataObj,
+        unmanaged.decimalObj,
+        optUnmanaged.decimalObj,
+        managed.decimalObj,
+        optManaged.decimalObj,
+        unmanaged.objectIdObj,
+        optUnmanaged.objectIdObj,
+        managed.objectIdObj,
+        optManaged.objectIdObj,
+        unmanaged.uuidObj,
+        optUnmanaged.uuidObj,
+        managed.uuidObj,
+        optManaged.uuidObj,
+        unmanaged.anyBoolObj,
+        unmanaged.anyIntObj,
+        unmanaged.anyFloatObj,
+        unmanaged.anyDoubleObj,
+        unmanaged.anyStringObj,
+        unmanaged.anyDataObj,
+        unmanaged.anyDateObj,
+        unmanaged.anyDecimalObj,
+        unmanaged.anyObjectIdObj,
+        unmanaged.anyUUIDObj,
     ];
 }
 
@@ -145,6 +179,40 @@ static double average(NSDictionary *dictionary) {
     [optUnmanaged.dateObj addEntriesFromDictionary:@{ @"key1": date(1), @"key2": NSNull.null }];
     [managed.dateObj addEntriesFromDictionary:@{ @"key1": date(1), @"key2": date(2) }];
     [optManaged.dateObj addEntriesFromDictionary:@{ @"key1": date(1), @"key2": NSNull.null }];
+    [unmanaged.floatObj addEntriesFromDictionary:@{ @"key1": @2.2f, @"key2": @3.3f }];
+    [optUnmanaged.floatObj addEntriesFromDictionary:@{ @"key1": @2.2f, @"key2": NSNull.null }];
+    [managed.floatObj addEntriesFromDictionary:@{ @"key1": @2.2f, @"key2": @3.3f }];
+    [optManaged.floatObj addEntriesFromDictionary:@{ @"key1": @2.2f, @"key2": NSNull.null }];
+    [unmanaged.doubleObj addEntriesFromDictionary:@{ @"key1": @2.2, @"key2": @3.3 }];
+    [optUnmanaged.doubleObj addEntriesFromDictionary:@{ @"key1": @2.2, @"key2": NSNull.null }];
+    [managed.doubleObj addEntriesFromDictionary:@{ @"key1": @2.2, @"key2": @3.3 }];
+    [optManaged.doubleObj addEntriesFromDictionary:@{ @"key1": @2.2, @"key2": NSNull.null }];
+    [unmanaged.dataObj addEntriesFromDictionary:@{ @"key1": data(1), @"key2": data(2) }];
+    [optUnmanaged.dataObj addEntriesFromDictionary:@{ @"key1": data(1), @"key2": NSNull.null }];
+    [managed.dataObj addEntriesFromDictionary:@{ @"key1": data(1), @"key2": data(2) }];
+    [optManaged.dataObj addEntriesFromDictionary:@{ @"key1": data(1), @"key2": NSNull.null }];
+    [unmanaged.decimalObj addEntriesFromDictionary:@{ @"key1": decimal128(2), @"key2": decimal128(3) }];
+    [optUnmanaged.decimalObj addEntriesFromDictionary:@{ @"key1": decimal128(2), @"key2": NSNull.null }];
+    [managed.decimalObj addEntriesFromDictionary:@{ @"key1": decimal128(2), @"key2": decimal128(3) }];
+    [optManaged.decimalObj addEntriesFromDictionary:@{ @"key1": decimal128(2), @"key2": NSNull.null }];
+    [unmanaged.objectIdObj addEntriesFromDictionary:@{ @"key1": objectId(1), @"key2": objectId(2) }];
+    [optUnmanaged.objectIdObj addEntriesFromDictionary:@{ @"key1": objectId(1), @"key2": NSNull.null }];
+    [managed.objectIdObj addEntriesFromDictionary:@{ @"key1": objectId(1), @"key2": objectId(2) }];
+    [optManaged.objectIdObj addEntriesFromDictionary:@{ @"key1": objectId(1), @"key2": NSNull.null }];
+    [unmanaged.uuidObj addEntriesFromDictionary:@{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": uuid(@"137DECC8-B300-4954-A233-F89909F4FD89") }];
+    [optUnmanaged.uuidObj addEntriesFromDictionary:@{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": NSNull.null }];
+    [managed.uuidObj addEntriesFromDictionary:@{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": uuid(@"137DECC8-B300-4954-A233-F89909F4FD89") }];
+    [optManaged.uuidObj addEntriesFromDictionary:@{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": NSNull.null }];
+    [unmanaged.anyBoolObj addEntriesFromDictionary:@{ @"key1": @NO, @"key2": @YES }];
+    [unmanaged.anyIntObj addEntriesFromDictionary:@{ @"key1": @2, @"key2": @3 }];
+    [unmanaged.anyFloatObj addEntriesFromDictionary:@{ @"key1": @2.2f, @"key2": @3.3f }];
+    [unmanaged.anyDoubleObj addEntriesFromDictionary:@{ @"key1": @2.2, @"key2": @3.3 }];
+    [unmanaged.anyStringObj addEntriesFromDictionary:@{ @"key1": @"a", @"key2": @"b" }];
+    [unmanaged.anyDataObj addEntriesFromDictionary:@{ @"key1": data(1), @"key2": data(2) }];
+    [unmanaged.anyDateObj addEntriesFromDictionary:@{ @"key1": date(1), @"key2": date(2) }];
+    [unmanaged.anyDecimalObj addEntriesFromDictionary:@{ @"key1": decimal128(2), @"key2": decimal128(3) }];
+    [unmanaged.anyObjectIdObj addEntriesFromDictionary:@{ @"key1": objectId(1), @"key2": objectId(2) }];
+    [unmanaged.anyUUIDObj addEntriesFromDictionary:@{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": uuid(@"137DECC8-B300-4954-A233-F89909F4FD89") }];
 }
 
 - (void)testCount {
@@ -240,6 +308,28 @@ static double average(NSDictionary *dictionary) {
     RLMAssertThrowsWithReason([realm deleteObjects:optUnmanaged.stringObj], @"Cannot delete objects from RLMDictionary");
     RLMAssertThrowsWithReason([realm deleteObjects:unmanaged.dateObj], @"Cannot delete objects from RLMDictionary");
     RLMAssertThrowsWithReason([realm deleteObjects:optUnmanaged.dateObj], @"Cannot delete objects from RLMDictionary");
+    RLMAssertThrowsWithReason([realm deleteObjects:unmanaged.floatObj], @"Cannot delete objects from RLMDictionary");
+    RLMAssertThrowsWithReason([realm deleteObjects:optUnmanaged.floatObj], @"Cannot delete objects from RLMDictionary");
+    RLMAssertThrowsWithReason([realm deleteObjects:unmanaged.doubleObj], @"Cannot delete objects from RLMDictionary");
+    RLMAssertThrowsWithReason([realm deleteObjects:optUnmanaged.doubleObj], @"Cannot delete objects from RLMDictionary");
+    RLMAssertThrowsWithReason([realm deleteObjects:unmanaged.dataObj], @"Cannot delete objects from RLMDictionary");
+    RLMAssertThrowsWithReason([realm deleteObjects:optUnmanaged.dataObj], @"Cannot delete objects from RLMDictionary");
+    RLMAssertThrowsWithReason([realm deleteObjects:unmanaged.decimalObj], @"Cannot delete objects from RLMDictionary");
+    RLMAssertThrowsWithReason([realm deleteObjects:optUnmanaged.decimalObj], @"Cannot delete objects from RLMDictionary");
+    RLMAssertThrowsWithReason([realm deleteObjects:unmanaged.objectIdObj], @"Cannot delete objects from RLMDictionary");
+    RLMAssertThrowsWithReason([realm deleteObjects:optUnmanaged.objectIdObj], @"Cannot delete objects from RLMDictionary");
+    RLMAssertThrowsWithReason([realm deleteObjects:unmanaged.uuidObj], @"Cannot delete objects from RLMDictionary");
+    RLMAssertThrowsWithReason([realm deleteObjects:optUnmanaged.uuidObj], @"Cannot delete objects from RLMDictionary");
+    RLMAssertThrowsWithReason([realm deleteObjects:unmanaged.anyBoolObj], @"Cannot delete objects from RLMDictionary");
+    RLMAssertThrowsWithReason([realm deleteObjects:unmanaged.anyIntObj], @"Cannot delete objects from RLMDictionary");
+    RLMAssertThrowsWithReason([realm deleteObjects:unmanaged.anyFloatObj], @"Cannot delete objects from RLMDictionary");
+    RLMAssertThrowsWithReason([realm deleteObjects:unmanaged.anyDoubleObj], @"Cannot delete objects from RLMDictionary");
+    RLMAssertThrowsWithReason([realm deleteObjects:unmanaged.anyStringObj], @"Cannot delete objects from RLMDictionary");
+    RLMAssertThrowsWithReason([realm deleteObjects:unmanaged.anyDataObj], @"Cannot delete objects from RLMDictionary");
+    RLMAssertThrowsWithReason([realm deleteObjects:unmanaged.anyDateObj], @"Cannot delete objects from RLMDictionary");
+    RLMAssertThrowsWithReason([realm deleteObjects:unmanaged.anyDecimalObj], @"Cannot delete objects from RLMDictionary");
+    RLMAssertThrowsWithReason([realm deleteObjects:unmanaged.anyObjectIdObj], @"Cannot delete objects from RLMDictionary");
+    RLMAssertThrowsWithReason([realm deleteObjects:unmanaged.anyUUIDObj], @"Cannot delete objects from RLMDictionary");
     RLMAssertThrowsWithReason([realm deleteObjects:managed.boolObj], @"Cannot delete objects from RLMManagedDictionary<RLMString, bool>: only RLMObjects can be deleted.");
     RLMAssertThrowsWithReason([realm deleteObjects:optManaged.boolObj], @"Cannot delete objects from RLMManagedDictionary<RLMString, bool?>: only RLMObjects can be deleted.");
     RLMAssertThrowsWithReason([realm deleteObjects:managed.intObj], @"Cannot delete objects from RLMManagedDictionary<RLMString, int>: only RLMObjects can be deleted.");
@@ -315,56 +405,134 @@ static double average(NSDictionary *dictionary) {
     XCTAssertNil(unmanaged.intObj[@"key1"]);
     XCTAssertNil(unmanaged.stringObj[@"key1"]);
     XCTAssertNil(unmanaged.dateObj[@"key1"]);
+    XCTAssertNil(unmanaged.floatObj[@"key1"]);
+    XCTAssertNil(unmanaged.doubleObj[@"key1"]);
+    XCTAssertNil(unmanaged.dataObj[@"key1"]);
+    XCTAssertNil(unmanaged.decimalObj[@"key1"]);
+    XCTAssertNil(unmanaged.objectIdObj[@"key1"]);
+    XCTAssertNil(unmanaged.uuidObj[@"key1"]);
     XCTAssertNoThrow(unmanaged.boolObj[@"key1"] = @NO);
     XCTAssertNoThrow(unmanaged.intObj[@"key1"] = @2);
     XCTAssertNoThrow(unmanaged.stringObj[@"key1"] = @"bar");
     XCTAssertNoThrow(unmanaged.dateObj[@"key1"] = date(1));
+    XCTAssertNoThrow(unmanaged.floatObj[@"key1"] = @2.2f);
+    XCTAssertNoThrow(unmanaged.doubleObj[@"key1"] = @2.2);
+    XCTAssertNoThrow(unmanaged.dataObj[@"key1"] = data(1));
+    XCTAssertNoThrow(unmanaged.decimalObj[@"key1"] = decimal128(2));
+    XCTAssertNoThrow(unmanaged.objectIdObj[@"key1"] = objectId(1));
+    XCTAssertNoThrow(unmanaged.uuidObj[@"key1"] = uuid(@"00000000-0000-0000-0000-000000000000"));
     XCTAssertEqual(unmanaged.boolObj[@"key1"], @NO);
     XCTAssertEqual(unmanaged.intObj[@"key1"], @2);
     XCTAssertEqual(unmanaged.stringObj[@"key1"], @"bar");
     XCTAssertEqual(unmanaged.dateObj[@"key1"], date(1));
+    XCTAssertEqual(unmanaged.floatObj[@"key1"], @2.2f);
+    XCTAssertEqual(unmanaged.doubleObj[@"key1"], @2.2);
+    XCTAssertEqual(unmanaged.dataObj[@"key1"], data(1));
+    XCTAssertEqual(unmanaged.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqual(unmanaged.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqual(unmanaged.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
     RLMAssertThrowsWithReason(unmanaged.boolObj[@"key1"] = NSNull.null, @"Invalid value '<null>' of type 'NSNull' for expected type 'bool'.");
     RLMAssertThrowsWithReason(unmanaged.intObj[@"key1"] = NSNull.null, @"Invalid value '<null>' of type 'NSNull' for expected type 'int'.");
     RLMAssertThrowsWithReason(unmanaged.stringObj[@"key1"] = NSNull.null, @"Invalid value '<null>' of type 'NSNull' for expected type 'string'.");
     RLMAssertThrowsWithReason(unmanaged.dateObj[@"key1"] = NSNull.null, @"Invalid value '<null>' of type 'NSNull' for expected type 'date'.");
+    RLMAssertThrowsWithReason(unmanaged.floatObj[@"key1"] = NSNull.null, @"Invalid value '<null>' of type 'NSNull' for expected type 'float'.");
+    RLMAssertThrowsWithReason(unmanaged.doubleObj[@"key1"] = NSNull.null, @"Invalid value '<null>' of type 'NSNull' for expected type 'double'.");
+    RLMAssertThrowsWithReason(unmanaged.dataObj[@"key1"] = NSNull.null, @"Invalid value '<null>' of type 'NSNull' for expected type 'data'.");
+    RLMAssertThrowsWithReason(unmanaged.decimalObj[@"key1"] = NSNull.null, @"Invalid value '<null>' of type 'NSNull' for expected type 'decimal128'.");
+    RLMAssertThrowsWithReason(unmanaged.objectIdObj[@"key1"] = NSNull.null, @"Invalid value '<null>' of type 'NSNull' for expected type 'object id'.");
+    RLMAssertThrowsWithReason(unmanaged.uuidObj[@"key1"] = NSNull.null, @"Invalid value '<null>' of type 'NSNull' for expected type 'uuid'.");
     XCTAssertNoThrow(unmanaged.boolObj[@"key1"] = nil);
     XCTAssertNoThrow(unmanaged.intObj[@"key1"] = nil);
     XCTAssertNoThrow(unmanaged.stringObj[@"key1"] = nil);
     XCTAssertNoThrow(unmanaged.dateObj[@"key1"] = nil);
+    XCTAssertNoThrow(unmanaged.floatObj[@"key1"] = nil);
+    XCTAssertNoThrow(unmanaged.doubleObj[@"key1"] = nil);
+    XCTAssertNoThrow(unmanaged.dataObj[@"key1"] = nil);
+    XCTAssertNoThrow(unmanaged.decimalObj[@"key1"] = nil);
+    XCTAssertNoThrow(unmanaged.objectIdObj[@"key1"] = nil);
+    XCTAssertNoThrow(unmanaged.uuidObj[@"key1"] = nil);
     XCTAssertNil(unmanaged.boolObj[@"key1"]);
     XCTAssertNil(unmanaged.intObj[@"key1"]);
     XCTAssertNil(unmanaged.stringObj[@"key1"]);
     XCTAssertNil(unmanaged.dateObj[@"key1"]);
+    XCTAssertNil(unmanaged.floatObj[@"key1"]);
+    XCTAssertNil(unmanaged.doubleObj[@"key1"]);
+    XCTAssertNil(unmanaged.dataObj[@"key1"]);
+    XCTAssertNil(unmanaged.decimalObj[@"key1"]);
+    XCTAssertNil(unmanaged.objectIdObj[@"key1"]);
+    XCTAssertNil(unmanaged.uuidObj[@"key1"]);
 
     // Unmanaged optional
     XCTAssertNil(optUnmanaged.boolObj[@"key1"]);
     XCTAssertNil(optUnmanaged.intObj[@"key1"]);
     XCTAssertNil(optUnmanaged.stringObj[@"key1"]);
     XCTAssertNil(optUnmanaged.dateObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.floatObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.doubleObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.dataObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.decimalObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.objectIdObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.uuidObj[@"key1"]);
     XCTAssertNoThrow(optUnmanaged.boolObj[@"key1"] = @NO);
     XCTAssertNoThrow(optUnmanaged.intObj[@"key1"] = @2);
     XCTAssertNoThrow(optUnmanaged.stringObj[@"key1"] = @"bar");
     XCTAssertNoThrow(optUnmanaged.dateObj[@"key1"] = date(1));
+    XCTAssertNoThrow(optUnmanaged.floatObj[@"key1"] = @2.2f);
+    XCTAssertNoThrow(optUnmanaged.doubleObj[@"key1"] = @2.2);
+    XCTAssertNoThrow(optUnmanaged.dataObj[@"key1"] = data(1));
+    XCTAssertNoThrow(optUnmanaged.decimalObj[@"key1"] = decimal128(2));
+    XCTAssertNoThrow(optUnmanaged.objectIdObj[@"key1"] = objectId(1));
+    XCTAssertNoThrow(optUnmanaged.uuidObj[@"key1"] = uuid(@"00000000-0000-0000-0000-000000000000"));
     XCTAssertEqual(optUnmanaged.boolObj[@"key1"], @NO);
     XCTAssertEqual(optUnmanaged.intObj[@"key1"], @2);
     XCTAssertEqual(optUnmanaged.stringObj[@"key1"], @"bar");
     XCTAssertEqual(optUnmanaged.dateObj[@"key1"], date(1));
+    XCTAssertEqual(optUnmanaged.floatObj[@"key1"], @2.2f);
+    XCTAssertEqual(optUnmanaged.doubleObj[@"key1"], @2.2);
+    XCTAssertEqual(optUnmanaged.dataObj[@"key1"], data(1));
+    XCTAssertEqual(optUnmanaged.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqual(optUnmanaged.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqual(optUnmanaged.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
     XCTAssertNoThrow(optUnmanaged.boolObj[@"key1"] = NSNull.null);
     XCTAssertNoThrow(optUnmanaged.intObj[@"key1"] = NSNull.null);
     XCTAssertNoThrow(optUnmanaged.stringObj[@"key1"] = NSNull.null);
     XCTAssertNoThrow(optUnmanaged.dateObj[@"key1"] = NSNull.null);
+    XCTAssertNoThrow(optUnmanaged.floatObj[@"key1"] = NSNull.null);
+    XCTAssertNoThrow(optUnmanaged.doubleObj[@"key1"] = NSNull.null);
+    XCTAssertNoThrow(optUnmanaged.dataObj[@"key1"] = NSNull.null);
+    XCTAssertNoThrow(optUnmanaged.decimalObj[@"key1"] = NSNull.null);
+    XCTAssertNoThrow(optUnmanaged.objectIdObj[@"key1"] = NSNull.null);
+    XCTAssertNoThrow(optUnmanaged.uuidObj[@"key1"] = NSNull.null);
     XCTAssertEqual(optUnmanaged.boolObj[@"key1"], NSNull.null);
     XCTAssertEqual(optUnmanaged.intObj[@"key1"], NSNull.null);
     XCTAssertEqual(optUnmanaged.stringObj[@"key1"], NSNull.null);
     XCTAssertEqual(optUnmanaged.dateObj[@"key1"], NSNull.null);
+    XCTAssertEqual(optUnmanaged.floatObj[@"key1"], NSNull.null);
+    XCTAssertEqual(optUnmanaged.doubleObj[@"key1"], NSNull.null);
+    XCTAssertEqual(optUnmanaged.dataObj[@"key1"], NSNull.null);
+    XCTAssertEqual(optUnmanaged.decimalObj[@"key1"], NSNull.null);
+    XCTAssertEqual(optUnmanaged.objectIdObj[@"key1"], NSNull.null);
+    XCTAssertEqual(optUnmanaged.uuidObj[@"key1"], NSNull.null);
     XCTAssertNoThrow(optUnmanaged.boolObj[@"key1"] = nil);
     XCTAssertNoThrow(optUnmanaged.intObj[@"key1"] = nil);
     XCTAssertNoThrow(optUnmanaged.stringObj[@"key1"] = nil);
     XCTAssertNoThrow(optUnmanaged.dateObj[@"key1"] = nil);
+    XCTAssertNoThrow(optUnmanaged.floatObj[@"key1"] = nil);
+    XCTAssertNoThrow(optUnmanaged.doubleObj[@"key1"] = nil);
+    XCTAssertNoThrow(optUnmanaged.dataObj[@"key1"] = nil);
+    XCTAssertNoThrow(optUnmanaged.decimalObj[@"key1"] = nil);
+    XCTAssertNoThrow(optUnmanaged.objectIdObj[@"key1"] = nil);
+    XCTAssertNoThrow(optUnmanaged.uuidObj[@"key1"] = nil);
     XCTAssertNil(optUnmanaged.boolObj[@"key1"]);
     XCTAssertNil(optUnmanaged.intObj[@"key1"]);
     XCTAssertNil(optUnmanaged.stringObj[@"key1"]);
     XCTAssertNil(optUnmanaged.dateObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.floatObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.doubleObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.dataObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.decimalObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.objectIdObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.uuidObj[@"key1"]);
 
     // Fail with nil key
     RLMAssertThrowsWithReason([unmanaged.boolObj setObject:@NO forKey:nil],
@@ -399,6 +567,74 @@ static double average(NSDictionary *dictionary) {
                               @"Invalid nil key for dictionary expecting key of type 'string'.");
     RLMAssertThrowsWithReason([optManaged.dateObj setObject:date(1) forKey:nil],
                               @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([unmanaged.floatObj setObject:@2.2f forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([optUnmanaged.floatObj setObject:@2.2f forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([managed.floatObj setObject:@2.2f forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([optManaged.floatObj setObject:@2.2f forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([unmanaged.doubleObj setObject:@2.2 forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([optUnmanaged.doubleObj setObject:@2.2 forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([managed.doubleObj setObject:@2.2 forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([optManaged.doubleObj setObject:@2.2 forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([unmanaged.dataObj setObject:data(1) forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([optUnmanaged.dataObj setObject:data(1) forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([managed.dataObj setObject:data(1) forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([optManaged.dataObj setObject:data(1) forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([unmanaged.decimalObj setObject:decimal128(2) forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([optUnmanaged.decimalObj setObject:decimal128(2) forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([managed.decimalObj setObject:decimal128(2) forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([optManaged.decimalObj setObject:decimal128(2) forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([unmanaged.objectIdObj setObject:objectId(1) forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([optUnmanaged.objectIdObj setObject:objectId(1) forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([managed.objectIdObj setObject:objectId(1) forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([optManaged.objectIdObj setObject:objectId(1) forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([unmanaged.uuidObj setObject:uuid(@"00000000-0000-0000-0000-000000000000") forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([optUnmanaged.uuidObj setObject:uuid(@"00000000-0000-0000-0000-000000000000") forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([managed.uuidObj setObject:uuid(@"00000000-0000-0000-0000-000000000000") forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([optManaged.uuidObj setObject:uuid(@"00000000-0000-0000-0000-000000000000") forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([unmanaged.anyBoolObj setObject:@NO forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([unmanaged.anyIntObj setObject:@2 forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([unmanaged.anyFloatObj setObject:@2.2f forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([unmanaged.anyDoubleObj setObject:@2.2 forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([unmanaged.anyStringObj setObject:@"a" forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([unmanaged.anyDataObj setObject:data(1) forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([unmanaged.anyDateObj setObject:date(1) forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([unmanaged.anyDecimalObj setObject:decimal128(2) forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([unmanaged.anyObjectIdObj setObject:objectId(1) forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
+    RLMAssertThrowsWithReason([unmanaged.anyUUIDObj setObject:uuid(@"00000000-0000-0000-0000-000000000000") forKey:nil],
+                              @"Invalid nil key for dictionary expecting key of type 'string'.");
     // Fail on set nil for non-optional
     RLMAssertThrowsWithReason([unmanaged.boolObj setObject:NSNull.null forKey:@"key1"],
                               @"Invalid value '<null>' of type 'NSNull' for expected type 'bool'");
@@ -416,6 +652,30 @@ static double average(NSDictionary *dictionary) {
                               @"Invalid value '<null>' of type 'NSNull' for expected type 'date'");
     RLMAssertThrowsWithReason([managed.dateObj setObject:NSNull.null forKey:@"key1"],
                               @"Invalid value '<null>' of type 'NSNull' for expected type 'date'");
+    RLMAssertThrowsWithReason([unmanaged.floatObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'float'");
+    RLMAssertThrowsWithReason([managed.floatObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'float'");
+    RLMAssertThrowsWithReason([unmanaged.doubleObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'double'");
+    RLMAssertThrowsWithReason([managed.doubleObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'double'");
+    RLMAssertThrowsWithReason([unmanaged.dataObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'data'");
+    RLMAssertThrowsWithReason([managed.dataObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'data'");
+    RLMAssertThrowsWithReason([unmanaged.decimalObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'decimal128'");
+    RLMAssertThrowsWithReason([managed.decimalObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'decimal128'");
+    RLMAssertThrowsWithReason([unmanaged.objectIdObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'object id'");
+    RLMAssertThrowsWithReason([managed.objectIdObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'object id'");
+    RLMAssertThrowsWithReason([unmanaged.uuidObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'uuid'");
+    RLMAssertThrowsWithReason([managed.uuidObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'uuid'");
 
     RLMAssertThrowsWithReason([unmanaged.boolObj setObject:@"a" forKey:@"key1"],
                               @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'bool'");
@@ -449,6 +709,74 @@ static double average(NSDictionary *dictionary) {
                               @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'date'");
     RLMAssertThrowsWithReason([optManaged.dateObj setObject:@"a" forKey:@"key1"],
                               @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'date?'");
+    RLMAssertThrowsWithReason([unmanaged.floatObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'float'");
+    RLMAssertThrowsWithReason([optUnmanaged.floatObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'float?'");
+    RLMAssertThrowsWithReason([managed.floatObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'float'");
+    RLMAssertThrowsWithReason([optManaged.floatObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'float?'");
+    RLMAssertThrowsWithReason([unmanaged.doubleObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'double'");
+    RLMAssertThrowsWithReason([optUnmanaged.doubleObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'double?'");
+    RLMAssertThrowsWithReason([managed.doubleObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'double'");
+    RLMAssertThrowsWithReason([optManaged.doubleObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'double?'");
+    RLMAssertThrowsWithReason([unmanaged.dataObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'data'");
+    RLMAssertThrowsWithReason([optUnmanaged.dataObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'data?'");
+    RLMAssertThrowsWithReason([managed.dataObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'data'");
+    RLMAssertThrowsWithReason([optManaged.dataObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'data?'");
+    RLMAssertThrowsWithReason([unmanaged.decimalObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'decimal128'");
+    RLMAssertThrowsWithReason([optUnmanaged.decimalObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'decimal128?'");
+    RLMAssertThrowsWithReason([managed.decimalObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'decimal128'");
+    RLMAssertThrowsWithReason([optManaged.decimalObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'decimal128?'");
+    RLMAssertThrowsWithReason([unmanaged.objectIdObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'object id'");
+    RLMAssertThrowsWithReason([optUnmanaged.objectIdObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'object id?'");
+    RLMAssertThrowsWithReason([managed.objectIdObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'object id'");
+    RLMAssertThrowsWithReason([optManaged.objectIdObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'object id?'");
+    RLMAssertThrowsWithReason([unmanaged.uuidObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'uuid'");
+    RLMAssertThrowsWithReason([optUnmanaged.uuidObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'uuid?'");
+    RLMAssertThrowsWithReason([managed.uuidObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'uuid'");
+    RLMAssertThrowsWithReason([optManaged.uuidObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'uuid?'");
+    RLMAssertThrowsWithReason([unmanaged.anyBoolObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyIntObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyFloatObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyDoubleObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyStringObj setObject:@2 forKey:@"key1"],
+                              @"Invalid value '2' of type '__NSCFNumber' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyDataObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyDateObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyDecimalObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyObjectIdObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyUUIDObj setObject:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
     RLMAssertThrowsWithReason([unmanaged.boolObj setObject:NSNull.null forKey:@"key1"],
                               @"Invalid value '<null>' of type 'NSNull' for expected type 'bool'");
     RLMAssertThrowsWithReason([managed.boolObj setObject:NSNull.null forKey:@"key1"],
@@ -465,6 +793,30 @@ static double average(NSDictionary *dictionary) {
                               @"Invalid value '<null>' of type 'NSNull' for expected type 'date'");
     RLMAssertThrowsWithReason([managed.dateObj setObject:NSNull.null forKey:@"key1"],
                               @"Invalid value '<null>' of type 'NSNull' for expected type 'date'");
+    RLMAssertThrowsWithReason([unmanaged.floatObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'float'");
+    RLMAssertThrowsWithReason([managed.floatObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'float'");
+    RLMAssertThrowsWithReason([unmanaged.doubleObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'double'");
+    RLMAssertThrowsWithReason([managed.doubleObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'double'");
+    RLMAssertThrowsWithReason([unmanaged.dataObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'data'");
+    RLMAssertThrowsWithReason([managed.dataObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'data'");
+    RLMAssertThrowsWithReason([unmanaged.decimalObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'decimal128'");
+    RLMAssertThrowsWithReason([managed.decimalObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'decimal128'");
+    RLMAssertThrowsWithReason([unmanaged.objectIdObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'object id'");
+    RLMAssertThrowsWithReason([managed.objectIdObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'object id'");
+    RLMAssertThrowsWithReason([unmanaged.uuidObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'uuid'");
+    RLMAssertThrowsWithReason([managed.uuidObj setObject:NSNull.null forKey:@"key1"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'uuid'");
 
     unmanaged.boolObj[@"key1"] = @NO;
     optUnmanaged.boolObj[@"key1"] = @NO;
@@ -482,6 +834,40 @@ static double average(NSDictionary *dictionary) {
     optUnmanaged.dateObj[@"key1"] = date(1);
     managed.dateObj[@"key1"] = date(1);
     optManaged.dateObj[@"key1"] = date(1);
+    unmanaged.floatObj[@"key1"] = @2.2f;
+    optUnmanaged.floatObj[@"key1"] = @2.2f;
+    managed.floatObj[@"key1"] = @2.2f;
+    optManaged.floatObj[@"key1"] = @2.2f;
+    unmanaged.doubleObj[@"key1"] = @2.2;
+    optUnmanaged.doubleObj[@"key1"] = @2.2;
+    managed.doubleObj[@"key1"] = @2.2;
+    optManaged.doubleObj[@"key1"] = @2.2;
+    unmanaged.dataObj[@"key1"] = data(1);
+    optUnmanaged.dataObj[@"key1"] = data(1);
+    managed.dataObj[@"key1"] = data(1);
+    optManaged.dataObj[@"key1"] = data(1);
+    unmanaged.decimalObj[@"key1"] = decimal128(2);
+    optUnmanaged.decimalObj[@"key1"] = decimal128(2);
+    managed.decimalObj[@"key1"] = decimal128(2);
+    optManaged.decimalObj[@"key1"] = decimal128(2);
+    unmanaged.objectIdObj[@"key1"] = objectId(1);
+    optUnmanaged.objectIdObj[@"key1"] = objectId(1);
+    managed.objectIdObj[@"key1"] = objectId(1);
+    optManaged.objectIdObj[@"key1"] = objectId(1);
+    unmanaged.uuidObj[@"key1"] = uuid(@"00000000-0000-0000-0000-000000000000");
+    optUnmanaged.uuidObj[@"key1"] = uuid(@"00000000-0000-0000-0000-000000000000");
+    managed.uuidObj[@"key1"] = uuid(@"00000000-0000-0000-0000-000000000000");
+    optManaged.uuidObj[@"key1"] = uuid(@"00000000-0000-0000-0000-000000000000");
+    unmanaged.anyBoolObj[@"key1"] = @NO;
+    unmanaged.anyIntObj[@"key1"] = @2;
+    unmanaged.anyFloatObj[@"key1"] = @2.2f;
+    unmanaged.anyDoubleObj[@"key1"] = @2.2;
+    unmanaged.anyStringObj[@"key1"] = @"a";
+    unmanaged.anyDataObj[@"key1"] = data(1);
+    unmanaged.anyDateObj[@"key1"] = date(1);
+    unmanaged.anyDecimalObj[@"key1"] = decimal128(2);
+    unmanaged.anyObjectIdObj[@"key1"] = objectId(1);
+    unmanaged.anyUUIDObj[@"key1"] = uuid(@"00000000-0000-0000-0000-000000000000");
     XCTAssertEqualObjects(unmanaged.boolObj[@"key1"], @NO);
     XCTAssertEqualObjects(optUnmanaged.boolObj[@"key1"], @NO);
     XCTAssertEqualObjects(managed.boolObj[@"key1"], @NO);
@@ -498,6 +884,40 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqualObjects(optUnmanaged.dateObj[@"key1"], date(1));
     XCTAssertEqualObjects(managed.dateObj[@"key1"], date(1));
     XCTAssertEqualObjects(optManaged.dateObj[@"key1"], date(1));
+    XCTAssertEqualObjects(unmanaged.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(optUnmanaged.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(managed.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(optManaged.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(unmanaged.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(optUnmanaged.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(managed.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(optManaged.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(unmanaged.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(optUnmanaged.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(managed.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(optManaged.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(unmanaged.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(optUnmanaged.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(managed.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(optManaged.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(unmanaged.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(optUnmanaged.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(managed.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(optManaged.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(unmanaged.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(optUnmanaged.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(managed.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(optManaged.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(unmanaged.anyBoolObj[@"key1"], @NO);
+    XCTAssertEqualObjects(unmanaged.anyIntObj[@"key1"], @2);
+    XCTAssertEqualObjects(unmanaged.anyFloatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(unmanaged.anyDoubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(unmanaged.anyStringObj[@"key1"], @"a");
+    XCTAssertEqualObjects(unmanaged.anyDataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(unmanaged.anyDateObj[@"key1"], date(1));
+    XCTAssertEqualObjects(unmanaged.anyDecimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(unmanaged.anyObjectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(unmanaged.anyUUIDObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
 
     optUnmanaged.boolObj[@"key1"] = NSNull.null;
     optManaged.boolObj[@"key1"] = NSNull.null;
@@ -507,6 +927,18 @@ static double average(NSDictionary *dictionary) {
     optManaged.stringObj[@"key1"] = NSNull.null;
     optUnmanaged.dateObj[@"key1"] = NSNull.null;
     optManaged.dateObj[@"key1"] = NSNull.null;
+    optUnmanaged.floatObj[@"key1"] = NSNull.null;
+    optManaged.floatObj[@"key1"] = NSNull.null;
+    optUnmanaged.doubleObj[@"key1"] = NSNull.null;
+    optManaged.doubleObj[@"key1"] = NSNull.null;
+    optUnmanaged.dataObj[@"key1"] = NSNull.null;
+    optManaged.dataObj[@"key1"] = NSNull.null;
+    optUnmanaged.decimalObj[@"key1"] = NSNull.null;
+    optManaged.decimalObj[@"key1"] = NSNull.null;
+    optUnmanaged.objectIdObj[@"key1"] = NSNull.null;
+    optManaged.objectIdObj[@"key1"] = NSNull.null;
+    optUnmanaged.uuidObj[@"key1"] = NSNull.null;
+    optManaged.uuidObj[@"key1"] = NSNull.null;
     XCTAssertEqualObjects(optUnmanaged.boolObj[@"key1"], NSNull.null);
     XCTAssertEqualObjects(optManaged.boolObj[@"key1"], NSNull.null);
     XCTAssertEqualObjects(optUnmanaged.intObj[@"key1"], NSNull.null);
@@ -515,6 +947,18 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqualObjects(optManaged.stringObj[@"key1"], NSNull.null);
     XCTAssertEqualObjects(optUnmanaged.dateObj[@"key1"], NSNull.null);
     XCTAssertEqualObjects(optManaged.dateObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optUnmanaged.floatObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optManaged.floatObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optUnmanaged.doubleObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optManaged.doubleObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optUnmanaged.dataObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optManaged.dataObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optUnmanaged.decimalObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optManaged.decimalObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optUnmanaged.objectIdObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optManaged.objectIdObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optUnmanaged.uuidObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optManaged.uuidObj[@"key1"], NSNull.null);
 }
 #pragma clang diagnostic pop
 
@@ -551,6 +995,74 @@ static double average(NSDictionary *dictionary) {
                               @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'date'");
     RLMAssertThrowsWithReason([optManaged.dateObj addEntriesFromDictionary:@{@"key1": @"a"}],
                               @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'date?'");
+    RLMAssertThrowsWithReason([unmanaged.floatObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'float'");
+    RLMAssertThrowsWithReason([optUnmanaged.floatObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'float?'");
+    RLMAssertThrowsWithReason([managed.floatObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'float'");
+    RLMAssertThrowsWithReason([optManaged.floatObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'float?'");
+    RLMAssertThrowsWithReason([unmanaged.doubleObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'double'");
+    RLMAssertThrowsWithReason([optUnmanaged.doubleObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'double?'");
+    RLMAssertThrowsWithReason([managed.doubleObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'double'");
+    RLMAssertThrowsWithReason([optManaged.doubleObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'double?'");
+    RLMAssertThrowsWithReason([unmanaged.dataObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'data'");
+    RLMAssertThrowsWithReason([optUnmanaged.dataObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'data?'");
+    RLMAssertThrowsWithReason([managed.dataObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'data'");
+    RLMAssertThrowsWithReason([optManaged.dataObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'data?'");
+    RLMAssertThrowsWithReason([unmanaged.decimalObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'decimal128'");
+    RLMAssertThrowsWithReason([optUnmanaged.decimalObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'decimal128?'");
+    RLMAssertThrowsWithReason([managed.decimalObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'decimal128'");
+    RLMAssertThrowsWithReason([optManaged.decimalObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'decimal128?'");
+    RLMAssertThrowsWithReason([unmanaged.objectIdObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'object id'");
+    RLMAssertThrowsWithReason([optUnmanaged.objectIdObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'object id?'");
+    RLMAssertThrowsWithReason([managed.objectIdObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'object id'");
+    RLMAssertThrowsWithReason([optManaged.objectIdObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'object id?'");
+    RLMAssertThrowsWithReason([unmanaged.uuidObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'uuid'");
+    RLMAssertThrowsWithReason([optUnmanaged.uuidObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'uuid?'");
+    RLMAssertThrowsWithReason([managed.uuidObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'uuid'");
+    RLMAssertThrowsWithReason([optManaged.uuidObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'uuid?'");
+    RLMAssertThrowsWithReason([unmanaged.anyBoolObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyIntObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyFloatObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyDoubleObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyStringObj addEntriesFromDictionary:@{@"key1": @2}],
+                              @"Invalid value '2' of type '__NSCFNumber' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyDataObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyDateObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyDecimalObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyObjectIdObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyUUIDObj addEntriesFromDictionary:@{@"key1": @"a"}],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
     RLMAssertThrowsWithReason([unmanaged.boolObj addEntriesFromDictionary:@{@"key1": NSNull.null}],
                               @"Invalid value '<null>' of type 'NSNull' for expected type 'bool'");
     RLMAssertThrowsWithReason([managed.boolObj addEntriesFromDictionary:@{@"key1": NSNull.null}],
@@ -567,6 +1079,30 @@ static double average(NSDictionary *dictionary) {
                               @"Invalid value '<null>' of type 'NSNull' for expected type 'date'");
     RLMAssertThrowsWithReason([managed.dateObj addEntriesFromDictionary:@{@"key1": NSNull.null}],
                               @"Invalid value '<null>' of type 'NSNull' for expected type 'date'");
+    RLMAssertThrowsWithReason([unmanaged.floatObj addEntriesFromDictionary:@{@"key1": NSNull.null}],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'float'");
+    RLMAssertThrowsWithReason([managed.floatObj addEntriesFromDictionary:@{@"key1": NSNull.null}],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'float'");
+    RLMAssertThrowsWithReason([unmanaged.doubleObj addEntriesFromDictionary:@{@"key1": NSNull.null}],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'double'");
+    RLMAssertThrowsWithReason([managed.doubleObj addEntriesFromDictionary:@{@"key1": NSNull.null}],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'double'");
+    RLMAssertThrowsWithReason([unmanaged.dataObj addEntriesFromDictionary:@{@"key1": NSNull.null}],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'data'");
+    RLMAssertThrowsWithReason([managed.dataObj addEntriesFromDictionary:@{@"key1": NSNull.null}],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'data'");
+    RLMAssertThrowsWithReason([unmanaged.decimalObj addEntriesFromDictionary:@{@"key1": NSNull.null}],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'decimal128'");
+    RLMAssertThrowsWithReason([managed.decimalObj addEntriesFromDictionary:@{@"key1": NSNull.null}],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'decimal128'");
+    RLMAssertThrowsWithReason([unmanaged.objectIdObj addEntriesFromDictionary:@{@"key1": NSNull.null}],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'object id'");
+    RLMAssertThrowsWithReason([managed.objectIdObj addEntriesFromDictionary:@{@"key1": NSNull.null}],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'object id'");
+    RLMAssertThrowsWithReason([unmanaged.uuidObj addEntriesFromDictionary:@{@"key1": NSNull.null}],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'uuid'");
+    RLMAssertThrowsWithReason([managed.uuidObj addEntriesFromDictionary:@{@"key1": NSNull.null}],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'uuid'");
 
     [self addObjects];
     XCTAssertEqualObjects(unmanaged.boolObj[@"key1"], @NO);
@@ -585,6 +1121,40 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqualObjects(optUnmanaged.dateObj[@"key1"], date(1));
     XCTAssertEqualObjects(managed.dateObj[@"key1"], date(1));
     XCTAssertEqualObjects(optManaged.dateObj[@"key1"], date(1));
+    XCTAssertEqualObjects(unmanaged.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(optUnmanaged.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(managed.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(optManaged.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(unmanaged.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(optUnmanaged.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(managed.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(optManaged.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(unmanaged.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(optUnmanaged.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(managed.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(optManaged.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(unmanaged.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(optUnmanaged.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(managed.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(optManaged.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(unmanaged.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(optUnmanaged.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(managed.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(optManaged.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(unmanaged.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(optUnmanaged.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(managed.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(optManaged.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(unmanaged.anyBoolObj[@"key1"], @NO);
+    XCTAssertEqualObjects(unmanaged.anyIntObj[@"key1"], @2);
+    XCTAssertEqualObjects(unmanaged.anyFloatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(unmanaged.anyDoubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(unmanaged.anyStringObj[@"key1"], @"a");
+    XCTAssertEqualObjects(unmanaged.anyDataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(unmanaged.anyDateObj[@"key1"], date(1));
+    XCTAssertEqualObjects(unmanaged.anyDecimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(unmanaged.anyObjectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(unmanaged.anyUUIDObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
     XCTAssertEqualObjects(unmanaged.boolObj[@"key2"], @YES);
     XCTAssertEqualObjects(optUnmanaged.boolObj[@"key2"], NSNull.null);
     XCTAssertEqualObjects(managed.boolObj[@"key2"], @YES);
@@ -601,6 +1171,40 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqualObjects(optUnmanaged.dateObj[@"key2"], NSNull.null);
     XCTAssertEqualObjects(managed.dateObj[@"key2"], date(2));
     XCTAssertEqualObjects(optManaged.dateObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(unmanaged.floatObj[@"key2"], @3.3f);
+    XCTAssertEqualObjects(optUnmanaged.floatObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(managed.floatObj[@"key2"], @3.3f);
+    XCTAssertEqualObjects(optManaged.floatObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(unmanaged.doubleObj[@"key2"], @3.3);
+    XCTAssertEqualObjects(optUnmanaged.doubleObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(managed.doubleObj[@"key2"], @3.3);
+    XCTAssertEqualObjects(optManaged.doubleObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(unmanaged.dataObj[@"key2"], data(2));
+    XCTAssertEqualObjects(optUnmanaged.dataObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(managed.dataObj[@"key2"], data(2));
+    XCTAssertEqualObjects(optManaged.dataObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(unmanaged.decimalObj[@"key2"], decimal128(3));
+    XCTAssertEqualObjects(optUnmanaged.decimalObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(managed.decimalObj[@"key2"], decimal128(3));
+    XCTAssertEqualObjects(optManaged.decimalObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(unmanaged.objectIdObj[@"key2"], objectId(2));
+    XCTAssertEqualObjects(optUnmanaged.objectIdObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(managed.objectIdObj[@"key2"], objectId(2));
+    XCTAssertEqualObjects(optManaged.objectIdObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(unmanaged.uuidObj[@"key2"], uuid(@"137DECC8-B300-4954-A233-F89909F4FD89"));
+    XCTAssertEqualObjects(optUnmanaged.uuidObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(managed.uuidObj[@"key2"], uuid(@"137DECC8-B300-4954-A233-F89909F4FD89"));
+    XCTAssertEqualObjects(optManaged.uuidObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(unmanaged.anyBoolObj[@"key2"], @YES);
+    XCTAssertEqualObjects(unmanaged.anyIntObj[@"key2"], @3);
+    XCTAssertEqualObjects(unmanaged.anyFloatObj[@"key2"], @3.3f);
+    XCTAssertEqualObjects(unmanaged.anyDoubleObj[@"key2"], @3.3);
+    XCTAssertEqualObjects(unmanaged.anyStringObj[@"key2"], @"b");
+    XCTAssertEqualObjects(unmanaged.anyDataObj[@"key2"], data(2));
+    XCTAssertEqualObjects(unmanaged.anyDateObj[@"key2"], date(2));
+    XCTAssertEqualObjects(unmanaged.anyDecimalObj[@"key2"], decimal128(3));
+    XCTAssertEqualObjects(unmanaged.anyObjectIdObj[@"key2"], objectId(2));
+    XCTAssertEqualObjects(unmanaged.anyUUIDObj[@"key2"], uuid(@"137DECC8-B300-4954-A233-F89909F4FD89"));
     XCTAssertEqualObjects(optUnmanaged.boolObj[@"key2"], NSNull.null);
     XCTAssertEqualObjects(optManaged.boolObj[@"key2"], NSNull.null);
     XCTAssertEqualObjects(optUnmanaged.intObj[@"key2"], NSNull.null);
@@ -609,6 +1213,18 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqualObjects(optManaged.stringObj[@"key2"], NSNull.null);
     XCTAssertEqualObjects(optUnmanaged.dateObj[@"key2"], NSNull.null);
     XCTAssertEqualObjects(optManaged.dateObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(optUnmanaged.floatObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(optManaged.floatObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(optUnmanaged.doubleObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(optManaged.doubleObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(optUnmanaged.dataObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(optManaged.dataObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(optUnmanaged.decimalObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(optManaged.decimalObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(optUnmanaged.objectIdObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(optManaged.objectIdObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(optUnmanaged.uuidObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(optManaged.uuidObj[@"key2"], NSNull.null);
 }
 
 - (void)testRemoveObject {
@@ -621,6 +1237,18 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqual(managed.stringObj.count, 2U);
     XCTAssertEqual(unmanaged.dateObj.count, 2U);
     XCTAssertEqual(managed.dateObj.count, 2U);
+    XCTAssertEqual(unmanaged.floatObj.count, 2U);
+    XCTAssertEqual(managed.floatObj.count, 2U);
+    XCTAssertEqual(unmanaged.doubleObj.count, 2U);
+    XCTAssertEqual(managed.doubleObj.count, 2U);
+    XCTAssertEqual(unmanaged.dataObj.count, 2U);
+    XCTAssertEqual(managed.dataObj.count, 2U);
+    XCTAssertEqual(unmanaged.decimalObj.count, 2U);
+    XCTAssertEqual(managed.decimalObj.count, 2U);
+    XCTAssertEqual(unmanaged.objectIdObj.count, 2U);
+    XCTAssertEqual(managed.objectIdObj.count, 2U);
+    XCTAssertEqual(unmanaged.uuidObj.count, 2U);
+    XCTAssertEqual(managed.uuidObj.count, 2U);
     XCTAssertEqual(optUnmanaged.boolObj.count, 2U);
     XCTAssertEqual(optManaged.boolObj.count, 2U);
     XCTAssertEqual(optUnmanaged.intObj.count, 2U);
@@ -629,6 +1257,18 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqual(optManaged.stringObj.count, 2U);
     XCTAssertEqual(optUnmanaged.dateObj.count, 2U);
     XCTAssertEqual(optManaged.dateObj.count, 2U);
+    XCTAssertEqual(optUnmanaged.floatObj.count, 2U);
+    XCTAssertEqual(optManaged.floatObj.count, 2U);
+    XCTAssertEqual(optUnmanaged.doubleObj.count, 2U);
+    XCTAssertEqual(optManaged.doubleObj.count, 2U);
+    XCTAssertEqual(optUnmanaged.dataObj.count, 2U);
+    XCTAssertEqual(optManaged.dataObj.count, 2U);
+    XCTAssertEqual(optUnmanaged.decimalObj.count, 2U);
+    XCTAssertEqual(optManaged.decimalObj.count, 2U);
+    XCTAssertEqual(optUnmanaged.objectIdObj.count, 2U);
+    XCTAssertEqual(optManaged.objectIdObj.count, 2U);
+    XCTAssertEqual(optUnmanaged.uuidObj.count, 2U);
+    XCTAssertEqual(optManaged.uuidObj.count, 2U);
 
     XCTAssertEqualObjects(unmanaged.boolObj[@"key1"], @NO);
     XCTAssertEqualObjects(optUnmanaged.boolObj[@"key1"], @NO);
@@ -646,6 +1286,40 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqualObjects(optUnmanaged.dateObj[@"key1"], date(1));
     XCTAssertEqualObjects(managed.dateObj[@"key1"], date(1));
     XCTAssertEqualObjects(optManaged.dateObj[@"key1"], date(1));
+    XCTAssertEqualObjects(unmanaged.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(optUnmanaged.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(managed.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(optManaged.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(unmanaged.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(optUnmanaged.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(managed.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(optManaged.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(unmanaged.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(optUnmanaged.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(managed.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(optManaged.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(unmanaged.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(optUnmanaged.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(managed.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(optManaged.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(unmanaged.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(optUnmanaged.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(managed.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(optManaged.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(unmanaged.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(optUnmanaged.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(managed.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(optManaged.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(unmanaged.anyBoolObj[@"key1"], @NO);
+    XCTAssertEqualObjects(unmanaged.anyIntObj[@"key1"], @2);
+    XCTAssertEqualObjects(unmanaged.anyFloatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(unmanaged.anyDoubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(unmanaged.anyStringObj[@"key1"], @"a");
+    XCTAssertEqualObjects(unmanaged.anyDataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(unmanaged.anyDateObj[@"key1"], date(1));
+    XCTAssertEqualObjects(unmanaged.anyDecimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(unmanaged.anyObjectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(unmanaged.anyUUIDObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
 
     [unmanaged.boolObj removeObjectForKey:@"key1"];
     [optUnmanaged.boolObj removeObjectForKey:@"key1"];
@@ -663,6 +1337,40 @@ static double average(NSDictionary *dictionary) {
     [optUnmanaged.dateObj removeObjectForKey:@"key1"];
     [managed.dateObj removeObjectForKey:@"key1"];
     [optManaged.dateObj removeObjectForKey:@"key1"];
+    [unmanaged.floatObj removeObjectForKey:@"key1"];
+    [optUnmanaged.floatObj removeObjectForKey:@"key1"];
+    [managed.floatObj removeObjectForKey:@"key1"];
+    [optManaged.floatObj removeObjectForKey:@"key1"];
+    [unmanaged.doubleObj removeObjectForKey:@"key1"];
+    [optUnmanaged.doubleObj removeObjectForKey:@"key1"];
+    [managed.doubleObj removeObjectForKey:@"key1"];
+    [optManaged.doubleObj removeObjectForKey:@"key1"];
+    [unmanaged.dataObj removeObjectForKey:@"key1"];
+    [optUnmanaged.dataObj removeObjectForKey:@"key1"];
+    [managed.dataObj removeObjectForKey:@"key1"];
+    [optManaged.dataObj removeObjectForKey:@"key1"];
+    [unmanaged.decimalObj removeObjectForKey:@"key1"];
+    [optUnmanaged.decimalObj removeObjectForKey:@"key1"];
+    [managed.decimalObj removeObjectForKey:@"key1"];
+    [optManaged.decimalObj removeObjectForKey:@"key1"];
+    [unmanaged.objectIdObj removeObjectForKey:@"key1"];
+    [optUnmanaged.objectIdObj removeObjectForKey:@"key1"];
+    [managed.objectIdObj removeObjectForKey:@"key1"];
+    [optManaged.objectIdObj removeObjectForKey:@"key1"];
+    [unmanaged.uuidObj removeObjectForKey:@"key1"];
+    [optUnmanaged.uuidObj removeObjectForKey:@"key1"];
+    [managed.uuidObj removeObjectForKey:@"key1"];
+    [optManaged.uuidObj removeObjectForKey:@"key1"];
+    [unmanaged.anyBoolObj removeObjectForKey:@"key1"];
+    [unmanaged.anyIntObj removeObjectForKey:@"key1"];
+    [unmanaged.anyFloatObj removeObjectForKey:@"key1"];
+    [unmanaged.anyDoubleObj removeObjectForKey:@"key1"];
+    [unmanaged.anyStringObj removeObjectForKey:@"key1"];
+    [unmanaged.anyDataObj removeObjectForKey:@"key1"];
+    [unmanaged.anyDateObj removeObjectForKey:@"key1"];
+    [unmanaged.anyDecimalObj removeObjectForKey:@"key1"];
+    [unmanaged.anyObjectIdObj removeObjectForKey:@"key1"];
+    [unmanaged.anyUUIDObj removeObjectForKey:@"key1"];
 
     XCTAssertEqual(unmanaged.boolObj.count, 1U);
     XCTAssertEqual(managed.boolObj.count, 1U);
@@ -672,6 +1380,18 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqual(managed.stringObj.count, 1U);
     XCTAssertEqual(unmanaged.dateObj.count, 1U);
     XCTAssertEqual(managed.dateObj.count, 1U);
+    XCTAssertEqual(unmanaged.floatObj.count, 1U);
+    XCTAssertEqual(managed.floatObj.count, 1U);
+    XCTAssertEqual(unmanaged.doubleObj.count, 1U);
+    XCTAssertEqual(managed.doubleObj.count, 1U);
+    XCTAssertEqual(unmanaged.dataObj.count, 1U);
+    XCTAssertEqual(managed.dataObj.count, 1U);
+    XCTAssertEqual(unmanaged.decimalObj.count, 1U);
+    XCTAssertEqual(managed.decimalObj.count, 1U);
+    XCTAssertEqual(unmanaged.objectIdObj.count, 1U);
+    XCTAssertEqual(managed.objectIdObj.count, 1U);
+    XCTAssertEqual(unmanaged.uuidObj.count, 1U);
+    XCTAssertEqual(managed.uuidObj.count, 1U);
     XCTAssertEqual(optUnmanaged.boolObj.count, 1U);
     XCTAssertEqual(optManaged.boolObj.count, 1U);
     XCTAssertEqual(optUnmanaged.intObj.count, 1U);
@@ -680,6 +1400,18 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqual(optManaged.stringObj.count, 1U);
     XCTAssertEqual(optUnmanaged.dateObj.count, 1U);
     XCTAssertEqual(optManaged.dateObj.count, 1U);
+    XCTAssertEqual(optUnmanaged.floatObj.count, 1U);
+    XCTAssertEqual(optManaged.floatObj.count, 1U);
+    XCTAssertEqual(optUnmanaged.doubleObj.count, 1U);
+    XCTAssertEqual(optManaged.doubleObj.count, 1U);
+    XCTAssertEqual(optUnmanaged.dataObj.count, 1U);
+    XCTAssertEqual(optManaged.dataObj.count, 1U);
+    XCTAssertEqual(optUnmanaged.decimalObj.count, 1U);
+    XCTAssertEqual(optManaged.decimalObj.count, 1U);
+    XCTAssertEqual(optUnmanaged.objectIdObj.count, 1U);
+    XCTAssertEqual(optManaged.objectIdObj.count, 1U);
+    XCTAssertEqual(optUnmanaged.uuidObj.count, 1U);
+    XCTAssertEqual(optManaged.uuidObj.count, 1U);
 
     XCTAssertNil(unmanaged.boolObj[@"key1"]);
     XCTAssertNil(optUnmanaged.boolObj[@"key1"]);
@@ -697,6 +1429,40 @@ static double average(NSDictionary *dictionary) {
     XCTAssertNil(optUnmanaged.dateObj[@"key1"]);
     XCTAssertNil(managed.dateObj[@"key1"]);
     XCTAssertNil(optManaged.dateObj[@"key1"]);
+    XCTAssertNil(unmanaged.floatObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.floatObj[@"key1"]);
+    XCTAssertNil(managed.floatObj[@"key1"]);
+    XCTAssertNil(optManaged.floatObj[@"key1"]);
+    XCTAssertNil(unmanaged.doubleObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.doubleObj[@"key1"]);
+    XCTAssertNil(managed.doubleObj[@"key1"]);
+    XCTAssertNil(optManaged.doubleObj[@"key1"]);
+    XCTAssertNil(unmanaged.dataObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.dataObj[@"key1"]);
+    XCTAssertNil(managed.dataObj[@"key1"]);
+    XCTAssertNil(optManaged.dataObj[@"key1"]);
+    XCTAssertNil(unmanaged.decimalObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.decimalObj[@"key1"]);
+    XCTAssertNil(managed.decimalObj[@"key1"]);
+    XCTAssertNil(optManaged.decimalObj[@"key1"]);
+    XCTAssertNil(unmanaged.objectIdObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.objectIdObj[@"key1"]);
+    XCTAssertNil(managed.objectIdObj[@"key1"]);
+    XCTAssertNil(optManaged.objectIdObj[@"key1"]);
+    XCTAssertNil(unmanaged.uuidObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.uuidObj[@"key1"]);
+    XCTAssertNil(managed.uuidObj[@"key1"]);
+    XCTAssertNil(optManaged.uuidObj[@"key1"]);
+    XCTAssertNil(unmanaged.anyBoolObj[@"key1"]);
+    XCTAssertNil(unmanaged.anyIntObj[@"key1"]);
+    XCTAssertNil(unmanaged.anyFloatObj[@"key1"]);
+    XCTAssertNil(unmanaged.anyDoubleObj[@"key1"]);
+    XCTAssertNil(unmanaged.anyStringObj[@"key1"]);
+    XCTAssertNil(unmanaged.anyDataObj[@"key1"]);
+    XCTAssertNil(unmanaged.anyDateObj[@"key1"]);
+    XCTAssertNil(unmanaged.anyDecimalObj[@"key1"]);
+    XCTAssertNil(unmanaged.anyObjectIdObj[@"key1"]);
+    XCTAssertNil(unmanaged.anyUUIDObj[@"key1"]);
 }
 
 - (void)testRemoveObjects {
@@ -717,6 +1483,40 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqual(optUnmanaged.dateObj.count, 2U);
     XCTAssertEqual(managed.dateObj.count, 2U);
     XCTAssertEqual(optManaged.dateObj.count, 2U);
+    XCTAssertEqual(unmanaged.floatObj.count, 2U);
+    XCTAssertEqual(optUnmanaged.floatObj.count, 2U);
+    XCTAssertEqual(managed.floatObj.count, 2U);
+    XCTAssertEqual(optManaged.floatObj.count, 2U);
+    XCTAssertEqual(unmanaged.doubleObj.count, 2U);
+    XCTAssertEqual(optUnmanaged.doubleObj.count, 2U);
+    XCTAssertEqual(managed.doubleObj.count, 2U);
+    XCTAssertEqual(optManaged.doubleObj.count, 2U);
+    XCTAssertEqual(unmanaged.dataObj.count, 2U);
+    XCTAssertEqual(optUnmanaged.dataObj.count, 2U);
+    XCTAssertEqual(managed.dataObj.count, 2U);
+    XCTAssertEqual(optManaged.dataObj.count, 2U);
+    XCTAssertEqual(unmanaged.decimalObj.count, 2U);
+    XCTAssertEqual(optUnmanaged.decimalObj.count, 2U);
+    XCTAssertEqual(managed.decimalObj.count, 2U);
+    XCTAssertEqual(optManaged.decimalObj.count, 2U);
+    XCTAssertEqual(unmanaged.objectIdObj.count, 2U);
+    XCTAssertEqual(optUnmanaged.objectIdObj.count, 2U);
+    XCTAssertEqual(managed.objectIdObj.count, 2U);
+    XCTAssertEqual(optManaged.objectIdObj.count, 2U);
+    XCTAssertEqual(unmanaged.uuidObj.count, 2U);
+    XCTAssertEqual(optUnmanaged.uuidObj.count, 2U);
+    XCTAssertEqual(managed.uuidObj.count, 2U);
+    XCTAssertEqual(optManaged.uuidObj.count, 2U);
+    XCTAssertEqual(unmanaged.anyBoolObj.count, 2U);
+    XCTAssertEqual(unmanaged.anyIntObj.count, 2U);
+    XCTAssertEqual(unmanaged.anyFloatObj.count, 2U);
+    XCTAssertEqual(unmanaged.anyDoubleObj.count, 2U);
+    XCTAssertEqual(unmanaged.anyStringObj.count, 2U);
+    XCTAssertEqual(unmanaged.anyDataObj.count, 2U);
+    XCTAssertEqual(unmanaged.anyDateObj.count, 2U);
+    XCTAssertEqual(unmanaged.anyDecimalObj.count, 2U);
+    XCTAssertEqual(unmanaged.anyObjectIdObj.count, 2U);
+    XCTAssertEqual(unmanaged.anyUUIDObj.count, 2U);
 
     XCTAssertEqualObjects(unmanaged.boolObj[@"key1"], @NO);
     XCTAssertEqualObjects(optUnmanaged.boolObj[@"key1"], @NO);
@@ -734,6 +1534,40 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqualObjects(optUnmanaged.dateObj[@"key1"], date(1));
     XCTAssertEqualObjects(managed.dateObj[@"key1"], date(1));
     XCTAssertEqualObjects(optManaged.dateObj[@"key1"], date(1));
+    XCTAssertEqualObjects(unmanaged.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(optUnmanaged.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(managed.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(optManaged.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(unmanaged.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(optUnmanaged.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(managed.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(optManaged.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(unmanaged.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(optUnmanaged.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(managed.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(optManaged.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(unmanaged.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(optUnmanaged.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(managed.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(optManaged.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(unmanaged.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(optUnmanaged.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(managed.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(optManaged.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(unmanaged.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(optUnmanaged.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(managed.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(optManaged.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(unmanaged.anyBoolObj[@"key1"], @NO);
+    XCTAssertEqualObjects(unmanaged.anyIntObj[@"key1"], @2);
+    XCTAssertEqualObjects(unmanaged.anyFloatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(unmanaged.anyDoubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(unmanaged.anyStringObj[@"key1"], @"a");
+    XCTAssertEqualObjects(unmanaged.anyDataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(unmanaged.anyDateObj[@"key1"], date(1));
+    XCTAssertEqualObjects(unmanaged.anyDecimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(unmanaged.anyObjectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(unmanaged.anyUUIDObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
 
     [unmanaged.boolObj removeObjectsForKeys:@[@"key1", @"key2"]];
     [optUnmanaged.boolObj removeObjectsForKeys:@[@"key1", @"key2"]];
@@ -751,6 +1585,40 @@ static double average(NSDictionary *dictionary) {
     [optUnmanaged.dateObj removeObjectsForKeys:@[@"key1", @"key2"]];
     [managed.dateObj removeObjectsForKeys:@[@"key1", @"key2"]];
     [optManaged.dateObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [unmanaged.floatObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [optUnmanaged.floatObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [managed.floatObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [optManaged.floatObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [unmanaged.doubleObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [optUnmanaged.doubleObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [managed.doubleObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [optManaged.doubleObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [unmanaged.dataObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [optUnmanaged.dataObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [managed.dataObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [optManaged.dataObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [unmanaged.decimalObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [optUnmanaged.decimalObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [managed.decimalObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [optManaged.decimalObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [unmanaged.objectIdObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [optUnmanaged.objectIdObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [managed.objectIdObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [optManaged.objectIdObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [unmanaged.uuidObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [optUnmanaged.uuidObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [managed.uuidObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [optManaged.uuidObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [unmanaged.anyBoolObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [unmanaged.anyIntObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [unmanaged.anyFloatObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [unmanaged.anyDoubleObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [unmanaged.anyStringObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [unmanaged.anyDataObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [unmanaged.anyDateObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [unmanaged.anyDecimalObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [unmanaged.anyObjectIdObj removeObjectsForKeys:@[@"key1", @"key2"]];
+    [unmanaged.anyUUIDObj removeObjectsForKeys:@[@"key1", @"key2"]];
 
     XCTAssertEqual(unmanaged.boolObj.count, 0U);
     XCTAssertEqual(optUnmanaged.boolObj.count, 0U);
@@ -768,6 +1636,40 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqual(optUnmanaged.dateObj.count, 0U);
     XCTAssertEqual(managed.dateObj.count, 0U);
     XCTAssertEqual(optManaged.dateObj.count, 0U);
+    XCTAssertEqual(unmanaged.floatObj.count, 0U);
+    XCTAssertEqual(optUnmanaged.floatObj.count, 0U);
+    XCTAssertEqual(managed.floatObj.count, 0U);
+    XCTAssertEqual(optManaged.floatObj.count, 0U);
+    XCTAssertEqual(unmanaged.doubleObj.count, 0U);
+    XCTAssertEqual(optUnmanaged.doubleObj.count, 0U);
+    XCTAssertEqual(managed.doubleObj.count, 0U);
+    XCTAssertEqual(optManaged.doubleObj.count, 0U);
+    XCTAssertEqual(unmanaged.dataObj.count, 0U);
+    XCTAssertEqual(optUnmanaged.dataObj.count, 0U);
+    XCTAssertEqual(managed.dataObj.count, 0U);
+    XCTAssertEqual(optManaged.dataObj.count, 0U);
+    XCTAssertEqual(unmanaged.decimalObj.count, 0U);
+    XCTAssertEqual(optUnmanaged.decimalObj.count, 0U);
+    XCTAssertEqual(managed.decimalObj.count, 0U);
+    XCTAssertEqual(optManaged.decimalObj.count, 0U);
+    XCTAssertEqual(unmanaged.objectIdObj.count, 0U);
+    XCTAssertEqual(optUnmanaged.objectIdObj.count, 0U);
+    XCTAssertEqual(managed.objectIdObj.count, 0U);
+    XCTAssertEqual(optManaged.objectIdObj.count, 0U);
+    XCTAssertEqual(unmanaged.uuidObj.count, 0U);
+    XCTAssertEqual(optUnmanaged.uuidObj.count, 0U);
+    XCTAssertEqual(managed.uuidObj.count, 0U);
+    XCTAssertEqual(optManaged.uuidObj.count, 0U);
+    XCTAssertEqual(unmanaged.anyBoolObj.count, 0U);
+    XCTAssertEqual(unmanaged.anyIntObj.count, 0U);
+    XCTAssertEqual(unmanaged.anyFloatObj.count, 0U);
+    XCTAssertEqual(unmanaged.anyDoubleObj.count, 0U);
+    XCTAssertEqual(unmanaged.anyStringObj.count, 0U);
+    XCTAssertEqual(unmanaged.anyDataObj.count, 0U);
+    XCTAssertEqual(unmanaged.anyDateObj.count, 0U);
+    XCTAssertEqual(unmanaged.anyDecimalObj.count, 0U);
+    XCTAssertEqual(unmanaged.anyObjectIdObj.count, 0U);
+    XCTAssertEqual(unmanaged.anyUUIDObj.count, 0U);
     XCTAssertNil(unmanaged.boolObj[@"key1"]);
     XCTAssertNil(optUnmanaged.boolObj[@"key1"]);
     XCTAssertNil(managed.boolObj[@"key1"]);
@@ -784,6 +1686,40 @@ static double average(NSDictionary *dictionary) {
     XCTAssertNil(optUnmanaged.dateObj[@"key1"]);
     XCTAssertNil(managed.dateObj[@"key1"]);
     XCTAssertNil(optManaged.dateObj[@"key1"]);
+    XCTAssertNil(unmanaged.floatObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.floatObj[@"key1"]);
+    XCTAssertNil(managed.floatObj[@"key1"]);
+    XCTAssertNil(optManaged.floatObj[@"key1"]);
+    XCTAssertNil(unmanaged.doubleObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.doubleObj[@"key1"]);
+    XCTAssertNil(managed.doubleObj[@"key1"]);
+    XCTAssertNil(optManaged.doubleObj[@"key1"]);
+    XCTAssertNil(unmanaged.dataObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.dataObj[@"key1"]);
+    XCTAssertNil(managed.dataObj[@"key1"]);
+    XCTAssertNil(optManaged.dataObj[@"key1"]);
+    XCTAssertNil(unmanaged.decimalObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.decimalObj[@"key1"]);
+    XCTAssertNil(managed.decimalObj[@"key1"]);
+    XCTAssertNil(optManaged.decimalObj[@"key1"]);
+    XCTAssertNil(unmanaged.objectIdObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.objectIdObj[@"key1"]);
+    XCTAssertNil(managed.objectIdObj[@"key1"]);
+    XCTAssertNil(optManaged.objectIdObj[@"key1"]);
+    XCTAssertNil(unmanaged.uuidObj[@"key1"]);
+    XCTAssertNil(optUnmanaged.uuidObj[@"key1"]);
+    XCTAssertNil(managed.uuidObj[@"key1"]);
+    XCTAssertNil(optManaged.uuidObj[@"key1"]);
+    XCTAssertNil(unmanaged.anyBoolObj[@"key1"]);
+    XCTAssertNil(unmanaged.anyIntObj[@"key1"]);
+    XCTAssertNil(unmanaged.anyFloatObj[@"key1"]);
+    XCTAssertNil(unmanaged.anyDoubleObj[@"key1"]);
+    XCTAssertNil(unmanaged.anyStringObj[@"key1"]);
+    XCTAssertNil(unmanaged.anyDataObj[@"key1"]);
+    XCTAssertNil(unmanaged.anyDateObj[@"key1"]);
+    XCTAssertNil(unmanaged.anyDecimalObj[@"key1"]);
+    XCTAssertNil(unmanaged.anyObjectIdObj[@"key1"]);
+    XCTAssertNil(unmanaged.anyUUIDObj[@"key1"]);
 }
 
 - (void)testUpdateObjects {
@@ -804,6 +1740,40 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqual(optUnmanaged.dateObj.count, 2U);
     XCTAssertEqual(managed.dateObj.count, 2U);
     XCTAssertEqual(optManaged.dateObj.count, 2U);
+    XCTAssertEqual(unmanaged.floatObj.count, 2U);
+    XCTAssertEqual(optUnmanaged.floatObj.count, 2U);
+    XCTAssertEqual(managed.floatObj.count, 2U);
+    XCTAssertEqual(optManaged.floatObj.count, 2U);
+    XCTAssertEqual(unmanaged.doubleObj.count, 2U);
+    XCTAssertEqual(optUnmanaged.doubleObj.count, 2U);
+    XCTAssertEqual(managed.doubleObj.count, 2U);
+    XCTAssertEqual(optManaged.doubleObj.count, 2U);
+    XCTAssertEqual(unmanaged.dataObj.count, 2U);
+    XCTAssertEqual(optUnmanaged.dataObj.count, 2U);
+    XCTAssertEqual(managed.dataObj.count, 2U);
+    XCTAssertEqual(optManaged.dataObj.count, 2U);
+    XCTAssertEqual(unmanaged.decimalObj.count, 2U);
+    XCTAssertEqual(optUnmanaged.decimalObj.count, 2U);
+    XCTAssertEqual(managed.decimalObj.count, 2U);
+    XCTAssertEqual(optManaged.decimalObj.count, 2U);
+    XCTAssertEqual(unmanaged.objectIdObj.count, 2U);
+    XCTAssertEqual(optUnmanaged.objectIdObj.count, 2U);
+    XCTAssertEqual(managed.objectIdObj.count, 2U);
+    XCTAssertEqual(optManaged.objectIdObj.count, 2U);
+    XCTAssertEqual(unmanaged.uuidObj.count, 2U);
+    XCTAssertEqual(optUnmanaged.uuidObj.count, 2U);
+    XCTAssertEqual(managed.uuidObj.count, 2U);
+    XCTAssertEqual(optManaged.uuidObj.count, 2U);
+    XCTAssertEqual(unmanaged.anyBoolObj.count, 2U);
+    XCTAssertEqual(unmanaged.anyIntObj.count, 2U);
+    XCTAssertEqual(unmanaged.anyFloatObj.count, 2U);
+    XCTAssertEqual(unmanaged.anyDoubleObj.count, 2U);
+    XCTAssertEqual(unmanaged.anyStringObj.count, 2U);
+    XCTAssertEqual(unmanaged.anyDataObj.count, 2U);
+    XCTAssertEqual(unmanaged.anyDateObj.count, 2U);
+    XCTAssertEqual(unmanaged.anyDecimalObj.count, 2U);
+    XCTAssertEqual(unmanaged.anyObjectIdObj.count, 2U);
+    XCTAssertEqual(unmanaged.anyUUIDObj.count, 2U);
 
     XCTAssertEqualObjects(unmanaged.boolObj[@"key1"], @NO);
     XCTAssertEqualObjects(optUnmanaged.boolObj[@"key1"], @NO);
@@ -821,6 +1791,40 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqualObjects(optUnmanaged.dateObj[@"key1"], date(1));
     XCTAssertEqualObjects(managed.dateObj[@"key1"], date(1));
     XCTAssertEqualObjects(optManaged.dateObj[@"key1"], date(1));
+    XCTAssertEqualObjects(unmanaged.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(optUnmanaged.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(managed.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(optManaged.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(unmanaged.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(optUnmanaged.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(managed.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(optManaged.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(unmanaged.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(optUnmanaged.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(managed.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(optManaged.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(unmanaged.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(optUnmanaged.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(managed.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(optManaged.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(unmanaged.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(optUnmanaged.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(managed.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(optManaged.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(unmanaged.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(optUnmanaged.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(managed.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(optManaged.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(unmanaged.anyBoolObj[@"key1"], @NO);
+    XCTAssertEqualObjects(unmanaged.anyIntObj[@"key1"], @2);
+    XCTAssertEqualObjects(unmanaged.anyFloatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(unmanaged.anyDoubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(unmanaged.anyStringObj[@"key1"], @"a");
+    XCTAssertEqualObjects(unmanaged.anyDataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(unmanaged.anyDateObj[@"key1"], date(1));
+    XCTAssertEqualObjects(unmanaged.anyDecimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(unmanaged.anyObjectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(unmanaged.anyUUIDObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
     XCTAssertEqualObjects(unmanaged.boolObj[@"key2"], @YES);
     XCTAssertEqualObjects(optUnmanaged.boolObj[@"key2"], NSNull.null);
     XCTAssertEqualObjects(managed.boolObj[@"key2"], @YES);
@@ -837,6 +1841,40 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqualObjects(optUnmanaged.dateObj[@"key2"], NSNull.null);
     XCTAssertEqualObjects(managed.dateObj[@"key2"], date(2));
     XCTAssertEqualObjects(optManaged.dateObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(unmanaged.floatObj[@"key2"], @3.3f);
+    XCTAssertEqualObjects(optUnmanaged.floatObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(managed.floatObj[@"key2"], @3.3f);
+    XCTAssertEqualObjects(optManaged.floatObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(unmanaged.doubleObj[@"key2"], @3.3);
+    XCTAssertEqualObjects(optUnmanaged.doubleObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(managed.doubleObj[@"key2"], @3.3);
+    XCTAssertEqualObjects(optManaged.doubleObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(unmanaged.dataObj[@"key2"], data(2));
+    XCTAssertEqualObjects(optUnmanaged.dataObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(managed.dataObj[@"key2"], data(2));
+    XCTAssertEqualObjects(optManaged.dataObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(unmanaged.decimalObj[@"key2"], decimal128(3));
+    XCTAssertEqualObjects(optUnmanaged.decimalObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(managed.decimalObj[@"key2"], decimal128(3));
+    XCTAssertEqualObjects(optManaged.decimalObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(unmanaged.objectIdObj[@"key2"], objectId(2));
+    XCTAssertEqualObjects(optUnmanaged.objectIdObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(managed.objectIdObj[@"key2"], objectId(2));
+    XCTAssertEqualObjects(optManaged.objectIdObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(unmanaged.uuidObj[@"key2"], uuid(@"137DECC8-B300-4954-A233-F89909F4FD89"));
+    XCTAssertEqualObjects(optUnmanaged.uuidObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(managed.uuidObj[@"key2"], uuid(@"137DECC8-B300-4954-A233-F89909F4FD89"));
+    XCTAssertEqualObjects(optManaged.uuidObj[@"key2"], NSNull.null);
+    XCTAssertEqualObjects(unmanaged.anyBoolObj[@"key2"], @YES);
+    XCTAssertEqualObjects(unmanaged.anyIntObj[@"key2"], @3);
+    XCTAssertEqualObjects(unmanaged.anyFloatObj[@"key2"], @3.3f);
+    XCTAssertEqualObjects(unmanaged.anyDoubleObj[@"key2"], @3.3);
+    XCTAssertEqualObjects(unmanaged.anyStringObj[@"key2"], @"b");
+    XCTAssertEqualObjects(unmanaged.anyDataObj[@"key2"], data(2));
+    XCTAssertEqualObjects(unmanaged.anyDateObj[@"key2"], date(2));
+    XCTAssertEqualObjects(unmanaged.anyDecimalObj[@"key2"], decimal128(3));
+    XCTAssertEqualObjects(unmanaged.anyObjectIdObj[@"key2"], objectId(2));
+    XCTAssertEqualObjects(unmanaged.anyUUIDObj[@"key2"], uuid(@"137DECC8-B300-4954-A233-F89909F4FD89"));
 
     unmanaged.boolObj[@"key2"] = unmanaged.boolObj[@"key1"];
     optUnmanaged.boolObj[@"key2"] = optUnmanaged.boolObj[@"key1"];
@@ -854,6 +1892,40 @@ static double average(NSDictionary *dictionary) {
     optUnmanaged.dateObj[@"key2"] = optUnmanaged.dateObj[@"key1"];
     managed.dateObj[@"key2"] = managed.dateObj[@"key1"];
     optManaged.dateObj[@"key2"] = optManaged.dateObj[@"key1"];
+    unmanaged.floatObj[@"key2"] = unmanaged.floatObj[@"key1"];
+    optUnmanaged.floatObj[@"key2"] = optUnmanaged.floatObj[@"key1"];
+    managed.floatObj[@"key2"] = managed.floatObj[@"key1"];
+    optManaged.floatObj[@"key2"] = optManaged.floatObj[@"key1"];
+    unmanaged.doubleObj[@"key2"] = unmanaged.doubleObj[@"key1"];
+    optUnmanaged.doubleObj[@"key2"] = optUnmanaged.doubleObj[@"key1"];
+    managed.doubleObj[@"key2"] = managed.doubleObj[@"key1"];
+    optManaged.doubleObj[@"key2"] = optManaged.doubleObj[@"key1"];
+    unmanaged.dataObj[@"key2"] = unmanaged.dataObj[@"key1"];
+    optUnmanaged.dataObj[@"key2"] = optUnmanaged.dataObj[@"key1"];
+    managed.dataObj[@"key2"] = managed.dataObj[@"key1"];
+    optManaged.dataObj[@"key2"] = optManaged.dataObj[@"key1"];
+    unmanaged.decimalObj[@"key2"] = unmanaged.decimalObj[@"key1"];
+    optUnmanaged.decimalObj[@"key2"] = optUnmanaged.decimalObj[@"key1"];
+    managed.decimalObj[@"key2"] = managed.decimalObj[@"key1"];
+    optManaged.decimalObj[@"key2"] = optManaged.decimalObj[@"key1"];
+    unmanaged.objectIdObj[@"key2"] = unmanaged.objectIdObj[@"key1"];
+    optUnmanaged.objectIdObj[@"key2"] = optUnmanaged.objectIdObj[@"key1"];
+    managed.objectIdObj[@"key2"] = managed.objectIdObj[@"key1"];
+    optManaged.objectIdObj[@"key2"] = optManaged.objectIdObj[@"key1"];
+    unmanaged.uuidObj[@"key2"] = unmanaged.uuidObj[@"key1"];
+    optUnmanaged.uuidObj[@"key2"] = optUnmanaged.uuidObj[@"key1"];
+    managed.uuidObj[@"key2"] = managed.uuidObj[@"key1"];
+    optManaged.uuidObj[@"key2"] = optManaged.uuidObj[@"key1"];
+    unmanaged.anyBoolObj[@"key2"] = unmanaged.anyBoolObj[@"key1"];
+    unmanaged.anyIntObj[@"key2"] = unmanaged.anyIntObj[@"key1"];
+    unmanaged.anyFloatObj[@"key2"] = unmanaged.anyFloatObj[@"key1"];
+    unmanaged.anyDoubleObj[@"key2"] = unmanaged.anyDoubleObj[@"key1"];
+    unmanaged.anyStringObj[@"key2"] = unmanaged.anyStringObj[@"key1"];
+    unmanaged.anyDataObj[@"key2"] = unmanaged.anyDataObj[@"key1"];
+    unmanaged.anyDateObj[@"key2"] = unmanaged.anyDateObj[@"key1"];
+    unmanaged.anyDecimalObj[@"key2"] = unmanaged.anyDecimalObj[@"key1"];
+    unmanaged.anyObjectIdObj[@"key2"] = unmanaged.anyObjectIdObj[@"key1"];
+    unmanaged.anyUUIDObj[@"key2"] = unmanaged.anyUUIDObj[@"key1"];
     unmanaged.boolObj[@"key1"] = unmanaged.boolObj[@"key2"];
     optUnmanaged.boolObj[@"key1"] = optUnmanaged.boolObj[@"key2"];
     managed.boolObj[@"key1"] = managed.boolObj[@"key2"];
@@ -870,6 +1942,40 @@ static double average(NSDictionary *dictionary) {
     optUnmanaged.dateObj[@"key1"] = optUnmanaged.dateObj[@"key2"];
     managed.dateObj[@"key1"] = managed.dateObj[@"key2"];
     optManaged.dateObj[@"key1"] = optManaged.dateObj[@"key2"];
+    unmanaged.floatObj[@"key1"] = unmanaged.floatObj[@"key2"];
+    optUnmanaged.floatObj[@"key1"] = optUnmanaged.floatObj[@"key2"];
+    managed.floatObj[@"key1"] = managed.floatObj[@"key2"];
+    optManaged.floatObj[@"key1"] = optManaged.floatObj[@"key2"];
+    unmanaged.doubleObj[@"key1"] = unmanaged.doubleObj[@"key2"];
+    optUnmanaged.doubleObj[@"key1"] = optUnmanaged.doubleObj[@"key2"];
+    managed.doubleObj[@"key1"] = managed.doubleObj[@"key2"];
+    optManaged.doubleObj[@"key1"] = optManaged.doubleObj[@"key2"];
+    unmanaged.dataObj[@"key1"] = unmanaged.dataObj[@"key2"];
+    optUnmanaged.dataObj[@"key1"] = optUnmanaged.dataObj[@"key2"];
+    managed.dataObj[@"key1"] = managed.dataObj[@"key2"];
+    optManaged.dataObj[@"key1"] = optManaged.dataObj[@"key2"];
+    unmanaged.decimalObj[@"key1"] = unmanaged.decimalObj[@"key2"];
+    optUnmanaged.decimalObj[@"key1"] = optUnmanaged.decimalObj[@"key2"];
+    managed.decimalObj[@"key1"] = managed.decimalObj[@"key2"];
+    optManaged.decimalObj[@"key1"] = optManaged.decimalObj[@"key2"];
+    unmanaged.objectIdObj[@"key1"] = unmanaged.objectIdObj[@"key2"];
+    optUnmanaged.objectIdObj[@"key1"] = optUnmanaged.objectIdObj[@"key2"];
+    managed.objectIdObj[@"key1"] = managed.objectIdObj[@"key2"];
+    optManaged.objectIdObj[@"key1"] = optManaged.objectIdObj[@"key2"];
+    unmanaged.uuidObj[@"key1"] = unmanaged.uuidObj[@"key2"];
+    optUnmanaged.uuidObj[@"key1"] = optUnmanaged.uuidObj[@"key2"];
+    managed.uuidObj[@"key1"] = managed.uuidObj[@"key2"];
+    optManaged.uuidObj[@"key1"] = optManaged.uuidObj[@"key2"];
+    unmanaged.anyBoolObj[@"key1"] = unmanaged.anyBoolObj[@"key2"];
+    unmanaged.anyIntObj[@"key1"] = unmanaged.anyIntObj[@"key2"];
+    unmanaged.anyFloatObj[@"key1"] = unmanaged.anyFloatObj[@"key2"];
+    unmanaged.anyDoubleObj[@"key1"] = unmanaged.anyDoubleObj[@"key2"];
+    unmanaged.anyStringObj[@"key1"] = unmanaged.anyStringObj[@"key2"];
+    unmanaged.anyDataObj[@"key1"] = unmanaged.anyDataObj[@"key2"];
+    unmanaged.anyDateObj[@"key1"] = unmanaged.anyDateObj[@"key2"];
+    unmanaged.anyDecimalObj[@"key1"] = unmanaged.anyDecimalObj[@"key2"];
+    unmanaged.anyObjectIdObj[@"key1"] = unmanaged.anyObjectIdObj[@"key2"];
+    unmanaged.anyUUIDObj[@"key1"] = unmanaged.anyUUIDObj[@"key2"];
 
     XCTAssertEqualObjects(unmanaged.boolObj[@"key2"], @NO);
     XCTAssertEqualObjects(optUnmanaged.boolObj[@"key2"], @NO);
@@ -887,6 +1993,40 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqualObjects(optUnmanaged.dateObj[@"key2"], date(1));
     XCTAssertEqualObjects(managed.dateObj[@"key2"], date(1));
     XCTAssertEqualObjects(optManaged.dateObj[@"key2"], date(1));
+    XCTAssertEqualObjects(unmanaged.floatObj[@"key2"], @2.2f);
+    XCTAssertEqualObjects(optUnmanaged.floatObj[@"key2"], @2.2f);
+    XCTAssertEqualObjects(managed.floatObj[@"key2"], @2.2f);
+    XCTAssertEqualObjects(optManaged.floatObj[@"key2"], @2.2f);
+    XCTAssertEqualObjects(unmanaged.doubleObj[@"key2"], @2.2);
+    XCTAssertEqualObjects(optUnmanaged.doubleObj[@"key2"], @2.2);
+    XCTAssertEqualObjects(managed.doubleObj[@"key2"], @2.2);
+    XCTAssertEqualObjects(optManaged.doubleObj[@"key2"], @2.2);
+    XCTAssertEqualObjects(unmanaged.dataObj[@"key2"], data(1));
+    XCTAssertEqualObjects(optUnmanaged.dataObj[@"key2"], data(1));
+    XCTAssertEqualObjects(managed.dataObj[@"key2"], data(1));
+    XCTAssertEqualObjects(optManaged.dataObj[@"key2"], data(1));
+    XCTAssertEqualObjects(unmanaged.decimalObj[@"key2"], decimal128(2));
+    XCTAssertEqualObjects(optUnmanaged.decimalObj[@"key2"], decimal128(2));
+    XCTAssertEqualObjects(managed.decimalObj[@"key2"], decimal128(2));
+    XCTAssertEqualObjects(optManaged.decimalObj[@"key2"], decimal128(2));
+    XCTAssertEqualObjects(unmanaged.objectIdObj[@"key2"], objectId(1));
+    XCTAssertEqualObjects(optUnmanaged.objectIdObj[@"key2"], objectId(1));
+    XCTAssertEqualObjects(managed.objectIdObj[@"key2"], objectId(1));
+    XCTAssertEqualObjects(optManaged.objectIdObj[@"key2"], objectId(1));
+    XCTAssertEqualObjects(unmanaged.uuidObj[@"key2"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(optUnmanaged.uuidObj[@"key2"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(managed.uuidObj[@"key2"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(optManaged.uuidObj[@"key2"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(unmanaged.anyBoolObj[@"key2"], @NO);
+    XCTAssertEqualObjects(unmanaged.anyIntObj[@"key2"], @2);
+    XCTAssertEqualObjects(unmanaged.anyFloatObj[@"key2"], @2.2f);
+    XCTAssertEqualObjects(unmanaged.anyDoubleObj[@"key2"], @2.2);
+    XCTAssertEqualObjects(unmanaged.anyStringObj[@"key2"], @"a");
+    XCTAssertEqualObjects(unmanaged.anyDataObj[@"key2"], data(1));
+    XCTAssertEqualObjects(unmanaged.anyDateObj[@"key2"], date(1));
+    XCTAssertEqualObjects(unmanaged.anyDecimalObj[@"key2"], decimal128(2));
+    XCTAssertEqualObjects(unmanaged.anyObjectIdObj[@"key2"], objectId(1));
+    XCTAssertEqualObjects(unmanaged.anyUUIDObj[@"key2"], uuid(@"00000000-0000-0000-0000-000000000000"));
 }
 
 - (void)testIndexOfObjectSorted {
@@ -906,6 +2046,40 @@ static double average(NSDictionary *dictionary) {
     [optUnmanaged.dateObj addEntriesFromDictionary:@{ @"key1": date(1), @"key2": NSNull.null }];
     [managed.dateObj addEntriesFromDictionary:@{ @"key1": date(1), @"key2": date(2) }];
     [optManaged.dateObj addEntriesFromDictionary:@{ @"key1": date(1), @"key2": NSNull.null }];
+    [unmanaged.floatObj addEntriesFromDictionary:@{ @"key1": @2.2f, @"key2": @3.3f }];
+    [optUnmanaged.floatObj addEntriesFromDictionary:@{ @"key1": @2.2f, @"key2": NSNull.null }];
+    [managed.floatObj addEntriesFromDictionary:@{ @"key1": @2.2f, @"key2": @3.3f }];
+    [optManaged.floatObj addEntriesFromDictionary:@{ @"key1": @2.2f, @"key2": NSNull.null }];
+    [unmanaged.doubleObj addEntriesFromDictionary:@{ @"key1": @2.2, @"key2": @3.3 }];
+    [optUnmanaged.doubleObj addEntriesFromDictionary:@{ @"key1": @2.2, @"key2": NSNull.null }];
+    [managed.doubleObj addEntriesFromDictionary:@{ @"key1": @2.2, @"key2": @3.3 }];
+    [optManaged.doubleObj addEntriesFromDictionary:@{ @"key1": @2.2, @"key2": NSNull.null }];
+    [unmanaged.dataObj addEntriesFromDictionary:@{ @"key1": data(1), @"key2": data(2) }];
+    [optUnmanaged.dataObj addEntriesFromDictionary:@{ @"key1": data(1), @"key2": NSNull.null }];
+    [managed.dataObj addEntriesFromDictionary:@{ @"key1": data(1), @"key2": data(2) }];
+    [optManaged.dataObj addEntriesFromDictionary:@{ @"key1": data(1), @"key2": NSNull.null }];
+    [unmanaged.decimalObj addEntriesFromDictionary:@{ @"key1": decimal128(2), @"key2": decimal128(3) }];
+    [optUnmanaged.decimalObj addEntriesFromDictionary:@{ @"key1": decimal128(2), @"key2": NSNull.null }];
+    [managed.decimalObj addEntriesFromDictionary:@{ @"key1": decimal128(2), @"key2": decimal128(3) }];
+    [optManaged.decimalObj addEntriesFromDictionary:@{ @"key1": decimal128(2), @"key2": NSNull.null }];
+    [unmanaged.objectIdObj addEntriesFromDictionary:@{ @"key1": objectId(1), @"key2": objectId(2) }];
+    [optUnmanaged.objectIdObj addEntriesFromDictionary:@{ @"key1": objectId(1), @"key2": NSNull.null }];
+    [managed.objectIdObj addEntriesFromDictionary:@{ @"key1": objectId(1), @"key2": objectId(2) }];
+    [optManaged.objectIdObj addEntriesFromDictionary:@{ @"key1": objectId(1), @"key2": NSNull.null }];
+    [unmanaged.uuidObj addEntriesFromDictionary:@{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": uuid(@"137DECC8-B300-4954-A233-F89909F4FD89") }];
+    [optUnmanaged.uuidObj addEntriesFromDictionary:@{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": NSNull.null }];
+    [managed.uuidObj addEntriesFromDictionary:@{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": uuid(@"137DECC8-B300-4954-A233-F89909F4FD89") }];
+    [optManaged.uuidObj addEntriesFromDictionary:@{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": NSNull.null }];
+    [unmanaged.anyBoolObj addEntriesFromDictionary:@{ @"key1": @NO, @"key2": @YES }];
+    [unmanaged.anyIntObj addEntriesFromDictionary:@{ @"key1": @2, @"key2": @3 }];
+    [unmanaged.anyFloatObj addEntriesFromDictionary:@{ @"key1": @2.2f, @"key2": @3.3f }];
+    [unmanaged.anyDoubleObj addEntriesFromDictionary:@{ @"key1": @2.2, @"key2": @3.3 }];
+    [unmanaged.anyStringObj addEntriesFromDictionary:@{ @"key1": @"a", @"key2": @"b" }];
+    [unmanaged.anyDataObj addEntriesFromDictionary:@{ @"key1": data(1), @"key2": data(2) }];
+    [unmanaged.anyDateObj addEntriesFromDictionary:@{ @"key1": date(1), @"key2": date(2) }];
+    [unmanaged.anyDecimalObj addEntriesFromDictionary:@{ @"key1": decimal128(2), @"key2": decimal128(3) }];
+    [unmanaged.anyObjectIdObj addEntriesFromDictionary:@{ @"key1": objectId(1), @"key2": objectId(2) }];
+    [unmanaged.anyUUIDObj addEntriesFromDictionary:@{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": uuid(@"137DECC8-B300-4954-A233-F89909F4FD89") }];
 
     XCTAssertEqual(0U, [[optManaged.boolObj sortedResultsUsingKeyPath:@"self" ascending:NO] indexOfObject:@NO]);
     XCTAssertEqual(0U, [[optManaged.intObj sortedResultsUsingKeyPath:@"self" ascending:NO] indexOfObject:@2]);
@@ -947,6 +2121,40 @@ static double average(NSDictionary *dictionary) {
     [optUnmanaged.dateObj addEntriesFromDictionary:@{ @"key1": date(1), @"key2": NSNull.null }];
     [managed.dateObj addEntriesFromDictionary:@{ @"key1": date(1), @"key2": date(2) }];
     [optManaged.dateObj addEntriesFromDictionary:@{ @"key1": date(1), @"key2": NSNull.null }];
+    [unmanaged.floatObj addEntriesFromDictionary:@{ @"key1": @2.2f, @"key2": @3.3f }];
+    [optUnmanaged.floatObj addEntriesFromDictionary:@{ @"key1": @2.2f, @"key2": NSNull.null }];
+    [managed.floatObj addEntriesFromDictionary:@{ @"key1": @2.2f, @"key2": @3.3f }];
+    [optManaged.floatObj addEntriesFromDictionary:@{ @"key1": @2.2f, @"key2": NSNull.null }];
+    [unmanaged.doubleObj addEntriesFromDictionary:@{ @"key1": @2.2, @"key2": @3.3 }];
+    [optUnmanaged.doubleObj addEntriesFromDictionary:@{ @"key1": @2.2, @"key2": NSNull.null }];
+    [managed.doubleObj addEntriesFromDictionary:@{ @"key1": @2.2, @"key2": @3.3 }];
+    [optManaged.doubleObj addEntriesFromDictionary:@{ @"key1": @2.2, @"key2": NSNull.null }];
+    [unmanaged.dataObj addEntriesFromDictionary:@{ @"key1": data(1), @"key2": data(2) }];
+    [optUnmanaged.dataObj addEntriesFromDictionary:@{ @"key1": data(1), @"key2": NSNull.null }];
+    [managed.dataObj addEntriesFromDictionary:@{ @"key1": data(1), @"key2": data(2) }];
+    [optManaged.dataObj addEntriesFromDictionary:@{ @"key1": data(1), @"key2": NSNull.null }];
+    [unmanaged.decimalObj addEntriesFromDictionary:@{ @"key1": decimal128(2), @"key2": decimal128(3) }];
+    [optUnmanaged.decimalObj addEntriesFromDictionary:@{ @"key1": decimal128(2), @"key2": NSNull.null }];
+    [managed.decimalObj addEntriesFromDictionary:@{ @"key1": decimal128(2), @"key2": decimal128(3) }];
+    [optManaged.decimalObj addEntriesFromDictionary:@{ @"key1": decimal128(2), @"key2": NSNull.null }];
+    [unmanaged.objectIdObj addEntriesFromDictionary:@{ @"key1": objectId(1), @"key2": objectId(2) }];
+    [optUnmanaged.objectIdObj addEntriesFromDictionary:@{ @"key1": objectId(1), @"key2": NSNull.null }];
+    [managed.objectIdObj addEntriesFromDictionary:@{ @"key1": objectId(1), @"key2": objectId(2) }];
+    [optManaged.objectIdObj addEntriesFromDictionary:@{ @"key1": objectId(1), @"key2": NSNull.null }];
+    [unmanaged.uuidObj addEntriesFromDictionary:@{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": uuid(@"137DECC8-B300-4954-A233-F89909F4FD89") }];
+    [optUnmanaged.uuidObj addEntriesFromDictionary:@{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": NSNull.null }];
+    [managed.uuidObj addEntriesFromDictionary:@{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": uuid(@"137DECC8-B300-4954-A233-F89909F4FD89") }];
+    [optManaged.uuidObj addEntriesFromDictionary:@{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": NSNull.null }];
+    [unmanaged.anyBoolObj addEntriesFromDictionary:@{ @"key1": @NO, @"key2": @YES }];
+    [unmanaged.anyIntObj addEntriesFromDictionary:@{ @"key1": @2, @"key2": @3 }];
+    [unmanaged.anyFloatObj addEntriesFromDictionary:@{ @"key1": @2.2f, @"key2": @3.3f }];
+    [unmanaged.anyDoubleObj addEntriesFromDictionary:@{ @"key1": @2.2, @"key2": @3.3 }];
+    [unmanaged.anyStringObj addEntriesFromDictionary:@{ @"key1": @"a", @"key2": @"b" }];
+    [unmanaged.anyDataObj addEntriesFromDictionary:@{ @"key1": data(1), @"key2": data(2) }];
+    [unmanaged.anyDateObj addEntriesFromDictionary:@{ @"key1": date(1), @"key2": date(2) }];
+    [unmanaged.anyDecimalObj addEntriesFromDictionary:@{ @"key1": decimal128(2), @"key2": decimal128(3) }];
+    [unmanaged.anyObjectIdObj addEntriesFromDictionary:@{ @"key1": objectId(1), @"key2": objectId(2) }];
+    [unmanaged.anyUUIDObj addEntriesFromDictionary:@{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": uuid(@"137DECC8-B300-4954-A233-F89909F4FD89") }];
 
     XCTAssertEqual(1U, [[managed.boolObj distinctResultsUsingKeyPaths:@[@"self"]] indexOfObject:@NO]);
     XCTAssertEqual(1U, [[managed.intObj distinctResultsUsingKeyPaths:@[@"self"]] indexOfObject:@2]);
@@ -988,6 +2196,50 @@ static double average(NSDictionary *dictionary) {
                               @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
     RLMAssertThrowsWithReason([optUnmanaged.dateObj sortedResultsUsingKeyPath:@"self" ascending:NO],
                               @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.floatObj sortedResultsUsingKeyPath:@"self" ascending:NO],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.floatObj sortedResultsUsingKeyPath:@"self" ascending:NO],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.doubleObj sortedResultsUsingKeyPath:@"self" ascending:NO],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.doubleObj sortedResultsUsingKeyPath:@"self" ascending:NO],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.dataObj sortedResultsUsingKeyPath:@"self" ascending:NO],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.dataObj sortedResultsUsingKeyPath:@"self" ascending:NO],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.decimalObj sortedResultsUsingKeyPath:@"self" ascending:NO],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.decimalObj sortedResultsUsingKeyPath:@"self" ascending:NO],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.objectIdObj sortedResultsUsingKeyPath:@"self" ascending:NO],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.objectIdObj sortedResultsUsingKeyPath:@"self" ascending:NO],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.uuidObj sortedResultsUsingKeyPath:@"self" ascending:NO],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.uuidObj sortedResultsUsingKeyPath:@"self" ascending:NO],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyBoolObj sortedResultsUsingKeyPath:@"self" ascending:NO],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyIntObj sortedResultsUsingKeyPath:@"self" ascending:NO],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyFloatObj sortedResultsUsingKeyPath:@"self" ascending:NO],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyDoubleObj sortedResultsUsingKeyPath:@"self" ascending:NO],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyStringObj sortedResultsUsingKeyPath:@"self" ascending:NO],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyDataObj sortedResultsUsingKeyPath:@"self" ascending:NO],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyDateObj sortedResultsUsingKeyPath:@"self" ascending:NO],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyDecimalObj sortedResultsUsingKeyPath:@"self" ascending:NO],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyObjectIdObj sortedResultsUsingKeyPath:@"self" ascending:NO],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyUUIDObj sortedResultsUsingKeyPath:@"self" ascending:NO],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
     RLMAssertThrowsWithReason([unmanaged.boolObj sortedResultsUsingDescriptors:@[]],
                               @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
     RLMAssertThrowsWithReason([optUnmanaged.boolObj sortedResultsUsingDescriptors:@[]],
@@ -1003,6 +2255,50 @@ static double average(NSDictionary *dictionary) {
     RLMAssertThrowsWithReason([unmanaged.dateObj sortedResultsUsingDescriptors:@[]],
                               @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
     RLMAssertThrowsWithReason([optUnmanaged.dateObj sortedResultsUsingDescriptors:@[]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.floatObj sortedResultsUsingDescriptors:@[]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.floatObj sortedResultsUsingDescriptors:@[]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.doubleObj sortedResultsUsingDescriptors:@[]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.doubleObj sortedResultsUsingDescriptors:@[]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.dataObj sortedResultsUsingDescriptors:@[]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.dataObj sortedResultsUsingDescriptors:@[]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.decimalObj sortedResultsUsingDescriptors:@[]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.decimalObj sortedResultsUsingDescriptors:@[]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.objectIdObj sortedResultsUsingDescriptors:@[]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.objectIdObj sortedResultsUsingDescriptors:@[]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.uuidObj sortedResultsUsingDescriptors:@[]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.uuidObj sortedResultsUsingDescriptors:@[]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyBoolObj sortedResultsUsingDescriptors:@[]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyIntObj sortedResultsUsingDescriptors:@[]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyFloatObj sortedResultsUsingDescriptors:@[]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyDoubleObj sortedResultsUsingDescriptors:@[]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyStringObj sortedResultsUsingDescriptors:@[]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyDataObj sortedResultsUsingDescriptors:@[]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyDateObj sortedResultsUsingDescriptors:@[]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyDecimalObj sortedResultsUsingDescriptors:@[]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyObjectIdObj sortedResultsUsingDescriptors:@[]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyUUIDObj sortedResultsUsingDescriptors:@[]],
                               @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
     RLMAssertThrowsWithReason([managed.boolObj sortedResultsUsingKeyPath:@"not self" ascending:NO],
                               @"can only be sorted on 'self'");
@@ -1037,6 +2333,40 @@ static double average(NSDictionary *dictionary) {
     [optUnmanaged.dateObj addEntriesFromDictionary:@{ @"key1": date(1), @"key2": NSNull.null }];
     [managed.dateObj addEntriesFromDictionary:@{ @"key1": date(1), @"key2": date(2) }];
     [optManaged.dateObj addEntriesFromDictionary:@{ @"key1": date(1), @"key2": NSNull.null }];
+    [unmanaged.floatObj addEntriesFromDictionary:@{ @"key1": @2.2f, @"key2": @3.3f }];
+    [optUnmanaged.floatObj addEntriesFromDictionary:@{ @"key1": @2.2f, @"key2": NSNull.null }];
+    [managed.floatObj addEntriesFromDictionary:@{ @"key1": @2.2f, @"key2": @3.3f }];
+    [optManaged.floatObj addEntriesFromDictionary:@{ @"key1": @2.2f, @"key2": NSNull.null }];
+    [unmanaged.doubleObj addEntriesFromDictionary:@{ @"key1": @2.2, @"key2": @3.3 }];
+    [optUnmanaged.doubleObj addEntriesFromDictionary:@{ @"key1": @2.2, @"key2": NSNull.null }];
+    [managed.doubleObj addEntriesFromDictionary:@{ @"key1": @2.2, @"key2": @3.3 }];
+    [optManaged.doubleObj addEntriesFromDictionary:@{ @"key1": @2.2, @"key2": NSNull.null }];
+    [unmanaged.dataObj addEntriesFromDictionary:@{ @"key1": data(1), @"key2": data(2) }];
+    [optUnmanaged.dataObj addEntriesFromDictionary:@{ @"key1": data(1), @"key2": NSNull.null }];
+    [managed.dataObj addEntriesFromDictionary:@{ @"key1": data(1), @"key2": data(2) }];
+    [optManaged.dataObj addEntriesFromDictionary:@{ @"key1": data(1), @"key2": NSNull.null }];
+    [unmanaged.decimalObj addEntriesFromDictionary:@{ @"key1": decimal128(2), @"key2": decimal128(3) }];
+    [optUnmanaged.decimalObj addEntriesFromDictionary:@{ @"key1": decimal128(2), @"key2": NSNull.null }];
+    [managed.decimalObj addEntriesFromDictionary:@{ @"key1": decimal128(2), @"key2": decimal128(3) }];
+    [optManaged.decimalObj addEntriesFromDictionary:@{ @"key1": decimal128(2), @"key2": NSNull.null }];
+    [unmanaged.objectIdObj addEntriesFromDictionary:@{ @"key1": objectId(1), @"key2": objectId(2) }];
+    [optUnmanaged.objectIdObj addEntriesFromDictionary:@{ @"key1": objectId(1), @"key2": NSNull.null }];
+    [managed.objectIdObj addEntriesFromDictionary:@{ @"key1": objectId(1), @"key2": objectId(2) }];
+    [optManaged.objectIdObj addEntriesFromDictionary:@{ @"key1": objectId(1), @"key2": NSNull.null }];
+    [unmanaged.uuidObj addEntriesFromDictionary:@{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": uuid(@"137DECC8-B300-4954-A233-F89909F4FD89") }];
+    [optUnmanaged.uuidObj addEntriesFromDictionary:@{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": NSNull.null }];
+    [managed.uuidObj addEntriesFromDictionary:@{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": uuid(@"137DECC8-B300-4954-A233-F89909F4FD89") }];
+    [optManaged.uuidObj addEntriesFromDictionary:@{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": NSNull.null }];
+    [unmanaged.anyBoolObj addEntriesFromDictionary:@{ @"key1": @NO, @"key2": @YES }];
+    [unmanaged.anyIntObj addEntriesFromDictionary:@{ @"key1": @2, @"key2": @3 }];
+    [unmanaged.anyFloatObj addEntriesFromDictionary:@{ @"key1": @2.2f, @"key2": @3.3f }];
+    [unmanaged.anyDoubleObj addEntriesFromDictionary:@{ @"key1": @2.2, @"key2": @3.3 }];
+    [unmanaged.anyStringObj addEntriesFromDictionary:@{ @"key1": @"a", @"key2": @"b" }];
+    [unmanaged.anyDataObj addEntriesFromDictionary:@{ @"key1": data(1), @"key2": data(2) }];
+    [unmanaged.anyDateObj addEntriesFromDictionary:@{ @"key1": date(1), @"key2": date(2) }];
+    [unmanaged.anyDecimalObj addEntriesFromDictionary:@{ @"key1": decimal128(2), @"key2": decimal128(3) }];
+    [unmanaged.anyObjectIdObj addEntriesFromDictionary:@{ @"key1": objectId(1), @"key2": objectId(2) }];
+    [unmanaged.anyUUIDObj addEntriesFromDictionary:@{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": uuid(@"137DECC8-B300-4954-A233-F89909F4FD89") }];
 
     XCTAssertEqualObjects([[managed.boolObj sortedResultsUsingDescriptors:@[]] valueForKey:@"self"],
                           (@[@YES, @NO]));
@@ -1107,6 +2437,50 @@ static double average(NSDictionary *dictionary) {
                               @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
     RLMAssertThrowsWithReason([optUnmanaged.dateObj objectsWhere:@"TRUEPREDICATE"],
                               @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.floatObj objectsWhere:@"TRUEPREDICATE"],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.floatObj objectsWhere:@"TRUEPREDICATE"],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.doubleObj objectsWhere:@"TRUEPREDICATE"],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.doubleObj objectsWhere:@"TRUEPREDICATE"],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.dataObj objectsWhere:@"TRUEPREDICATE"],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.dataObj objectsWhere:@"TRUEPREDICATE"],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.decimalObj objectsWhere:@"TRUEPREDICATE"],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.decimalObj objectsWhere:@"TRUEPREDICATE"],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.objectIdObj objectsWhere:@"TRUEPREDICATE"],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.objectIdObj objectsWhere:@"TRUEPREDICATE"],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.uuidObj objectsWhere:@"TRUEPREDICATE"],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.uuidObj objectsWhere:@"TRUEPREDICATE"],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyBoolObj objectsWhere:@"TRUEPREDICATE"],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyIntObj objectsWhere:@"TRUEPREDICATE"],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyFloatObj objectsWhere:@"TRUEPREDICATE"],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyDoubleObj objectsWhere:@"TRUEPREDICATE"],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyStringObj objectsWhere:@"TRUEPREDICATE"],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyDataObj objectsWhere:@"TRUEPREDICATE"],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyDateObj objectsWhere:@"TRUEPREDICATE"],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyDecimalObj objectsWhere:@"TRUEPREDICATE"],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyObjectIdObj objectsWhere:@"TRUEPREDICATE"],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyUUIDObj objectsWhere:@"TRUEPREDICATE"],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
     RLMAssertThrowsWithReason([unmanaged.boolObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
                               @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
     RLMAssertThrowsWithReason([optUnmanaged.boolObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
@@ -1122,6 +2496,50 @@ static double average(NSDictionary *dictionary) {
     RLMAssertThrowsWithReason([unmanaged.dateObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
                               @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
     RLMAssertThrowsWithReason([optUnmanaged.dateObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.floatObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.floatObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.doubleObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.doubleObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.dataObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.dataObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.decimalObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.decimalObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.objectIdObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.objectIdObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.uuidObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.uuidObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyBoolObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyIntObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyFloatObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyDoubleObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyStringObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyDataObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyDateObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyDecimalObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyObjectIdObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyUUIDObj objectsWithPredicate:[NSPredicate predicateWithValue:YES]],
                               @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
 
     RLMAssertThrowsWithReason([managed.boolObj objectsWhere:@"TRUEPREDICATE"],
@@ -1208,8 +2626,52 @@ static double average(NSDictionary *dictionary) {
                               @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
     RLMAssertThrowsWithReason([optUnmanaged.dateObj addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }],
                               @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.floatObj addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.floatObj addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.doubleObj addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.doubleObj addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.dataObj addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.dataObj addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.decimalObj addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.decimalObj addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.objectIdObj addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.objectIdObj addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.uuidObj addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([optUnmanaged.uuidObj addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyBoolObj addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyIntObj addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyFloatObj addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyDoubleObj addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyStringObj addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyDataObj addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyDateObj addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyDecimalObj addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyObjectIdObj addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
+    RLMAssertThrowsWithReason([unmanaged.anyUUIDObj addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }],
+                              @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
 }
-
+/*
 - (void)testMin {
     RLMAssertThrowsWithReason([unmanaged.boolObj minOfProperty:@"self"],
                               @"minOfProperty: is not supported for bool dictionary");
@@ -1219,6 +2681,30 @@ static double average(NSDictionary *dictionary) {
                               @"minOfProperty: is not supported for string dictionary");
     RLMAssertThrowsWithReason([optUnmanaged.stringObj minOfProperty:@"self"],
                               @"minOfProperty: is not supported for string? dictionary");
+    RLMAssertThrowsWithReason([unmanaged.dataObj minOfProperty:@"self"],
+                              @"minOfProperty: is not supported for data dictionary");
+    RLMAssertThrowsWithReason([optUnmanaged.dataObj minOfProperty:@"self"],
+                              @"minOfProperty: is not supported for data? dictionary");
+    RLMAssertThrowsWithReason([unmanaged.objectIdObj minOfProperty:@"self"],
+                              @"minOfProperty: is not supported for object id dictionary");
+    RLMAssertThrowsWithReason([optUnmanaged.objectIdObj minOfProperty:@"self"],
+                              @"minOfProperty: is not supported for object id? dictionary");
+    RLMAssertThrowsWithReason([unmanaged.uuidObj minOfProperty:@"self"],
+                              @"minOfProperty: is not supported for uuid dictionary");
+    RLMAssertThrowsWithReason([optUnmanaged.uuidObj minOfProperty:@"self"],
+                              @"minOfProperty: is not supported for uuid? dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyBoolObj minOfProperty:@"self"],
+                              @"minOfProperty: is not supported for mixed dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyIntObj minOfProperty:@"self"],
+                              @"minOfProperty: is not supported for mixed dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyStringObj minOfProperty:@"self"],
+                              @"minOfProperty: is not supported for mixed dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyDataObj minOfProperty:@"self"],
+                              @"minOfProperty: is not supported for mixed dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyObjectIdObj minOfProperty:@"self"],
+                              @"minOfProperty: is not supported for mixed dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyUUIDObj minOfProperty:@"self"],
+                              @"minOfProperty: is not supported for mixed dictionary");
     RLMAssertThrowsWithReason([managed.boolObj minOfProperty:@"self"],
                               @"minOfProperty: is not supported for bool dictionary 'AllPrimitiveDictionaries.boolObj'");
     RLMAssertThrowsWithReason([optManaged.boolObj minOfProperty:@"self"],
@@ -1236,6 +2722,22 @@ static double average(NSDictionary *dictionary) {
     XCTAssertNil([optUnmanaged.dateObj minOfProperty:@"self"]);
     XCTAssertNil([managed.dateObj minOfProperty:@"self"]);
     XCTAssertNil([optManaged.dateObj minOfProperty:@"self"]);
+    XCTAssertNil([unmanaged.floatObj minOfProperty:@"self"]);
+    XCTAssertNil([optUnmanaged.floatObj minOfProperty:@"self"]);
+    XCTAssertNil([managed.floatObj minOfProperty:@"self"]);
+    XCTAssertNil([optManaged.floatObj minOfProperty:@"self"]);
+    XCTAssertNil([unmanaged.doubleObj minOfProperty:@"self"]);
+    XCTAssertNil([optUnmanaged.doubleObj minOfProperty:@"self"]);
+    XCTAssertNil([managed.doubleObj minOfProperty:@"self"]);
+    XCTAssertNil([optManaged.doubleObj minOfProperty:@"self"]);
+    XCTAssertNil([unmanaged.decimalObj minOfProperty:@"self"]);
+    XCTAssertNil([optUnmanaged.decimalObj minOfProperty:@"self"]);
+    XCTAssertNil([managed.decimalObj minOfProperty:@"self"]);
+    XCTAssertNil([optManaged.decimalObj minOfProperty:@"self"]);
+    XCTAssertNil([unmanaged.anyFloatObj minOfProperty:@"self"]);
+    XCTAssertNil([unmanaged.anyDoubleObj minOfProperty:@"self"]);
+    XCTAssertNil([unmanaged.anyDateObj minOfProperty:@"self"]);
+    XCTAssertNil([unmanaged.anyDecimalObj minOfProperty:@"self"]);
 
     [self addObjects];
 
@@ -1247,6 +2749,22 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqualObjects([optUnmanaged.dateObj minOfProperty:@"self"], date(1));
     XCTAssertEqualObjects([managed.dateObj minOfProperty:@"self"], date(1));
     XCTAssertEqualObjects([optManaged.dateObj minOfProperty:@"self"], date(1));
+    XCTAssertEqualObjects([unmanaged.floatObj minOfProperty:@"self"], @2.2f);
+    XCTAssertEqualObjects([optUnmanaged.floatObj minOfProperty:@"self"], @2.2f);
+    XCTAssertEqualObjects([managed.floatObj minOfProperty:@"self"], @2.2f);
+    XCTAssertEqualObjects([optManaged.floatObj minOfProperty:@"self"], @2.2f);
+    XCTAssertEqualObjects([unmanaged.doubleObj minOfProperty:@"self"], @2.2);
+    XCTAssertEqualObjects([optUnmanaged.doubleObj minOfProperty:@"self"], @2.2);
+    XCTAssertEqualObjects([managed.doubleObj minOfProperty:@"self"], @2.2);
+    XCTAssertEqualObjects([optManaged.doubleObj minOfProperty:@"self"], @2.2);
+    XCTAssertEqualObjects([unmanaged.decimalObj minOfProperty:@"self"], decimal128(2));
+    XCTAssertEqualObjects([optUnmanaged.decimalObj minOfProperty:@"self"], decimal128(2));
+    XCTAssertEqualObjects([managed.decimalObj minOfProperty:@"self"], decimal128(2));
+    XCTAssertEqualObjects([optManaged.decimalObj minOfProperty:@"self"], decimal128(2));
+    XCTAssertEqualObjects([unmanaged.anyFloatObj minOfProperty:@"self"], @2.2f);
+    XCTAssertEqualObjects([unmanaged.anyDoubleObj minOfProperty:@"self"], @2.2);
+    XCTAssertEqualObjects([unmanaged.anyDateObj minOfProperty:@"self"], date(1));
+    XCTAssertEqualObjects([unmanaged.anyDecimalObj minOfProperty:@"self"], decimal128(2));
 }
 
 - (void)testMax {
@@ -1258,6 +2776,30 @@ static double average(NSDictionary *dictionary) {
                               @"maxOfProperty: is not supported for string dictionary");
     RLMAssertThrowsWithReason([optUnmanaged.stringObj maxOfProperty:@"self"],
                               @"maxOfProperty: is not supported for string? dictionary");
+    RLMAssertThrowsWithReason([unmanaged.dataObj maxOfProperty:@"self"],
+                              @"maxOfProperty: is not supported for data dictionary");
+    RLMAssertThrowsWithReason([optUnmanaged.dataObj maxOfProperty:@"self"],
+                              @"maxOfProperty: is not supported for data? dictionary");
+    RLMAssertThrowsWithReason([unmanaged.objectIdObj maxOfProperty:@"self"],
+                              @"maxOfProperty: is not supported for object id dictionary");
+    RLMAssertThrowsWithReason([optUnmanaged.objectIdObj maxOfProperty:@"self"],
+                              @"maxOfProperty: is not supported for object id? dictionary");
+    RLMAssertThrowsWithReason([unmanaged.uuidObj maxOfProperty:@"self"],
+                              @"maxOfProperty: is not supported for uuid dictionary");
+    RLMAssertThrowsWithReason([optUnmanaged.uuidObj maxOfProperty:@"self"],
+                              @"maxOfProperty: is not supported for uuid? dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyBoolObj maxOfProperty:@"self"],
+                              @"maxOfProperty: is not supported for mixed dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyIntObj maxOfProperty:@"self"],
+                              @"maxOfProperty: is not supported for mixed dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyStringObj maxOfProperty:@"self"],
+                              @"maxOfProperty: is not supported for mixed dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyDataObj maxOfProperty:@"self"],
+                              @"maxOfProperty: is not supported for mixed dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyObjectIdObj maxOfProperty:@"self"],
+                              @"maxOfProperty: is not supported for mixed dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyUUIDObj maxOfProperty:@"self"],
+                              @"maxOfProperty: is not supported for mixed dictionary");
     RLMAssertThrowsWithReason([managed.boolObj maxOfProperty:@"self"],
                               @"maxOfProperty: is not supported for bool dictionary 'AllPrimitiveDictionaries.boolObj'");
     RLMAssertThrowsWithReason([optManaged.boolObj maxOfProperty:@"self"],
@@ -1275,6 +2817,22 @@ static double average(NSDictionary *dictionary) {
     XCTAssertNil([optUnmanaged.dateObj maxOfProperty:@"self"]);
     XCTAssertNil([managed.dateObj maxOfProperty:@"self"]);
     XCTAssertNil([optManaged.dateObj maxOfProperty:@"self"]);
+    XCTAssertNil([unmanaged.floatObj maxOfProperty:@"self"]);
+    XCTAssertNil([optUnmanaged.floatObj maxOfProperty:@"self"]);
+    XCTAssertNil([managed.floatObj maxOfProperty:@"self"]);
+    XCTAssertNil([optManaged.floatObj maxOfProperty:@"self"]);
+    XCTAssertNil([unmanaged.doubleObj maxOfProperty:@"self"]);
+    XCTAssertNil([optUnmanaged.doubleObj maxOfProperty:@"self"]);
+    XCTAssertNil([managed.doubleObj maxOfProperty:@"self"]);
+    XCTAssertNil([optManaged.doubleObj maxOfProperty:@"self"]);
+    XCTAssertNil([unmanaged.decimalObj maxOfProperty:@"self"]);
+    XCTAssertNil([optUnmanaged.decimalObj maxOfProperty:@"self"]);
+    XCTAssertNil([managed.decimalObj maxOfProperty:@"self"]);
+    XCTAssertNil([optManaged.decimalObj maxOfProperty:@"self"]);
+    XCTAssertNil([unmanaged.anyFloatObj maxOfProperty:@"self"]);
+    XCTAssertNil([unmanaged.anyDoubleObj maxOfProperty:@"self"]);
+    XCTAssertNil([unmanaged.anyDateObj maxOfProperty:@"self"]);
+    XCTAssertNil([unmanaged.anyDecimalObj maxOfProperty:@"self"]);
 
     [self addObjects];
 
@@ -1282,10 +2840,22 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqualObjects([managed.intObj maxOfProperty:@"self"], @3);
     XCTAssertEqualObjects([unmanaged.dateObj maxOfProperty:@"self"], date(2));
     XCTAssertEqualObjects([managed.dateObj maxOfProperty:@"self"], date(2));
+    XCTAssertEqualObjects([unmanaged.floatObj maxOfProperty:@"self"], @3.3f);
+    XCTAssertEqualObjects([managed.floatObj maxOfProperty:@"self"], @3.3f);
+    XCTAssertEqualObjects([unmanaged.doubleObj maxOfProperty:@"self"], @3.3);
+    XCTAssertEqualObjects([managed.doubleObj maxOfProperty:@"self"], @3.3);
+    XCTAssertEqualObjects([unmanaged.decimalObj maxOfProperty:@"self"], decimal128(3));
+    XCTAssertEqualObjects([managed.decimalObj maxOfProperty:@"self"], decimal128(3));
     XCTAssertEqualObjects([optUnmanaged.intObj maxOfProperty:@"self"], @2);
     XCTAssertEqualObjects([optManaged.intObj maxOfProperty:@"self"], @2);
     XCTAssertEqualObjects([optUnmanaged.dateObj maxOfProperty:@"self"], date(1));
     XCTAssertEqualObjects([optManaged.dateObj maxOfProperty:@"self"], date(1));
+    XCTAssertEqualObjects([optUnmanaged.floatObj maxOfProperty:@"self"], @2.2f);
+    XCTAssertEqualObjects([optManaged.floatObj maxOfProperty:@"self"], @2.2f);
+    XCTAssertEqualObjects([optUnmanaged.doubleObj maxOfProperty:@"self"], @2.2);
+    XCTAssertEqualObjects([optManaged.doubleObj maxOfProperty:@"self"], @2.2);
+    XCTAssertEqualObjects([optUnmanaged.decimalObj maxOfProperty:@"self"], decimal128(2));
+    XCTAssertEqualObjects([optManaged.decimalObj maxOfProperty:@"self"], decimal128(2));
 }
 
 - (void)testSum {
@@ -1301,6 +2871,30 @@ static double average(NSDictionary *dictionary) {
                               @"sumOfProperty: is not supported for date dictionary");
     RLMAssertThrowsWithReason([optUnmanaged.dateObj sumOfProperty:@"self"],
                               @"sumOfProperty: is not supported for date? dictionary");
+    RLMAssertThrowsWithReason([unmanaged.dataObj sumOfProperty:@"self"],
+                              @"sumOfProperty: is not supported for data dictionary");
+    RLMAssertThrowsWithReason([optUnmanaged.dataObj sumOfProperty:@"self"],
+                              @"sumOfProperty: is not supported for data? dictionary");
+    RLMAssertThrowsWithReason([unmanaged.objectIdObj sumOfProperty:@"self"],
+                              @"sumOfProperty: is not supported for object id dictionary");
+    RLMAssertThrowsWithReason([optUnmanaged.objectIdObj sumOfProperty:@"self"],
+                              @"sumOfProperty: is not supported for object id? dictionary");
+    RLMAssertThrowsWithReason([unmanaged.uuidObj sumOfProperty:@"self"],
+                              @"sumOfProperty: is not supported for uuid dictionary");
+    RLMAssertThrowsWithReason([optUnmanaged.uuidObj sumOfProperty:@"self"],
+                              @"sumOfProperty: is not supported for uuid? dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyBoolObj sumOfProperty:@"self"],
+                              @"sumOfProperty: is not supported for mixed dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyStringObj sumOfProperty:@"self"],
+                              @"sumOfProperty: is not supported for mixed dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyDataObj sumOfProperty:@"self"],
+                              @"sumOfProperty: is not supported for mixed dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyDateObj sumOfProperty:@"self"],
+                              @"sumOfProperty: is not supported for mixed dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyObjectIdObj sumOfProperty:@"self"],
+                              @"sumOfProperty: is not supported for mixed dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyUUIDObj sumOfProperty:@"self"],
+                              @"sumOfProperty: is not supported for mixed dictionary");
     RLMAssertThrowsWithReason([managed.boolObj sumOfProperty:@"self"],
                               @"sumOfProperty: is not supported for bool dictionary 'AllPrimitiveDictionaries.boolObj'");
     RLMAssertThrowsWithReason([optManaged.boolObj sumOfProperty:@"self"],
@@ -1318,6 +2912,22 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqualObjects([optUnmanaged.intObj sumOfProperty:@"self"], @0);
     XCTAssertEqualObjects([managed.intObj sumOfProperty:@"self"], @0);
     XCTAssertEqualObjects([optManaged.intObj sumOfProperty:@"self"], @0);
+    XCTAssertEqualObjects([unmanaged.floatObj sumOfProperty:@"self"], @0);
+    XCTAssertEqualObjects([optUnmanaged.floatObj sumOfProperty:@"self"], @0);
+    XCTAssertEqualObjects([managed.floatObj sumOfProperty:@"self"], @0);
+    XCTAssertEqualObjects([optManaged.floatObj sumOfProperty:@"self"], @0);
+    XCTAssertEqualObjects([unmanaged.doubleObj sumOfProperty:@"self"], @0);
+    XCTAssertEqualObjects([optUnmanaged.doubleObj sumOfProperty:@"self"], @0);
+    XCTAssertEqualObjects([managed.doubleObj sumOfProperty:@"self"], @0);
+    XCTAssertEqualObjects([optManaged.doubleObj sumOfProperty:@"self"], @0);
+    XCTAssertEqualObjects([unmanaged.decimalObj sumOfProperty:@"self"], @0);
+    XCTAssertEqualObjects([optUnmanaged.decimalObj sumOfProperty:@"self"], @0);
+    XCTAssertEqualObjects([managed.decimalObj sumOfProperty:@"self"], @0);
+    XCTAssertEqualObjects([optManaged.decimalObj sumOfProperty:@"self"], @0);
+    XCTAssertEqualObjects([unmanaged.anyIntObj sumOfProperty:@"self"], @0);
+    XCTAssertEqualObjects([unmanaged.anyFloatObj sumOfProperty:@"self"], @0);
+    XCTAssertEqualObjects([unmanaged.anyDoubleObj sumOfProperty:@"self"], @0);
+    XCTAssertEqualObjects([unmanaged.anyDecimalObj sumOfProperty:@"self"], @0);
 
     [self addObjects];
 
@@ -1325,6 +2935,22 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqualWithAccuracy([optUnmanaged.intObj sumOfProperty:@"self"].doubleValue, sum(@{ @"key1": @2, @"key2": NSNull.null }), .001);
     XCTAssertEqualWithAccuracy([managed.intObj sumOfProperty:@"self"].doubleValue, sum(@{ @"key1": @2, @"key2": @3 }), .001);
     XCTAssertEqualWithAccuracy([optManaged.intObj sumOfProperty:@"self"].doubleValue, sum(@{ @"key1": @2, @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([unmanaged.floatObj sumOfProperty:@"self"].doubleValue, sum(@{ @"key1": @2.2f, @"key2": @3.3f }), .001);
+    XCTAssertEqualWithAccuracy([optUnmanaged.floatObj sumOfProperty:@"self"].doubleValue, sum(@{ @"key1": @2.2f, @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([managed.floatObj sumOfProperty:@"self"].doubleValue, sum(@{ @"key1": @2.2f, @"key2": @3.3f }), .001);
+    XCTAssertEqualWithAccuracy([optManaged.floatObj sumOfProperty:@"self"].doubleValue, sum(@{ @"key1": @2.2f, @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([unmanaged.doubleObj sumOfProperty:@"self"].doubleValue, sum(@{ @"key1": @2.2, @"key2": @3.3 }), .001);
+    XCTAssertEqualWithAccuracy([optUnmanaged.doubleObj sumOfProperty:@"self"].doubleValue, sum(@{ @"key1": @2.2, @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([managed.doubleObj sumOfProperty:@"self"].doubleValue, sum(@{ @"key1": @2.2, @"key2": @3.3 }), .001);
+    XCTAssertEqualWithAccuracy([optManaged.doubleObj sumOfProperty:@"self"].doubleValue, sum(@{ @"key1": @2.2, @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([unmanaged.decimalObj sumOfProperty:@"self"].doubleValue, sum(@{ @"key1": decimal128(2), @"key2": decimal128(3) }), .001);
+    XCTAssertEqualWithAccuracy([optUnmanaged.decimalObj sumOfProperty:@"self"].doubleValue, sum(@{ @"key1": decimal128(2), @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([managed.decimalObj sumOfProperty:@"self"].doubleValue, sum(@{ @"key1": decimal128(2), @"key2": decimal128(3) }), .001);
+    XCTAssertEqualWithAccuracy([optManaged.decimalObj sumOfProperty:@"self"].doubleValue, sum(@{ @"key1": decimal128(2), @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([unmanaged.anyIntObj sumOfProperty:@"self"].doubleValue, sum(@{ @"key1": @2, @"key2": @3 }), .001);
+    XCTAssertEqualWithAccuracy([unmanaged.anyFloatObj sumOfProperty:@"self"].doubleValue, sum(@{ @"key1": @2.2f, @"key2": @3.3f }), .001);
+    XCTAssertEqualWithAccuracy([unmanaged.anyDoubleObj sumOfProperty:@"self"].doubleValue, sum(@{ @"key1": @2.2, @"key2": @3.3 }), .001);
+    XCTAssertEqualWithAccuracy([unmanaged.anyDecimalObj sumOfProperty:@"self"].doubleValue, sum(@{ @"key1": decimal128(2), @"key2": decimal128(3) }), .001);
 }
 
 - (void)testAverage {
@@ -1340,6 +2966,30 @@ static double average(NSDictionary *dictionary) {
                               @"averageOfProperty: is not supported for date dictionary");
     RLMAssertThrowsWithReason([optUnmanaged.dateObj averageOfProperty:@"self"],
                               @"averageOfProperty: is not supported for date? dictionary");
+    RLMAssertThrowsWithReason([unmanaged.dataObj averageOfProperty:@"self"],
+                              @"averageOfProperty: is not supported for data dictionary");
+    RLMAssertThrowsWithReason([optUnmanaged.dataObj averageOfProperty:@"self"],
+                              @"averageOfProperty: is not supported for data? dictionary");
+    RLMAssertThrowsWithReason([unmanaged.objectIdObj averageOfProperty:@"self"],
+                              @"averageOfProperty: is not supported for object id dictionary");
+    RLMAssertThrowsWithReason([optUnmanaged.objectIdObj averageOfProperty:@"self"],
+                              @"averageOfProperty: is not supported for object id? dictionary");
+    RLMAssertThrowsWithReason([unmanaged.uuidObj averageOfProperty:@"self"],
+                              @"averageOfProperty: is not supported for uuid dictionary");
+    RLMAssertThrowsWithReason([optUnmanaged.uuidObj averageOfProperty:@"self"],
+                              @"averageOfProperty: is not supported for uuid? dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyBoolObj averageOfProperty:@"self"],
+                              @"averageOfProperty: is not supported for mixed dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyStringObj averageOfProperty:@"self"],
+                              @"averageOfProperty: is not supported for mixed dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyDataObj averageOfProperty:@"self"],
+                              @"averageOfProperty: is not supported for mixed dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyDateObj averageOfProperty:@"self"],
+                              @"averageOfProperty: is not supported for mixed dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyObjectIdObj averageOfProperty:@"self"],
+                              @"averageOfProperty: is not supported for mixed dictionary");
+    RLMAssertThrowsWithReason([unmanaged.anyUUIDObj averageOfProperty:@"self"],
+                              @"averageOfProperty: is not supported for mixed dictionary");
     RLMAssertThrowsWithReason([managed.boolObj averageOfProperty:@"self"],
                               @"averageOfProperty: is not supported for bool dictionary 'AllPrimitiveDictionaries.boolObj'");
     RLMAssertThrowsWithReason([optManaged.boolObj averageOfProperty:@"self"],
@@ -1357,6 +3007,22 @@ static double average(NSDictionary *dictionary) {
     XCTAssertNil([optUnmanaged.intObj averageOfProperty:@"self"]);
     XCTAssertNil([managed.intObj averageOfProperty:@"self"]);
     XCTAssertNil([optManaged.intObj averageOfProperty:@"self"]);
+    XCTAssertNil([unmanaged.floatObj averageOfProperty:@"self"]);
+    XCTAssertNil([optUnmanaged.floatObj averageOfProperty:@"self"]);
+    XCTAssertNil([managed.floatObj averageOfProperty:@"self"]);
+    XCTAssertNil([optManaged.floatObj averageOfProperty:@"self"]);
+    XCTAssertNil([unmanaged.doubleObj averageOfProperty:@"self"]);
+    XCTAssertNil([optUnmanaged.doubleObj averageOfProperty:@"self"]);
+    XCTAssertNil([managed.doubleObj averageOfProperty:@"self"]);
+    XCTAssertNil([optManaged.doubleObj averageOfProperty:@"self"]);
+    XCTAssertNil([unmanaged.decimalObj averageOfProperty:@"self"]);
+    XCTAssertNil([optUnmanaged.decimalObj averageOfProperty:@"self"]);
+    XCTAssertNil([managed.decimalObj averageOfProperty:@"self"]);
+    XCTAssertNil([optManaged.decimalObj averageOfProperty:@"self"]);
+    XCTAssertNil([unmanaged.anyIntObj averageOfProperty:@"self"]);
+    XCTAssertNil([unmanaged.anyFloatObj averageOfProperty:@"self"]);
+    XCTAssertNil([unmanaged.anyDoubleObj averageOfProperty:@"self"]);
+    XCTAssertNil([unmanaged.anyDecimalObj averageOfProperty:@"self"]);
 
     [self addObjects];
 
@@ -1364,8 +3030,24 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqualWithAccuracy([optUnmanaged.intObj averageOfProperty:@"self"].doubleValue, average(@{ @"key1": @2, @"key2": NSNull.null }), .001);
     XCTAssertEqualWithAccuracy([managed.intObj averageOfProperty:@"self"].doubleValue, average(@{ @"key1": @2, @"key2": @3 }), .001);
     XCTAssertEqualWithAccuracy([optManaged.intObj averageOfProperty:@"self"].doubleValue, average(@{ @"key1": @2, @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([unmanaged.floatObj averageOfProperty:@"self"].doubleValue, average(@{ @"key1": @2.2f, @"key2": @3.3f }), .001);
+    XCTAssertEqualWithAccuracy([optUnmanaged.floatObj averageOfProperty:@"self"].doubleValue, average(@{ @"key1": @2.2f, @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([managed.floatObj averageOfProperty:@"self"].doubleValue, average(@{ @"key1": @2.2f, @"key2": @3.3f }), .001);
+    XCTAssertEqualWithAccuracy([optManaged.floatObj averageOfProperty:@"self"].doubleValue, average(@{ @"key1": @2.2f, @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([unmanaged.doubleObj averageOfProperty:@"self"].doubleValue, average(@{ @"key1": @2.2, @"key2": @3.3 }), .001);
+    XCTAssertEqualWithAccuracy([optUnmanaged.doubleObj averageOfProperty:@"self"].doubleValue, average(@{ @"key1": @2.2, @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([managed.doubleObj averageOfProperty:@"self"].doubleValue, average(@{ @"key1": @2.2, @"key2": @3.3 }), .001);
+    XCTAssertEqualWithAccuracy([optManaged.doubleObj averageOfProperty:@"self"].doubleValue, average(@{ @"key1": @2.2, @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([unmanaged.decimalObj averageOfProperty:@"self"].doubleValue, average(@{ @"key1": decimal128(2), @"key2": decimal128(3) }), .001);
+    XCTAssertEqualWithAccuracy([optUnmanaged.decimalObj averageOfProperty:@"self"].doubleValue, average(@{ @"key1": decimal128(2), @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([managed.decimalObj averageOfProperty:@"self"].doubleValue, average(@{ @"key1": decimal128(2), @"key2": decimal128(3) }), .001);
+    XCTAssertEqualWithAccuracy([optManaged.decimalObj averageOfProperty:@"self"].doubleValue, average(@{ @"key1": decimal128(2), @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([unmanaged.anyIntObj averageOfProperty:@"self"].doubleValue, average(@{ @"key1": @2, @"key2": @3 }), .001);
+    XCTAssertEqualWithAccuracy([unmanaged.anyFloatObj averageOfProperty:@"self"].doubleValue, average(@{ @"key1": @2.2f, @"key2": @3.3f }), .001);
+    XCTAssertEqualWithAccuracy([unmanaged.anyDoubleObj averageOfProperty:@"self"].doubleValue, average(@{ @"key1": @2.2, @"key2": @3.3 }), .001);
+    XCTAssertEqualWithAccuracy([unmanaged.anyDecimalObj averageOfProperty:@"self"].doubleValue, average(@{ @"key1": decimal128(2), @"key2": decimal128(3) }), .001);
 }
-
+*/
 - (void)testFastEnumeration {
     for (int i = 0; i < 10; ++i) {
         [self addObjects];
@@ -1515,6 +3197,312 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqual(values.count, optManaged.dateObj.count);
     }
     
+    {
+    NSDictionary *values = @{ @"key1": @2.2f, @"key2": @3.3f };
+    for (id key in unmanaged.floatObj) {
+        id value = unmanaged.floatObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, unmanaged.floatObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": @2.2f, @"key2": NSNull.null };
+    for (id key in optUnmanaged.floatObj) {
+        id value = optUnmanaged.floatObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, optUnmanaged.floatObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": @2.2f, @"key2": @3.3f };
+    for (id key in managed.floatObj) {
+        id value = managed.floatObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, managed.floatObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": @2.2f, @"key2": NSNull.null };
+    for (id key in optManaged.floatObj) {
+        id value = optManaged.floatObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, optManaged.floatObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": @2.2, @"key2": @3.3 };
+    for (id key in unmanaged.doubleObj) {
+        id value = unmanaged.doubleObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, unmanaged.doubleObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": @2.2, @"key2": NSNull.null };
+    for (id key in optUnmanaged.doubleObj) {
+        id value = optUnmanaged.doubleObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, optUnmanaged.doubleObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": @2.2, @"key2": @3.3 };
+    for (id key in managed.doubleObj) {
+        id value = managed.doubleObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, managed.doubleObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": @2.2, @"key2": NSNull.null };
+    for (id key in optManaged.doubleObj) {
+        id value = optManaged.doubleObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, optManaged.doubleObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": data(1), @"key2": data(2) };
+    for (id key in unmanaged.dataObj) {
+        id value = unmanaged.dataObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, unmanaged.dataObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": data(1), @"key2": NSNull.null };
+    for (id key in optUnmanaged.dataObj) {
+        id value = optUnmanaged.dataObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, optUnmanaged.dataObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": data(1), @"key2": data(2) };
+    for (id key in managed.dataObj) {
+        id value = managed.dataObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, managed.dataObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": data(1), @"key2": NSNull.null };
+    for (id key in optManaged.dataObj) {
+        id value = optManaged.dataObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, optManaged.dataObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": decimal128(2), @"key2": decimal128(3) };
+    for (id key in unmanaged.decimalObj) {
+        id value = unmanaged.decimalObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, unmanaged.decimalObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": decimal128(2), @"key2": NSNull.null };
+    for (id key in optUnmanaged.decimalObj) {
+        id value = optUnmanaged.decimalObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, optUnmanaged.decimalObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": decimal128(2), @"key2": decimal128(3) };
+    for (id key in managed.decimalObj) {
+        id value = managed.decimalObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, managed.decimalObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": decimal128(2), @"key2": NSNull.null };
+    for (id key in optManaged.decimalObj) {
+        id value = optManaged.decimalObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, optManaged.decimalObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": objectId(1), @"key2": objectId(2) };
+    for (id key in unmanaged.objectIdObj) {
+        id value = unmanaged.objectIdObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, unmanaged.objectIdObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": objectId(1), @"key2": NSNull.null };
+    for (id key in optUnmanaged.objectIdObj) {
+        id value = optUnmanaged.objectIdObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, optUnmanaged.objectIdObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": objectId(1), @"key2": objectId(2) };
+    for (id key in managed.objectIdObj) {
+        id value = managed.objectIdObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, managed.objectIdObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": objectId(1), @"key2": NSNull.null };
+    for (id key in optManaged.objectIdObj) {
+        id value = optManaged.objectIdObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, optManaged.objectIdObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": uuid(@"137DECC8-B300-4954-A233-F89909F4FD89") };
+    for (id key in unmanaged.uuidObj) {
+        id value = unmanaged.uuidObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, unmanaged.uuidObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": NSNull.null };
+    for (id key in optUnmanaged.uuidObj) {
+        id value = optUnmanaged.uuidObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, optUnmanaged.uuidObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": uuid(@"137DECC8-B300-4954-A233-F89909F4FD89") };
+    for (id key in managed.uuidObj) {
+        id value = managed.uuidObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, managed.uuidObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": NSNull.null };
+    for (id key in optManaged.uuidObj) {
+        id value = optManaged.uuidObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, optManaged.uuidObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": @NO, @"key2": @YES };
+    for (id key in unmanaged.anyBoolObj) {
+        id value = unmanaged.anyBoolObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, unmanaged.anyBoolObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": @2, @"key2": @3 };
+    for (id key in unmanaged.anyIntObj) {
+        id value = unmanaged.anyIntObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, unmanaged.anyIntObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": @2.2f, @"key2": @3.3f };
+    for (id key in unmanaged.anyFloatObj) {
+        id value = unmanaged.anyFloatObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, unmanaged.anyFloatObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": @2.2, @"key2": @3.3 };
+    for (id key in unmanaged.anyDoubleObj) {
+        id value = unmanaged.anyDoubleObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, unmanaged.anyDoubleObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": @"a", @"key2": @"b" };
+    for (id key in unmanaged.anyStringObj) {
+        id value = unmanaged.anyStringObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, unmanaged.anyStringObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": data(1), @"key2": data(2) };
+    for (id key in unmanaged.anyDataObj) {
+        id value = unmanaged.anyDataObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, unmanaged.anyDataObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": date(1), @"key2": date(2) };
+    for (id key in unmanaged.anyDateObj) {
+        id value = unmanaged.anyDateObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, unmanaged.anyDateObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": decimal128(2), @"key2": decimal128(3) };
+    for (id key in unmanaged.anyDecimalObj) {
+        id value = unmanaged.anyDecimalObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, unmanaged.anyDecimalObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": objectId(1), @"key2": objectId(2) };
+    for (id key in unmanaged.anyObjectIdObj) {
+        id value = unmanaged.anyObjectIdObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, unmanaged.anyObjectIdObj.count);
+    }
+    
+    {
+    NSDictionary *values = @{ @"key1": uuid(@"00000000-0000-0000-0000-000000000000"), @"key2": uuid(@"137DECC8-B300-4954-A233-F89909F4FD89") };
+    for (id key in unmanaged.anyUUIDObj) {
+        id value = unmanaged.anyUUIDObj[key];
+        XCTAssertEqualObjects(values[key], value);
+    }
+    XCTAssertEqual(values.count, unmanaged.anyUUIDObj.count);
+    }
+    
 }
 
 - (void)testValueForKeyNumericAggregates {
@@ -1526,6 +3514,22 @@ static double average(NSDictionary *dictionary) {
     XCTAssertNil([optUnmanaged.dateObj valueForKeyPath:@"@min.self"]);
     XCTAssertNil([managed.dateObj valueForKeyPath:@"@min.self"]);
     XCTAssertNil([optManaged.dateObj valueForKeyPath:@"@min.self"]);
+    XCTAssertNil([unmanaged.floatObj valueForKeyPath:@"@min.self"]);
+    XCTAssertNil([optUnmanaged.floatObj valueForKeyPath:@"@min.self"]);
+    XCTAssertNil([managed.floatObj valueForKeyPath:@"@min.self"]);
+    XCTAssertNil([optManaged.floatObj valueForKeyPath:@"@min.self"]);
+    XCTAssertNil([unmanaged.doubleObj valueForKeyPath:@"@min.self"]);
+    XCTAssertNil([optUnmanaged.doubleObj valueForKeyPath:@"@min.self"]);
+    XCTAssertNil([managed.doubleObj valueForKeyPath:@"@min.self"]);
+    XCTAssertNil([optManaged.doubleObj valueForKeyPath:@"@min.self"]);
+    XCTAssertNil([unmanaged.decimalObj valueForKeyPath:@"@min.self"]);
+    XCTAssertNil([optUnmanaged.decimalObj valueForKeyPath:@"@min.self"]);
+    XCTAssertNil([managed.decimalObj valueForKeyPath:@"@min.self"]);
+    XCTAssertNil([optManaged.decimalObj valueForKeyPath:@"@min.self"]);
+    XCTAssertNil([unmanaged.anyFloatObj valueForKeyPath:@"@min.self"]);
+    XCTAssertNil([unmanaged.anyDoubleObj valueForKeyPath:@"@min.self"]);
+    XCTAssertNil([unmanaged.anyDateObj valueForKeyPath:@"@min.self"]);
+    XCTAssertNil([unmanaged.anyDecimalObj valueForKeyPath:@"@min.self"]);
     XCTAssertNil([unmanaged.intObj valueForKeyPath:@"@max.self"]);
     XCTAssertNil([optUnmanaged.intObj valueForKeyPath:@"@max.self"]);
     XCTAssertNil([managed.intObj valueForKeyPath:@"@max.self"]);
@@ -1534,14 +3538,62 @@ static double average(NSDictionary *dictionary) {
     XCTAssertNil([optUnmanaged.dateObj valueForKeyPath:@"@max.self"]);
     XCTAssertNil([managed.dateObj valueForKeyPath:@"@max.self"]);
     XCTAssertNil([optManaged.dateObj valueForKeyPath:@"@max.self"]);
+    XCTAssertNil([unmanaged.floatObj valueForKeyPath:@"@max.self"]);
+    XCTAssertNil([optUnmanaged.floatObj valueForKeyPath:@"@max.self"]);
+    XCTAssertNil([managed.floatObj valueForKeyPath:@"@max.self"]);
+    XCTAssertNil([optManaged.floatObj valueForKeyPath:@"@max.self"]);
+    XCTAssertNil([unmanaged.doubleObj valueForKeyPath:@"@max.self"]);
+    XCTAssertNil([optUnmanaged.doubleObj valueForKeyPath:@"@max.self"]);
+    XCTAssertNil([managed.doubleObj valueForKeyPath:@"@max.self"]);
+    XCTAssertNil([optManaged.doubleObj valueForKeyPath:@"@max.self"]);
+    XCTAssertNil([unmanaged.decimalObj valueForKeyPath:@"@max.self"]);
+    XCTAssertNil([optUnmanaged.decimalObj valueForKeyPath:@"@max.self"]);
+    XCTAssertNil([managed.decimalObj valueForKeyPath:@"@max.self"]);
+    XCTAssertNil([optManaged.decimalObj valueForKeyPath:@"@max.self"]);
+    XCTAssertNil([unmanaged.anyFloatObj valueForKeyPath:@"@max.self"]);
+    XCTAssertNil([unmanaged.anyDoubleObj valueForKeyPath:@"@max.self"]);
+    XCTAssertNil([unmanaged.anyDateObj valueForKeyPath:@"@max.self"]);
+    XCTAssertNil([unmanaged.anyDecimalObj valueForKeyPath:@"@max.self"]);
     XCTAssertNil([unmanaged.intObj valueForKeyPath:@"@sum.self"]);
     XCTAssertNil([optUnmanaged.intObj valueForKeyPath:@"@sum.self"]);
     XCTAssertNil([managed.intObj valueForKeyPath:@"@sum.self"]);
     XCTAssertNil([optManaged.intObj valueForKeyPath:@"@sum.self"]);
+    XCTAssertNil([unmanaged.floatObj valueForKeyPath:@"@sum.self"]);
+    XCTAssertNil([optUnmanaged.floatObj valueForKeyPath:@"@sum.self"]);
+    XCTAssertNil([managed.floatObj valueForKeyPath:@"@sum.self"]);
+    XCTAssertNil([optManaged.floatObj valueForKeyPath:@"@sum.self"]);
+    XCTAssertNil([unmanaged.doubleObj valueForKeyPath:@"@sum.self"]);
+    XCTAssertNil([optUnmanaged.doubleObj valueForKeyPath:@"@sum.self"]);
+    XCTAssertNil([managed.doubleObj valueForKeyPath:@"@sum.self"]);
+    XCTAssertNil([optManaged.doubleObj valueForKeyPath:@"@sum.self"]);
+    XCTAssertNil([unmanaged.decimalObj valueForKeyPath:@"@sum.self"]);
+    XCTAssertNil([optUnmanaged.decimalObj valueForKeyPath:@"@sum.self"]);
+    XCTAssertNil([managed.decimalObj valueForKeyPath:@"@sum.self"]);
+    XCTAssertNil([optManaged.decimalObj valueForKeyPath:@"@sum.self"]);
+    XCTAssertNil([unmanaged.anyIntObj valueForKeyPath:@"@sum.self"]);
+    XCTAssertNil([unmanaged.anyFloatObj valueForKeyPath:@"@sum.self"]);
+    XCTAssertNil([unmanaged.anyDoubleObj valueForKeyPath:@"@sum.self"]);
+    XCTAssertNil([unmanaged.anyDecimalObj valueForKeyPath:@"@sum.self"]);
     XCTAssertNil([unmanaged.intObj valueForKeyPath:@"@avg.self"]);
     XCTAssertNil([optUnmanaged.intObj valueForKeyPath:@"@avg.self"]);
     XCTAssertNil([managed.intObj valueForKeyPath:@"@avg.self"]);
     XCTAssertNil([optManaged.intObj valueForKeyPath:@"@avg.self"]);
+    XCTAssertNil([unmanaged.floatObj valueForKeyPath:@"@avg.self"]);
+    XCTAssertNil([optUnmanaged.floatObj valueForKeyPath:@"@avg.self"]);
+    XCTAssertNil([managed.floatObj valueForKeyPath:@"@avg.self"]);
+    XCTAssertNil([optManaged.floatObj valueForKeyPath:@"@avg.self"]);
+    XCTAssertNil([unmanaged.doubleObj valueForKeyPath:@"@avg.self"]);
+    XCTAssertNil([optUnmanaged.doubleObj valueForKeyPath:@"@avg.self"]);
+    XCTAssertNil([managed.doubleObj valueForKeyPath:@"@avg.self"]);
+    XCTAssertNil([optManaged.doubleObj valueForKeyPath:@"@avg.self"]);
+    XCTAssertNil([unmanaged.decimalObj valueForKeyPath:@"@avg.self"]);
+    XCTAssertNil([optUnmanaged.decimalObj valueForKeyPath:@"@avg.self"]);
+    XCTAssertNil([managed.decimalObj valueForKeyPath:@"@avg.self"]);
+    XCTAssertNil([optManaged.decimalObj valueForKeyPath:@"@avg.self"]);
+    XCTAssertNil([unmanaged.anyIntObj valueForKeyPath:@"@avg.self"]);
+    XCTAssertNil([unmanaged.anyFloatObj valueForKeyPath:@"@avg.self"]);
+    XCTAssertNil([unmanaged.anyDoubleObj valueForKeyPath:@"@avg.self"]);
+    XCTAssertNil([unmanaged.anyDecimalObj valueForKeyPath:@"@avg.self"]);
 
     [self addObjects];
 
@@ -1553,22 +3605,82 @@ static double average(NSDictionary *dictionary) {
     XCTAssertEqualObjects([optUnmanaged.dateObj valueForKeyPath:@"@min.self"], date(1));
     XCTAssertEqualObjects([managed.dateObj valueForKeyPath:@"@min.self"], date(1));
     XCTAssertEqualObjects([optManaged.dateObj valueForKeyPath:@"@min.self"], date(1));
+    XCTAssertEqualObjects([unmanaged.floatObj valueForKeyPath:@"@min.self"], @2.2f);
+    XCTAssertEqualObjects([optUnmanaged.floatObj valueForKeyPath:@"@min.self"], @2.2f);
+    XCTAssertEqualObjects([managed.floatObj valueForKeyPath:@"@min.self"], @2.2f);
+    XCTAssertEqualObjects([optManaged.floatObj valueForKeyPath:@"@min.self"], @2.2f);
+    XCTAssertEqualObjects([unmanaged.doubleObj valueForKeyPath:@"@min.self"], @2.2);
+    XCTAssertEqualObjects([optUnmanaged.doubleObj valueForKeyPath:@"@min.self"], @2.2);
+    XCTAssertEqualObjects([managed.doubleObj valueForKeyPath:@"@min.self"], @2.2);
+    XCTAssertEqualObjects([optManaged.doubleObj valueForKeyPath:@"@min.self"], @2.2);
+    XCTAssertEqualObjects([unmanaged.decimalObj valueForKeyPath:@"@min.self"], decimal128(2));
+    XCTAssertEqualObjects([optUnmanaged.decimalObj valueForKeyPath:@"@min.self"], decimal128(2));
+    XCTAssertEqualObjects([managed.decimalObj valueForKeyPath:@"@min.self"], decimal128(2));
+    XCTAssertEqualObjects([optManaged.decimalObj valueForKeyPath:@"@min.self"], decimal128(2));
+    XCTAssertEqualObjects([unmanaged.anyFloatObj valueForKeyPath:@"@min.self"], @2.2f);
+    XCTAssertEqualObjects([unmanaged.anyDoubleObj valueForKeyPath:@"@min.self"], @2.2);
+    XCTAssertEqualObjects([unmanaged.anyDateObj valueForKeyPath:@"@min.self"], date(1));
+    XCTAssertEqualObjects([unmanaged.anyDecimalObj valueForKeyPath:@"@min.self"], decimal128(2));
     XCTAssertEqualObjects([unmanaged.intObj valueForKeyPath:@"@max.self"], @3);
     XCTAssertEqualObjects([managed.intObj valueForKeyPath:@"@max.self"], @3);
     XCTAssertEqualObjects([unmanaged.dateObj valueForKeyPath:@"@max.self"], date(2));
     XCTAssertEqualObjects([managed.dateObj valueForKeyPath:@"@max.self"], date(2));
+    XCTAssertEqualObjects([unmanaged.floatObj valueForKeyPath:@"@max.self"], @3.3f);
+    XCTAssertEqualObjects([managed.floatObj valueForKeyPath:@"@max.self"], @3.3f);
+    XCTAssertEqualObjects([unmanaged.doubleObj valueForKeyPath:@"@max.self"], @3.3);
+    XCTAssertEqualObjects([managed.doubleObj valueForKeyPath:@"@max.self"], @3.3);
+    XCTAssertEqualObjects([unmanaged.decimalObj valueForKeyPath:@"@max.self"], decimal128(3));
+    XCTAssertEqualObjects([managed.decimalObj valueForKeyPath:@"@max.self"], decimal128(3));
     XCTAssertEqualObjects([optUnmanaged.intObj valueForKeyPath:@"@max.self"], @2);
     XCTAssertEqualObjects([optManaged.intObj valueForKeyPath:@"@max.self"], @2);
     XCTAssertEqualObjects([optUnmanaged.dateObj valueForKeyPath:@"@max.self"], date(1));
     XCTAssertEqualObjects([optManaged.dateObj valueForKeyPath:@"@max.self"], date(1));
+    XCTAssertEqualObjects([optUnmanaged.floatObj valueForKeyPath:@"@max.self"], @2.2f);
+    XCTAssertEqualObjects([optManaged.floatObj valueForKeyPath:@"@max.self"], @2.2f);
+    XCTAssertEqualObjects([optUnmanaged.doubleObj valueForKeyPath:@"@max.self"], @2.2);
+    XCTAssertEqualObjects([optManaged.doubleObj valueForKeyPath:@"@max.self"], @2.2);
+    XCTAssertEqualObjects([optUnmanaged.decimalObj valueForKeyPath:@"@max.self"], decimal128(2));
+    XCTAssertEqualObjects([optManaged.decimalObj valueForKeyPath:@"@max.self"], decimal128(2));
     XCTAssertEqualWithAccuracy([[unmanaged.intObj valueForKeyPath:@"@sum.self"] doubleValue], sum(@{ @"key1": @2, @"key2": @3 }), .001);
     XCTAssertEqualWithAccuracy([[optUnmanaged.intObj valueForKeyPath:@"@sum.self"] doubleValue], sum(@{ @"key1": @2, @"key2": NSNull.null }), .001);
     XCTAssertEqualWithAccuracy([[managed.intObj valueForKeyPath:@"@sum.self"] doubleValue], sum(@{ @"key1": @2, @"key2": @3 }), .001);
     XCTAssertEqualWithAccuracy([[optManaged.intObj valueForKeyPath:@"@sum.self"] doubleValue], sum(@{ @"key1": @2, @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([[unmanaged.floatObj valueForKeyPath:@"@sum.self"] doubleValue], sum(@{ @"key1": @2.2f, @"key2": @3.3f }), .001);
+    XCTAssertEqualWithAccuracy([[optUnmanaged.floatObj valueForKeyPath:@"@sum.self"] doubleValue], sum(@{ @"key1": @2.2f, @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([[managed.floatObj valueForKeyPath:@"@sum.self"] doubleValue], sum(@{ @"key1": @2.2f, @"key2": @3.3f }), .001);
+    XCTAssertEqualWithAccuracy([[optManaged.floatObj valueForKeyPath:@"@sum.self"] doubleValue], sum(@{ @"key1": @2.2f, @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([[unmanaged.doubleObj valueForKeyPath:@"@sum.self"] doubleValue], sum(@{ @"key1": @2.2, @"key2": @3.3 }), .001);
+    XCTAssertEqualWithAccuracy([[optUnmanaged.doubleObj valueForKeyPath:@"@sum.self"] doubleValue], sum(@{ @"key1": @2.2, @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([[managed.doubleObj valueForKeyPath:@"@sum.self"] doubleValue], sum(@{ @"key1": @2.2, @"key2": @3.3 }), .001);
+    XCTAssertEqualWithAccuracy([[optManaged.doubleObj valueForKeyPath:@"@sum.self"] doubleValue], sum(@{ @"key1": @2.2, @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([[unmanaged.decimalObj valueForKeyPath:@"@sum.self"] doubleValue], sum(@{ @"key1": decimal128(2), @"key2": decimal128(3) }), .001);
+    XCTAssertEqualWithAccuracy([[optUnmanaged.decimalObj valueForKeyPath:@"@sum.self"] doubleValue], sum(@{ @"key1": decimal128(2), @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([[managed.decimalObj valueForKeyPath:@"@sum.self"] doubleValue], sum(@{ @"key1": decimal128(2), @"key2": decimal128(3) }), .001);
+    XCTAssertEqualWithAccuracy([[optManaged.decimalObj valueForKeyPath:@"@sum.self"] doubleValue], sum(@{ @"key1": decimal128(2), @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([[unmanaged.anyIntObj valueForKeyPath:@"@sum.self"] doubleValue], sum(@{ @"key1": @2, @"key2": @3 }), .001);
+    XCTAssertEqualWithAccuracy([[unmanaged.anyFloatObj valueForKeyPath:@"@sum.self"] doubleValue], sum(@{ @"key1": @2.2f, @"key2": @3.3f }), .001);
+    XCTAssertEqualWithAccuracy([[unmanaged.anyDoubleObj valueForKeyPath:@"@sum.self"] doubleValue], sum(@{ @"key1": @2.2, @"key2": @3.3 }), .001);
+    XCTAssertEqualWithAccuracy([[unmanaged.anyDecimalObj valueForKeyPath:@"@sum.self"] doubleValue], sum(@{ @"key1": decimal128(2), @"key2": decimal128(3) }), .001);
     XCTAssertEqualWithAccuracy([[unmanaged.intObj valueForKeyPath:@"@avg.self"] doubleValue], average(@{ @"key1": @2, @"key2": @3 }), .001);
     XCTAssertEqualWithAccuracy([[optUnmanaged.intObj valueForKeyPath:@"@avg.self"] doubleValue], average(@{ @"key1": @2, @"key2": NSNull.null }), .001);
     XCTAssertEqualWithAccuracy([[managed.intObj valueForKeyPath:@"@avg.self"] doubleValue], average(@{ @"key1": @2, @"key2": @3 }), .001);
     XCTAssertEqualWithAccuracy([[optManaged.intObj valueForKeyPath:@"@avg.self"] doubleValue], average(@{ @"key1": @2, @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([[unmanaged.floatObj valueForKeyPath:@"@avg.self"] doubleValue], average(@{ @"key1": @2.2f, @"key2": @3.3f }), .001);
+    XCTAssertEqualWithAccuracy([[optUnmanaged.floatObj valueForKeyPath:@"@avg.self"] doubleValue], average(@{ @"key1": @2.2f, @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([[managed.floatObj valueForKeyPath:@"@avg.self"] doubleValue], average(@{ @"key1": @2.2f, @"key2": @3.3f }), .001);
+    XCTAssertEqualWithAccuracy([[optManaged.floatObj valueForKeyPath:@"@avg.self"] doubleValue], average(@{ @"key1": @2.2f, @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([[unmanaged.doubleObj valueForKeyPath:@"@avg.self"] doubleValue], average(@{ @"key1": @2.2, @"key2": @3.3 }), .001);
+    XCTAssertEqualWithAccuracy([[optUnmanaged.doubleObj valueForKeyPath:@"@avg.self"] doubleValue], average(@{ @"key1": @2.2, @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([[managed.doubleObj valueForKeyPath:@"@avg.self"] doubleValue], average(@{ @"key1": @2.2, @"key2": @3.3 }), .001);
+    XCTAssertEqualWithAccuracy([[optManaged.doubleObj valueForKeyPath:@"@avg.self"] doubleValue], average(@{ @"key1": @2.2, @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([[unmanaged.decimalObj valueForKeyPath:@"@avg.self"] doubleValue], average(@{ @"key1": decimal128(2), @"key2": decimal128(3) }), .001);
+    XCTAssertEqualWithAccuracy([[optUnmanaged.decimalObj valueForKeyPath:@"@avg.self"] doubleValue], average(@{ @"key1": decimal128(2), @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([[managed.decimalObj valueForKeyPath:@"@avg.self"] doubleValue], average(@{ @"key1": decimal128(2), @"key2": decimal128(3) }), .001);
+    XCTAssertEqualWithAccuracy([[optManaged.decimalObj valueForKeyPath:@"@avg.self"] doubleValue], average(@{ @"key1": decimal128(2), @"key2": NSNull.null }), .001);
+    XCTAssertEqualWithAccuracy([[unmanaged.anyIntObj valueForKeyPath:@"@avg.self"] doubleValue], average(@{ @"key1": @2, @"key2": @3 }), .001);
+    XCTAssertEqualWithAccuracy([[unmanaged.anyFloatObj valueForKeyPath:@"@avg.self"] doubleValue], average(@{ @"key1": @2.2f, @"key2": @3.3f }), .001);
+    XCTAssertEqualWithAccuracy([[unmanaged.anyDoubleObj valueForKeyPath:@"@avg.self"] doubleValue], average(@{ @"key1": @2.2, @"key2": @3.3 }), .001);
+    XCTAssertEqualWithAccuracy([[unmanaged.anyDecimalObj valueForKeyPath:@"@avg.self"] doubleValue], average(@{ @"key1": decimal128(2), @"key2": decimal128(3) }), .001);
 }
 
 // Sort the distinct results to match the order used in values, as it
@@ -1642,6 +3754,74 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
                               @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'date'");
     RLMAssertThrowsWithReason([optManaged.dateObj setValue:@"a" forKey:@"key1"],
                               @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'date?'");
+    RLMAssertThrowsWithReason([unmanaged.floatObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'float'");
+    RLMAssertThrowsWithReason([optUnmanaged.floatObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'float?'");
+    RLMAssertThrowsWithReason([managed.floatObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'float'");
+    RLMAssertThrowsWithReason([optManaged.floatObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'float?'");
+    RLMAssertThrowsWithReason([unmanaged.doubleObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'double'");
+    RLMAssertThrowsWithReason([optUnmanaged.doubleObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'double?'");
+    RLMAssertThrowsWithReason([managed.doubleObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'double'");
+    RLMAssertThrowsWithReason([optManaged.doubleObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'double?'");
+    RLMAssertThrowsWithReason([unmanaged.dataObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'data'");
+    RLMAssertThrowsWithReason([optUnmanaged.dataObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'data?'");
+    RLMAssertThrowsWithReason([managed.dataObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'data'");
+    RLMAssertThrowsWithReason([optManaged.dataObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'data?'");
+    RLMAssertThrowsWithReason([unmanaged.decimalObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'decimal128'");
+    RLMAssertThrowsWithReason([optUnmanaged.decimalObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'decimal128?'");
+    RLMAssertThrowsWithReason([managed.decimalObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'decimal128'");
+    RLMAssertThrowsWithReason([optManaged.decimalObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'decimal128?'");
+    RLMAssertThrowsWithReason([unmanaged.objectIdObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'object id'");
+    RLMAssertThrowsWithReason([optUnmanaged.objectIdObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'object id?'");
+    RLMAssertThrowsWithReason([managed.objectIdObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'object id'");
+    RLMAssertThrowsWithReason([optManaged.objectIdObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'object id?'");
+    RLMAssertThrowsWithReason([unmanaged.uuidObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'uuid'");
+    RLMAssertThrowsWithReason([optUnmanaged.uuidObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'uuid?'");
+    RLMAssertThrowsWithReason([managed.uuidObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'uuid'");
+    RLMAssertThrowsWithReason([optManaged.uuidObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'uuid?'");
+    RLMAssertThrowsWithReason([unmanaged.anyBoolObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyIntObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyFloatObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyDoubleObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyStringObj setValue:@2 forKey:@"key1"],
+                              @"Invalid value '2' of type '__NSCFNumber' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyDataObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyDateObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyDecimalObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyObjectIdObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
+    RLMAssertThrowsWithReason([unmanaged.anyUUIDObj setValue:@"a" forKey:@"key1"],
+                              @"Invalid value 'a' of type '__NSCFConstantString' for expected type 'mixed'");
     RLMAssertThrowsWithReason([unmanaged.boolObj setValue:NSNull.null forKey:@"self"],
                               @"Invalid value '<null>' of type 'NSNull' for expected type 'bool'");
     RLMAssertThrowsWithReason([managed.boolObj setValue:NSNull.null forKey:@"self"],
@@ -1658,6 +3838,30 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
                               @"Invalid value '<null>' of type 'NSNull' for expected type 'date'");
     RLMAssertThrowsWithReason([managed.dateObj setValue:NSNull.null forKey:@"self"],
                               @"Invalid value '<null>' of type 'NSNull' for expected type 'date'");
+    RLMAssertThrowsWithReason([unmanaged.floatObj setValue:NSNull.null forKey:@"self"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'float'");
+    RLMAssertThrowsWithReason([managed.floatObj setValue:NSNull.null forKey:@"self"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'float'");
+    RLMAssertThrowsWithReason([unmanaged.doubleObj setValue:NSNull.null forKey:@"self"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'double'");
+    RLMAssertThrowsWithReason([managed.doubleObj setValue:NSNull.null forKey:@"self"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'double'");
+    RLMAssertThrowsWithReason([unmanaged.dataObj setValue:NSNull.null forKey:@"self"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'data'");
+    RLMAssertThrowsWithReason([managed.dataObj setValue:NSNull.null forKey:@"self"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'data'");
+    RLMAssertThrowsWithReason([unmanaged.decimalObj setValue:NSNull.null forKey:@"self"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'decimal128'");
+    RLMAssertThrowsWithReason([managed.decimalObj setValue:NSNull.null forKey:@"self"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'decimal128'");
+    RLMAssertThrowsWithReason([unmanaged.objectIdObj setValue:NSNull.null forKey:@"self"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'object id'");
+    RLMAssertThrowsWithReason([managed.objectIdObj setValue:NSNull.null forKey:@"self"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'object id'");
+    RLMAssertThrowsWithReason([unmanaged.uuidObj setValue:NSNull.null forKey:@"self"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'uuid'");
+    RLMAssertThrowsWithReason([managed.uuidObj setValue:NSNull.null forKey:@"self"],
+                              @"Invalid value '<null>' of type 'NSNull' for expected type 'uuid'");
 
     [self addObjects];
 
@@ -1677,6 +3881,40 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
     XCTAssertEqualObjects(optUnmanaged.dateObj[@"key1"], date(1));
     XCTAssertEqualObjects(managed.dateObj[@"key1"], date(1));
     XCTAssertEqualObjects(optManaged.dateObj[@"key1"], date(1));
+    XCTAssertEqualObjects(unmanaged.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(optUnmanaged.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(managed.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(optManaged.floatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(unmanaged.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(optUnmanaged.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(managed.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(optManaged.doubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(unmanaged.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(optUnmanaged.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(managed.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(optManaged.dataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(unmanaged.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(optUnmanaged.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(managed.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(optManaged.decimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(unmanaged.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(optUnmanaged.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(managed.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(optManaged.objectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(unmanaged.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(optUnmanaged.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(managed.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(optManaged.uuidObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
+    XCTAssertEqualObjects(unmanaged.anyBoolObj[@"key1"], @NO);
+    XCTAssertEqualObjects(unmanaged.anyIntObj[@"key1"], @2);
+    XCTAssertEqualObjects(unmanaged.anyFloatObj[@"key1"], @2.2f);
+    XCTAssertEqualObjects(unmanaged.anyDoubleObj[@"key1"], @2.2);
+    XCTAssertEqualObjects(unmanaged.anyStringObj[@"key1"], @"a");
+    XCTAssertEqualObjects(unmanaged.anyDataObj[@"key1"], data(1));
+    XCTAssertEqualObjects(unmanaged.anyDateObj[@"key1"], date(1));
+    XCTAssertEqualObjects(unmanaged.anyDecimalObj[@"key1"], decimal128(2));
+    XCTAssertEqualObjects(unmanaged.anyObjectIdObj[@"key1"], objectId(1));
+    XCTAssertEqualObjects(unmanaged.anyUUIDObj[@"key1"], uuid(@"00000000-0000-0000-0000-000000000000"));
 
     [optUnmanaged.boolObj setValue:NSNull.null forKey:@"key1"];
     [optManaged.boolObj setValue:NSNull.null forKey:@"key1"];
@@ -1686,6 +3924,18 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
     [optManaged.stringObj setValue:NSNull.null forKey:@"key1"];
     [optUnmanaged.dateObj setValue:NSNull.null forKey:@"key1"];
     [optManaged.dateObj setValue:NSNull.null forKey:@"key1"];
+    [optUnmanaged.floatObj setValue:NSNull.null forKey:@"key1"];
+    [optManaged.floatObj setValue:NSNull.null forKey:@"key1"];
+    [optUnmanaged.doubleObj setValue:NSNull.null forKey:@"key1"];
+    [optManaged.doubleObj setValue:NSNull.null forKey:@"key1"];
+    [optUnmanaged.dataObj setValue:NSNull.null forKey:@"key1"];
+    [optManaged.dataObj setValue:NSNull.null forKey:@"key1"];
+    [optUnmanaged.decimalObj setValue:NSNull.null forKey:@"key1"];
+    [optManaged.decimalObj setValue:NSNull.null forKey:@"key1"];
+    [optUnmanaged.objectIdObj setValue:NSNull.null forKey:@"key1"];
+    [optManaged.objectIdObj setValue:NSNull.null forKey:@"key1"];
+    [optUnmanaged.uuidObj setValue:NSNull.null forKey:@"key1"];
+    [optManaged.uuidObj setValue:NSNull.null forKey:@"key1"];
     XCTAssertEqualObjects(optUnmanaged.boolObj[@"key1"], NSNull.null);
     XCTAssertEqualObjects(optManaged.boolObj[@"key1"], NSNull.null);
     XCTAssertEqualObjects(optUnmanaged.intObj[@"key1"], NSNull.null);
@@ -1694,6 +3944,18 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
     XCTAssertEqualObjects(optManaged.stringObj[@"key1"], NSNull.null);
     XCTAssertEqualObjects(optUnmanaged.dateObj[@"key1"], NSNull.null);
     XCTAssertEqualObjects(optManaged.dateObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optUnmanaged.floatObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optManaged.floatObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optUnmanaged.doubleObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optManaged.doubleObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optUnmanaged.dataObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optManaged.dataObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optUnmanaged.decimalObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optManaged.decimalObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optUnmanaged.objectIdObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optManaged.objectIdObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optUnmanaged.uuidObj[@"key1"], NSNull.null);
+    XCTAssertEqualObjects(optManaged.uuidObj[@"key1"], NSNull.null);
 }
 
 - (void)testAssignment {
@@ -1729,6 +3991,74 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
     XCTAssertEqualObjects(managed.dateObj[@"key2"], date(2));
     optManaged.dateObj = (id)@{@"key2": NSNull.null};
     XCTAssertEqualObjects(optManaged.dateObj[@"key2"], NSNull.null);
+    unmanaged.floatObj = (id)@{@"key2": @3.3f};
+    XCTAssertEqualObjects(unmanaged.floatObj[@"key2"], @3.3f);
+    optUnmanaged.floatObj = (id)@{@"key2": NSNull.null};
+    XCTAssertEqualObjects(optUnmanaged.floatObj[@"key2"], NSNull.null);
+    managed.floatObj = (id)@{@"key2": @3.3f};
+    XCTAssertEqualObjects(managed.floatObj[@"key2"], @3.3f);
+    optManaged.floatObj = (id)@{@"key2": NSNull.null};
+    XCTAssertEqualObjects(optManaged.floatObj[@"key2"], NSNull.null);
+    unmanaged.doubleObj = (id)@{@"key2": @3.3};
+    XCTAssertEqualObjects(unmanaged.doubleObj[@"key2"], @3.3);
+    optUnmanaged.doubleObj = (id)@{@"key2": NSNull.null};
+    XCTAssertEqualObjects(optUnmanaged.doubleObj[@"key2"], NSNull.null);
+    managed.doubleObj = (id)@{@"key2": @3.3};
+    XCTAssertEqualObjects(managed.doubleObj[@"key2"], @3.3);
+    optManaged.doubleObj = (id)@{@"key2": NSNull.null};
+    XCTAssertEqualObjects(optManaged.doubleObj[@"key2"], NSNull.null);
+    unmanaged.dataObj = (id)@{@"key2": data(2)};
+    XCTAssertEqualObjects(unmanaged.dataObj[@"key2"], data(2));
+    optUnmanaged.dataObj = (id)@{@"key2": NSNull.null};
+    XCTAssertEqualObjects(optUnmanaged.dataObj[@"key2"], NSNull.null);
+    managed.dataObj = (id)@{@"key2": data(2)};
+    XCTAssertEqualObjects(managed.dataObj[@"key2"], data(2));
+    optManaged.dataObj = (id)@{@"key2": NSNull.null};
+    XCTAssertEqualObjects(optManaged.dataObj[@"key2"], NSNull.null);
+    unmanaged.decimalObj = (id)@{@"key2": decimal128(3)};
+    XCTAssertEqualObjects(unmanaged.decimalObj[@"key2"], decimal128(3));
+    optUnmanaged.decimalObj = (id)@{@"key2": NSNull.null};
+    XCTAssertEqualObjects(optUnmanaged.decimalObj[@"key2"], NSNull.null);
+    managed.decimalObj = (id)@{@"key2": decimal128(3)};
+    XCTAssertEqualObjects(managed.decimalObj[@"key2"], decimal128(3));
+    optManaged.decimalObj = (id)@{@"key2": NSNull.null};
+    XCTAssertEqualObjects(optManaged.decimalObj[@"key2"], NSNull.null);
+    unmanaged.objectIdObj = (id)@{@"key2": objectId(2)};
+    XCTAssertEqualObjects(unmanaged.objectIdObj[@"key2"], objectId(2));
+    optUnmanaged.objectIdObj = (id)@{@"key2": NSNull.null};
+    XCTAssertEqualObjects(optUnmanaged.objectIdObj[@"key2"], NSNull.null);
+    managed.objectIdObj = (id)@{@"key2": objectId(2)};
+    XCTAssertEqualObjects(managed.objectIdObj[@"key2"], objectId(2));
+    optManaged.objectIdObj = (id)@{@"key2": NSNull.null};
+    XCTAssertEqualObjects(optManaged.objectIdObj[@"key2"], NSNull.null);
+    unmanaged.uuidObj = (id)@{@"key2": uuid(@"137DECC8-B300-4954-A233-F89909F4FD89")};
+    XCTAssertEqualObjects(unmanaged.uuidObj[@"key2"], uuid(@"137DECC8-B300-4954-A233-F89909F4FD89"));
+    optUnmanaged.uuidObj = (id)@{@"key2": NSNull.null};
+    XCTAssertEqualObjects(optUnmanaged.uuidObj[@"key2"], NSNull.null);
+    managed.uuidObj = (id)@{@"key2": uuid(@"137DECC8-B300-4954-A233-F89909F4FD89")};
+    XCTAssertEqualObjects(managed.uuidObj[@"key2"], uuid(@"137DECC8-B300-4954-A233-F89909F4FD89"));
+    optManaged.uuidObj = (id)@{@"key2": NSNull.null};
+    XCTAssertEqualObjects(optManaged.uuidObj[@"key2"], NSNull.null);
+    unmanaged.anyBoolObj = (id)@{@"key2": @YES};
+    XCTAssertEqualObjects(unmanaged.anyBoolObj[@"key2"], @YES);
+    unmanaged.anyIntObj = (id)@{@"key2": @3};
+    XCTAssertEqualObjects(unmanaged.anyIntObj[@"key2"], @3);
+    unmanaged.anyFloatObj = (id)@{@"key2": @3.3f};
+    XCTAssertEqualObjects(unmanaged.anyFloatObj[@"key2"], @3.3f);
+    unmanaged.anyDoubleObj = (id)@{@"key2": @3.3};
+    XCTAssertEqualObjects(unmanaged.anyDoubleObj[@"key2"], @3.3);
+    unmanaged.anyStringObj = (id)@{@"key2": @"b"};
+    XCTAssertEqualObjects(unmanaged.anyStringObj[@"key2"], @"b");
+    unmanaged.anyDataObj = (id)@{@"key2": data(2)};
+    XCTAssertEqualObjects(unmanaged.anyDataObj[@"key2"], data(2));
+    unmanaged.anyDateObj = (id)@{@"key2": date(2)};
+    XCTAssertEqualObjects(unmanaged.anyDateObj[@"key2"], date(2));
+    unmanaged.anyDecimalObj = (id)@{@"key2": decimal128(3)};
+    XCTAssertEqualObjects(unmanaged.anyDecimalObj[@"key2"], decimal128(3));
+    unmanaged.anyObjectIdObj = (id)@{@"key2": objectId(2)};
+    XCTAssertEqualObjects(unmanaged.anyObjectIdObj[@"key2"], objectId(2));
+    unmanaged.anyUUIDObj = (id)@{@"key2": uuid(@"137DECC8-B300-4954-A233-F89909F4FD89")};
+    XCTAssertEqualObjects(unmanaged.anyUUIDObj[@"key2"], uuid(@"137DECC8-B300-4954-A233-F89909F4FD89"));
 
     [unmanaged.intObj removeAllObjects];
     unmanaged.intObj = managed.intObj;
@@ -2268,7 +4598,7 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
     RLMAssertCount(AllPrimitiveDictionaries, 1, @"dateObj.@count <= %@", @(2));
     RLMAssertCount(AllOptionalPrimitiveDictionaries, 1, @"dateObj.@count <= %@", @(2));
 }
-
+/*
 - (void)testQuerySum {
     [realm deleteAllObjects];
 
@@ -2322,9 +4652,9 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
     [AllOptionalPrimitiveDictionaries createInRealm:realm withValue:@{
         @"intObj": @{ @"key1": @2, @"key2": NSNull.null },
     }];
-//
-//    RLMAssertCount(AllPrimitiveDictionaries, 1U, @"intObj.@sum == %@", @0);
-//    RLMAssertCount(AllOptionalPrimitiveDictionaries, 1U, @"intObj.@sum == %@", @0);
+
+    RLMAssertCount(AllPrimitiveDictionaries, 1U, @"intObj.@sum == %@", @0);
+    RLMAssertCount(AllOptionalPrimitiveDictionaries, 1U, @"intObj.@sum == %@", @0);
     RLMAssertCount(AllPrimitiveDictionaries, 1U, @"intObj.@sum == %@", @2);
     RLMAssertCount(AllOptionalPrimitiveDictionaries, 1U, @"intObj.@sum == %@", @2);
     RLMAssertCount(AllPrimitiveDictionaries, 3U, @"intObj.@sum != %@", @2);
@@ -2542,7 +4872,7 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
     RLMAssertCount(AllPrimitiveDictionaries, 0U, @"dateObj.@max == %@", date(2));
     RLMAssertCount(AllOptionalPrimitiveDictionaries, 0U, @"dateObj.@max == %@", NSNull.null);
 }
-
+*/
 - (void)testQueryBasicOperatorsOverLink {
     [realm deleteAllObjects];
 

@@ -362,7 +362,7 @@ static double average(NSDictionary *dictionary) {
 - (void)testNotifications {
     %unman RLMAssertThrowsWithReason([$dictionary addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }], ^n @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
 }
-
+/*
 - (void)testMin {
     %nominmax %unman RLMAssertThrowsWithReason([$dictionary minOfProperty:@"self"], ^n @"minOfProperty: is not supported for $type dictionary");
     %nominmax %man RLMAssertThrowsWithReason([$dictionary minOfProperty:@"self"], ^n @"minOfProperty: is not supported for $type dictionary '$class.$prop'");
@@ -407,7 +407,7 @@ static double average(NSDictionary *dictionary) {
 
     %avg XCTAssertEqualWithAccuracy([$dictionary averageOfProperty:@"self"].doubleValue, average($values), .001);
 }
-
+*/
 - (void)testFastEnumeration {
     for (int i = 0; i < 10; ++i) {
         [self addObjects];
@@ -853,7 +853,7 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
     %man RLMAssertCount($class, 0, @"$prop.@count < %@", @(2));
     %man RLMAssertCount($class, 1, @"$prop.@count <= %@", @(2));
 }
-
+/*
 - (void)testQuerySum {
     [realm deleteAllObjects];
 
@@ -995,7 +995,7 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
     %minmax %man RLMAssertCount($class, 1U, @"$prop.@max == %@", $v0);
     %minmax %man RLMAssertCount($class, 0U, @"$prop.@max == %@", $v1);
 }
-
+*/
 - (void)testQueryBasicOperatorsOverLink {
     [realm deleteAllObjects];
 
