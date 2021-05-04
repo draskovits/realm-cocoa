@@ -488,7 +488,7 @@ public final class DynamicObject: Object {
  enum type must explicitly conform to this protocol. For example:
 
  ```
- @objc enum class MyEnum: Int, RealmEnum {
+ @objc enum MyEnum: Int, RealmEnum {
     case first = 1
     case second = 2
     case third = 7

@@ -1317,6 +1317,7 @@
 				5D660FE61BE98D670021E04F /* Object.swift */,
 				3FB6ABD62416A26100E318C2 /* ObjectId.swift */,
 				681EE34625EE8E5600A9DEC5 /* ObjectiveCSupport+AnyRealmValue.swift */,
+				CFAB27B4263F30C7005F6A73 /* MutableSet.swift */,
 				494566A8246E8C59000FD07F /* ObjectiveCSupport+BSON.swift */,
 				3FE5818422C2B4B900BA10E7 /* ObjectiveCSupport+Sync.swift */,
 				5B77EACD1DCC5614006AB51D /* ObjectiveCSupport.swift */,
@@ -2099,7 +2100,7 @@
 				CLASSPREFIX = RLM;
 				LastSwiftUpdateCheck = 1230;
 				LastTestingUpgradeCheck = 0510;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = Realm;
 				TargetAttributes = {
 					3F1A5E711992EB7400F45F4C = {
@@ -2521,6 +2522,7 @@
 				5B77EACE1DCC5614006AB51D /* ObjectiveCSupport.swift in Sources */,
 				535EA9E225B0919800DBF3CD /* SwiftUI.swift in Sources */,
 				5D660FF51BE98D670021E04F /* ObjectSchema.swift in Sources */,
+				CFAB27B5263F30C7005F6A73 /* MutableSet.swift in Sources */,
 				5D660FF61BE98D670021E04F /* Optional.swift in Sources */,
 				5D660FF71BE98D670021E04F /* Property.swift in Sources */,
 				5D660FF81BE98D670021E04F /* Realm.swift in Sources */,
@@ -2530,7 +2532,6 @@
 				68A7B91D2543538B00C703BC /* RLMSupport.swift in Sources */,
 				5D660FFC1BE98D670021E04F /* Schema.swift in Sources */,
 				5D660FFD1BE98D670021E04F /* SortDescriptor.swift in Sources */,
-				CF986D8F25AE3C980039D287 /* MutableSet.swift in Sources */,
 				1AFEF8431D52D2C900495005 /* Sync.swift in Sources */,
 				3F222C4E1E26F51300CA0713 /* ThreadSafeReference.swift in Sources */,
 				5D660FFE1BE98D670021E04F /* Util.swift in Sources */,
