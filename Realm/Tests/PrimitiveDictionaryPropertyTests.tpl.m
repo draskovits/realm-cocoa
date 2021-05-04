@@ -817,9 +817,12 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
 
     [self createObject];
 
-    %man %minmax RLMAssertCount($class, 1, @"ANY $prop BETWEEN %@", @[$v0, $v0]);
-    %man %minmax RLMAssertCount($class, 1, @"ANY $prop BETWEEN %@", @[$v0, $v1]);
-    %man %minmax RLMAssertCount($class, 0, @"ANY $prop BETWEEN %@", @[$v1, $v1]);
+    %r %man %minmax RLMAssertCount($class, 1, @"ANY $prop BETWEEN %@", @[$v0, $v0]);
+    %r %man %minmax RLMAssertCount($class, 1, @"ANY $prop BETWEEN %@", @[$v0, $v1]);
+    %r %man %minmax RLMAssertCount($class, 0, @"ANY $prop BETWEEN %@", @[$v1, $v1]);
+    %o %man %minmax RLMAssertCount($class, 1, @"ANY $prop BETWEEN %@", @[$v0, $v0]);
+    %o %man %minmax RLMAssertCount($class, 0, @"ANY $prop BETWEEN %@", @[$v0, $v1]);
+    %o %man %minmax RLMAssertCount($class, 0, @"ANY $prop BETWEEN %@", @[$v1, $v1]);
 }
 
 - (void)testQueryIn {
@@ -837,32 +840,18 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
     [realm deleteAllObjects];
 
     [AllPrimitiveDictionaries createInRealm:realm withValue:@{
-        %r %man @"$prop": @[],
+        %r %man @"$prop": $values,
     }];
     [AllOptionalPrimitiveDictionaries createInRealm:realm withValue:@{
-        %o %man @"$prop": @[],
-    }];
-    [AllPrimitiveDictionaries createInRealm:realm withValue:@{
-        %r %man @"$prop": @{@"0": $v0},
-    }];
-    [AllOptionalPrimitiveDictionaries createInRealm:realm withValue:@{
-        %o %man @"$prop": @{@"0": $v0},
-    }];
-    [AllPrimitiveDictionaries createInRealm:realm withValue:@{
-        %r %man @"$prop": @{@"0": $v0, @"1": $v0},
-    }];
-    [AllOptionalPrimitiveDictionaries createInRealm:realm withValue:@{
-        %o %man @"$prop": @{@"0": $v0, @"1": $v0},
+        %o %man @"$prop": $values,
     }];
 
-    for (unsigned int i = 0; i < 3; ++i) {
-        %man RLMAssertCount($class, 1U, @"$prop.@count == %@", @(i));
-        %man RLMAssertCount($class, 2U, @"$prop.@count != %@", @(i));
-        %man RLMAssertCount($class, 2 - i, @"$prop.@count > %@", @(i));
-        %man RLMAssertCount($class, 3 - i, @"$prop.@count >= %@", @(i));
-        %man RLMAssertCount($class, i, @"$prop.@count < %@", @(i));
-        %man RLMAssertCount($class, i + 1, @"$prop.@count <= %@", @(i));
-    }
+    %man RLMAssertCount($class, 1U, @"$prop.@count == %@", @(2));
+    %man RLMAssertCount($class, 0U, @"$prop.@count != %@", @(2));
+    %man RLMAssertCount($class, 0, @"$prop.@count > %@", @(2));
+    %man RLMAssertCount($class, 1, @"$prop.@count >= %@", @(2));
+    %man RLMAssertCount($class, 0, @"$prop.@count < %@", @(2));
+    %man RLMAssertCount($class, 1, @"$prop.@count <= %@", @(2));
 }
 
 - (void)testQuerySum {
@@ -882,22 +871,22 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
         %man %o %sum @"$prop": @[],
     }];
     [AllPrimitiveDictionaries createInRealm:realm withValue:@{
-        %man %r %sum @"$prop": @{@"0": $v0},
+        %man %r %sum @"$prop": @{$k0: $v0},
     }];
     [AllOptionalPrimitiveDictionaries createInRealm:realm withValue:@{
-        %man %o %sum @"$prop": @{@"0": $v0},
+        %man %o %sum @"$prop": @{$k0: $v0},
     }];
     [AllPrimitiveDictionaries createInRealm:realm withValue:@{
-        %man %r %sum @"$prop": @{@"0": $v0, @"1": $v0},
+        %man %r %sum @"$prop": $values,
     }];
     [AllOptionalPrimitiveDictionaries createInRealm:realm withValue:@{
-        %man %o %sum @"$prop": @{@"0": $v0, @"1": $v0},
+        %man %o %sum @"$prop": $values,
     }];
     [AllPrimitiveDictionaries createInRealm:realm withValue:@{
-        %man %r %sum @"$prop": @{@"0": $v0, @"1": $v0, @"2": $v0},
+        %man %r %sum @"$prop": $values,
     }];
     [AllOptionalPrimitiveDictionaries createInRealm:realm withValue:@{
-        %man %o %sum @"$prop": @{@"0": $v0, @"1": $v0, @"2": $v0},
+        %man %o %sum @"$prop": $values,
     }];
 
     %sum %man RLMAssertCount($class, 1U, @"$prop.@sum == %@", @0);
@@ -925,22 +914,22 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
         %man %o %avg @"$prop": @[],
     }];
     [AllPrimitiveDictionaries createInRealm:realm withValue:@{
-        %man %r %avg @"$prop": @{@"0": $v0},
+        %man %r %avg @"$prop": @{$k0: $v0},
     }];
     [AllOptionalPrimitiveDictionaries createInRealm:realm withValue:@{
-        %man %o %avg @"$prop": @{@"0": $v0},
+        %man %o %avg @"$prop": @{$k0: $v0},
     }];
     [AllPrimitiveDictionaries createInRealm:realm withValue:@{
-        %man %r %avg @"$prop": @{@"0": $v0, @"1": $v1},
+        %man %r %avg @"$prop": $values,
     }];
     [AllOptionalPrimitiveDictionaries createInRealm:realm withValue:@{
-        %man %o %avg @"$prop": @{@"0": $v0, @"1": $v1},
+        %man %o %avg @"$prop": $values,
     }];
     [AllPrimitiveDictionaries createInRealm:realm withValue:@{
-        %man %r %avg @"$prop": @{@"0": $v1},
+        %man %r %avg @"$prop": @{$k0: $v1},
     }];
     [AllOptionalPrimitiveDictionaries createInRealm:realm withValue:@{
-        %man %o %avg @"$prop": @{@"0": $v1},
+        %man %o %avg @"$prop": @{$k0: $v1},
     }];
 
     %avg %man RLMAssertCount($class, 1U, @"$prop.@avg == %@", NSNull.null);
@@ -967,7 +956,8 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
 
     // Only empty dictionarys, so count is zero
     %minmax %man RLMAssertCount($class, 0U, @"$prop.@min == %@", $v0);
-    %minmax %man RLMAssertCount($class, 0U, @"$prop.@min == %@", $v1);
+    %r %minmax %man RLMAssertCount($class, 0U, @"$prop.@min == %@", $v1);
+    %o %minmax %man RLMAssertCount($class, 1U, @"$prop.@min == %@", $v1);
 
     %minmax %man RLMAssertCount($class, 1U, @"$prop.@min == nil");
     %minmax %man RLMAssertCount($class, 1U, @"$prop.@min == %@", NSNull.null);
@@ -977,23 +967,6 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
     // One object where v0 is min and zero with v1
     %minmax %man RLMAssertCount($class, 1U, @"$prop.@min == %@", $v0);
     %minmax %man RLMAssertCount($class, 0U, @"$prop.@min == %@", $v1);
-
-    [self createObject];
-
-    // One object where v0 is min and one with v1
-    %minmax %man RLMAssertCount($class, 1U, @"$prop.@min == %@", $v0);
-    %minmax %man RLMAssertCount($class, 1U, @"$prop.@min == %@", $v1);
-
-    [AllPrimitiveDictionaries createInRealm:realm withValue:@{
-        %minmax %r %man @"$prop": @[$v1, $v0],
-    }];
-    [AllOptionalPrimitiveDictionaries createInRealm:realm withValue:@{
-        %minmax %o %man @"$prop": @[$v1, $v0],
-    }];
-
-    // New object with both v0 and v1 matches v0 but not v1
-    %minmax %man RLMAssertCount($class, 2U, @"$prop.@min == %@", $v0);
-    %minmax %man RLMAssertCount($class, 1U, @"$prop.@min == %@", $v1);
 }
 
 - (void)testQueryMax {
@@ -1021,23 +994,6 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
     // One object where v0 is min and zero with v1
     %minmax %man RLMAssertCount($class, 1U, @"$prop.@max == %@", $v0);
     %minmax %man RLMAssertCount($class, 0U, @"$prop.@max == %@", $v1);
-
-    [self createObject];
-
-    // One object where v0 is min and one with v1
-    %minmax %man RLMAssertCount($class, 1U, @"$prop.@max == %@", $v0);
-    %minmax %man RLMAssertCount($class, 1U, @"$prop.@max == %@", $v1);
-
-    [AllPrimitiveDictionaries createInRealm:realm withValue:@{
-        %minmax %r %man @"$prop": @[$v1, $v0],
-    }];
-    [AllOptionalPrimitiveDictionaries createInRealm:realm withValue:@{
-        %minmax %o %man @"$prop": @[$v1, $v0],
-    }];
-
-    // New object with both v0 and v1 matches v1 but not v0
-    %minmax %man RLMAssertCount($class, 1U, @"$prop.@max == %@", $v0);
-    %minmax %man RLMAssertCount($class, 2U, @"$prop.@max == %@", $v1);
 }
 
 - (void)testQueryBasicOperatorsOverLink {
@@ -1059,13 +1015,15 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
     %man %minmax RLMAssertCount(LinkTo$class, 0, @"ANY link.$prop > %@", $v0);
     %man %minmax RLMAssertCount(LinkTo$class, 1, @"ANY link.$prop >= %@", $v0);
     %man %minmax RLMAssertCount(LinkTo$class, 0, @"ANY link.$prop < %@", $v0);
-    %man %minmax RLMAssertCount(LinkTo$class, 1, @"ANY link.$prop < %@", $v1);
+    %r %man %minmax RLMAssertCount(LinkTo$class, 1, @"ANY link.$prop < %@", $v1);
+    %o %man %minmax RLMAssertCount(LinkTo$class, 0, @"ANY link.$prop < %@", $v1);
     %man %minmax RLMAssertCount(LinkTo$class, 1, @"ANY link.$prop <= %@", $v0);
 
     %man %nominmax RLMAssertThrowsWithReason(([LinkTo$class objectsInRealm:realm where:@"ANY link.$prop > %@", $v0]), ^n @"Operator '>' not supported for type '$basetype'");
 }
 
 - (void)testSubstringQueries {
+    [realm deleteAllObjects];
     NSArray *values = @[
         @"",
 
@@ -1082,13 +1040,13 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
 
     void (^create)(NSString *) = ^(NSString *value) {
         id obj = [AllPrimitiveDictionaries createInRealm:realm withValue:@{
-            @"stringObj": @[value],
-            @"dataObj": @[[value dataUsingEncoding:NSUTF8StringEncoding]]
+            @"stringObj": @{@"key": value},
+            @"dataObj": @{@"key": [value dataUsingEncoding:NSUTF8StringEncoding]}
         }];
         [LinkToAllPrimitiveDictionaries createInRealm:realm withValue:@[obj]];
         obj = [AllOptionalPrimitiveDictionaries createInRealm:realm withValue:@{
-            @"stringObj": @[value],
-            @"dataObj": @[[value dataUsingEncoding:NSUTF8StringEncoding]]
+            @"stringObj": @{@"key": value},
+            @"dataObj": @{@"key": [value dataUsingEncoding:NSUTF8StringEncoding]}
         }];
         [LinkToAllOptionalPrimitiveDictionaries createInRealm:realm withValue:@[obj]];
     };
@@ -1104,9 +1062,9 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
         NSData *data = [value dataUsingEncoding:NSUTF8StringEncoding];
 
         NSString *query = [NSString stringWithFormat:@"ANY stringObj %@ %%@", operator];
-        %man %string RLMAssertCount($class, count, query, value);
-        query = [NSString stringWithFormat:@"ANY link.stringObj %@ %%@", operator];
-        %man %string RLMAssertCount(LinkTo$class, count, query, value);
+//        %man %string RLMAssertCount($class, count, query, value);
+//        query = [NSString stringWithFormat:@"ANY link.stringObj %@ %%@", operator];
+//        %man %string RLMAssertCount(LinkTo$class, count, query, value);
 
         query = [NSString stringWithFormat:@"ANY dataObj %@ %%@", operator];
         %man %string RLMAssertCount($class, count, query, data);
