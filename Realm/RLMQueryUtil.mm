@@ -426,7 +426,7 @@ public:
             case AllValues:
                 valid = link_column().property().dictionary;
                 RLMPrecondition(valid, @"Invalid operator",
-                                @"@allValues is only be valid for dictionary");
+                                @"@allValues is only valid for dictionary");
 
                 return;
         }
