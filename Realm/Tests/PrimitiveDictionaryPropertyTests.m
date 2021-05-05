@@ -6280,13 +6280,13 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
         NSData *data = [value dataUsingEncoding:NSUTF8StringEncoding];
 
         NSString *query = [NSString stringWithFormat:@"ANY stringObj %@ %%@", operator];
-//        RLMAssertCount(AllPrimitiveDictionaries, count, query, value);
-//        RLMAssertCount(AllOptionalPrimitiveDictionaries, count, query, value);
-//        RLMAssertCount(AllPrimitiveDictionaries, count, query, value);
-//        query = [NSString stringWithFormat:@"ANY link.stringObj %@ %%@", operator];
-//        RLMAssertCount(LinkToAllPrimitiveDictionaries, count, query, value);
-//        RLMAssertCount(LinkToAllOptionalPrimitiveDictionaries, count, query, value);
-//        RLMAssertCount(LinkToAllPrimitiveDictionaries, count, query, value);
+        RLMAssertCount(AllPrimitiveDictionaries, count, query, value);
+        RLMAssertCount(AllOptionalPrimitiveDictionaries, count, query, value);
+        RLMAssertCount(AllPrimitiveDictionaries, count, query, value);
+        query = [NSString stringWithFormat:@"ANY link.stringObj %@ %%@", operator];
+        RLMAssertCount(LinkToAllPrimitiveDictionaries, count, query, value);
+        RLMAssertCount(LinkToAllOptionalPrimitiveDictionaries, count, query, value);
+        RLMAssertCount(LinkToAllPrimitiveDictionaries, count, query, value);
 
         query = [NSString stringWithFormat:@"ANY dataObj %@ %%@", operator];
         RLMAssertCount(AllPrimitiveDictionaries, count, query, data);

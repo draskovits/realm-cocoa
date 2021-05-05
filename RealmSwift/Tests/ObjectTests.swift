@@ -230,7 +230,7 @@ class ObjectTests: TestCase {
 
     func testIndexedProperties() {
         XCTAssertEqual(Object.indexedProperties(), [], "indexed properties should default to []")
-        XCTAssertEqual(SwiftIndexedPropertiesObject.indexedProperties().count, 11)
+        XCTAssertEqual(SwiftIndexedPropertiesObject.indexedProperties().count, 10)
 
         let objectSchema = SwiftIndexedPropertiesObject().objectSchema
         XCTAssertTrue(objectSchema["stringCol"]!.isIndexed)
