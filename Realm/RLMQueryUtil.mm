@@ -550,12 +550,6 @@ public:
                                T value);
 
     template <typename T>
-    void add_all_keys_diacritic_sensitive_string_constraint(NSPredicateOperatorType operatorType,
-                                                            NSComparisonPredicateOptions predicateOptions,
-                                                            ColumnDictionaryKeys&& keys,
-                                                            T value);
-
-    template <typename T>
     void add_all_keys_string_constraint(NSPredicateOperatorType operatorType,
                                         NSComparisonPredicateOptions predicateOptions,
                                         ColumnDictionaryKeys&& keys,
@@ -564,7 +558,7 @@ public:
     template <typename C, typename T>
     void add_diacritic_sensitive_string_constraint(NSPredicateOperatorType operatorType,
                                                    NSComparisonPredicateOptions predicateOptions,
-                                                   Columns<C>&& column,
+                                                   C&& column,
                                                    T value);
 
     template <typename R>
@@ -722,7 +716,7 @@ Query make_diacritic_insensitive_constraint(NSPredicateOperatorType operatorType
 template <typename C, typename T>
 void QueryBuilder::add_diacritic_sensitive_string_constraint(NSPredicateOperatorType operatorType,
                                                              NSComparisonPredicateOptions predicateOptions,
-                                                             Columns<C>&& column,
+                                                             C&& column,
                                                              T value) {
     bool caseSensitive = !(predicateOptions & NSCaseInsensitivePredicateOption);
     if constexpr (std::is_same_v<T, StringData> || std::is_same_v<T, BinaryData> || std::is_same_v<T, Mixed>) {
@@ -746,49 +740,23 @@ void QueryBuilder::add_diacritic_sensitive_string_constraint(NSPredicateOperator
                 m_query.and_query(column.like(value, caseSensitive));
                 break;
             default: {
-                if constexpr (is_any_v<C, String, Lst<String>> || is_any_v<C, String, Set<String>>) {
+                if constexpr (is_any_v<C/*, String, Lst<String>, Set<String>*/, Columns<String>, Columns<Lst<String>>, Columns<Set<String>>>) {
                     unsupportedOperator(RLMPropertyTypeString, operatorType);
                 }
-                else if constexpr (is_any_v<C, Binary, Lst<Binary>> || is_any_v<C, Binary, Set<Binary>>) {
+                else if constexpr (is_any_v<C/*, Binary, Lst<Binary> , Set<Binary>*/, Columns<Binary>, Columns<Lst<Binary>>, Columns<Set<Binary>>>) {
                     unsupportedOperator(RLMPropertyTypeData, operatorType);
                 }
-                else if constexpr (is_any_v<C, Mixed, Lst<Mixed>> || is_any_v<C, Mixed, Set<Mixed>>) {
+                else if constexpr (is_any_v<C/*, Mixed, Lst<Mixed>, Set<Mixed>*/, Columns<Mixed>, Columns<Lst<Mixed>>, Columns<Set<Mixed>>>) {
                     unsupportedOperator(RLMPropertyTypeAny, operatorType);
+                } else if constexpr (is_any_v<C, Columns<Dictionary>>) {
+                    // The underlying storage type Dictionary is always Mixed. This creates an issue
+                    // where we cannot be descriptive about the exception as we do not know
+                    // the actual value type.
+                    throwException(@"Invalid operator type",
+                                   @"Operator '%@' not supported for string queries on Dictionary.",
+                                   operatorName(operatorType));
                 }
             }
-        }
-    }
-}
-
-template <typename T>
-void QueryBuilder::add_all_keys_diacritic_sensitive_string_constraint(NSPredicateOperatorType operatorType,
-                                                                      NSComparisonPredicateOptions predicateOptions,
-                                                                      ColumnDictionaryKeys&& keys,
-                                                                      T value) {
-    bool caseSensitive = !(predicateOptions & NSCaseInsensitivePredicateOption);
-    if constexpr (std::is_same_v<T, StringData> || std::is_same_v<T, BinaryData> || std::is_same_v<T, Mixed>) {
-        switch (operatorType) {
-            case NSBeginsWithPredicateOperatorType:
-                add_substring_constraint(value, keys.begins_with(value, caseSensitive));
-                break;
-            case NSEndsWithPredicateOperatorType:
-                add_substring_constraint(value, keys.ends_with(value, caseSensitive));
-                break;
-            case NSContainsPredicateOperatorType:
-                add_substring_constraint(value, keys.contains(value, caseSensitive));
-                break;
-            case NSEqualToPredicateOperatorType:
-                m_query.and_query(keys.equal(value, caseSensitive));
-                break;
-            case NSNotEqualToPredicateOperatorType:
-                m_query.and_query(keys.not_equal(value, caseSensitive));
-                break;
-            case NSLikePredicateOperatorType:
-                m_query.and_query(keys.like(value, caseSensitive));
-                break;
-            default:
-                throwException(@"Invalid operator type",
-                               @"Operator not supported for @allKeys");
         }
     }
 }
@@ -799,7 +767,7 @@ void QueryBuilder::add_all_keys_string_constraint(NSPredicateOperatorType operat
                                                   ColumnDictionaryKeys&& keys,
                                                   T value) {
     if (!(predicateOptions & NSDiacriticInsensitivePredicateOption)) {
-        add_all_keys_diacritic_sensitive_string_constraint(operatorType, predicateOptions, std::move(keys), value);
+        add_diacritic_sensitive_string_constraint(operatorType, predicateOptions, std::move(keys), value);
         return;
     }
 
@@ -1188,8 +1156,12 @@ void QueryBuilder::do_add_constraint(RLMPropertyType type, NSPredicateOperatorTy
             });
             break;
         case RLMPropertyTypeAny:
-            throwException(@"Unsupported predicate value type",
-                           @"Object type '%@' not supported", RLMTypeToString(type));
+            convert_null(value, [&](auto&& value) {
+                add_mixed_constraint(operatorType,
+                                     predicateOptions,
+                                     column.resolve<Dictionary>(),
+                                     value);
+            });
     }
 }
 
