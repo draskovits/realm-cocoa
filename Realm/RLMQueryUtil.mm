@@ -780,7 +780,7 @@ void QueryBuilder::add_diacritic_sensitive_string_constraint(NSPredicateOperator
                                                              T value) {
     // TODO: Consolidate this better
     bool caseSensitive = !(predicateOptions & NSCaseInsensitivePredicateOption);
-    if constexpr (is_any_v<C, Columns<Dictionary>, Columns<String>, Columns<Mixed>>) {
+    if constexpr (is_any_v<C, Columns<Dictionary>>/*, Columns<String>, Columns<Mixed>>*/) {
         // Dictionary boxes StringData to Mixed.
         if constexpr (is_any_v<T, Mixed, BinaryData, Binary, StringData, String>) {
             do_add_diacritic_sensitive_string_constraint(operatorType, predicateOptions, std::move(column), value);
@@ -1145,7 +1145,10 @@ void QueryBuilder::add_dictionary_constraint(RLMPropertyType type, NSPredicateOp
         case RLMPropertyTypeObject:
         case RLMPropertyTypeLinkingObjects:
             convert_null(value, [&](auto&& value) {
-                add_link_constraint(operatorType, column.resolve<Link>(), value);
+                // pass without const because it looks like core does not support
+                // comparision queries on a 'const& Columns<Dictionary>' type.
+                auto col = column.resolve<Dictionary>();
+                add_link_constraint(operatorType, col, value);
             });
             break;
         case RLMPropertyTypeUUID:
