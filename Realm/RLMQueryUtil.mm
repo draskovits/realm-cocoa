@@ -1090,48 +1090,6 @@ template <typename T>
 void QueryBuilder::add_dictionary_constraint(RLMPropertyType type, NSPredicateOperatorType operatorType,
                                              NSComparisonPredicateOptions predicateOptions, ColumnReference const& column, T&& value)
 {
-    // Dictionary stores everything as Mixed so we can use add_mixed_constraint for most things.
-//    switch (type) {
-//        case RLMPropertyTypeObjectId:
-//        case RLMPropertyTypeDate:
-//        case RLMPropertyTypeDouble:
-//        case RLMPropertyTypeFloat:
-//        case RLMPropertyTypeInt:
-//        case RLMPropertyTypeDecimal128:
-//        case RLMPropertyTypeUUID:
-//        case RLMPropertyTypeAny:
-//            convert_null(value, [&](auto&& value) {
-//                add_mixed_constraint(operatorType,
-//                                     predicateOptions,
-//                                     column.resolve<Dictionary>(),
-//                                     value);
-//            });
-//            break;
-//        case RLMPropertyTypeData:
-//            add_string_constraint(operatorType, predicateOptions,
-//                                  column.resolve<Dictionary>(),
-//                                  value_of_type<Binary>(value));
-//            break;
-//        case RLMPropertyTypeString:
-//            add_string_constraint(operatorType, predicateOptions,
-//                                  column.resolve<Dictionary>(),
-//                                  value_of_type<String>(value));
-//            break;
-//        case RLMPropertyTypeBool:
-//            convert_null(value, [&](auto&& value) {
-//                add_bool_constraint(type, operatorType, column.resolve<Dictionary>(), value_of_type<bool>(value));
-//            });
-//            break;
-//        case RLMPropertyTypeObject:
-//        case RLMPropertyTypeLinkingObjects:
-//            convert_null(value, [&](auto&& value) {
-//                // pass without const because it looks like core does not support
-//                // comparision queries on a 'const& Columns<Dictionary>' type.
-//                auto col = column.resolve<Dictionary>();
-//                add_link_constraint(operatorType, col, value);
-//            });
-//            break;
-//    }
     switch (type) {
         case RLMPropertyTypeBool:
             convert_null(value, [&](auto&& value) {
