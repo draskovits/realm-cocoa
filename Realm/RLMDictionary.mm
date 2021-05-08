@@ -55,6 +55,7 @@
         _objectClassName = objectClassName;
         _type = RLMPropertyTypeObject;
         _keyType = RLMPropertyTypeString;
+        _optional = YES;
     }
     return self;
 }
@@ -108,7 +109,7 @@ void RLMDictionaryValidateMatchingObjectType(__unsafe_unretained RLMDictionary *
 }
 
 static void changeDictionary(__unsafe_unretained RLMDictionary *const dictionary,
-                      dispatch_block_t f) {
+                             dispatch_block_t f) {
     if (!dictionary->_backingCollection) {
         dictionary->_backingCollection = [NSMutableDictionary new];
     }
@@ -241,11 +242,9 @@ static void changeDictionary(__unsafe_unretained RLMDictionary *const dictionary
         @throw RLMException(@"Cannot add entries from the object of class '%@'", [otherDictionary className]);
     }
 
-    [otherDictionary enumerateKeysAndObjectsUsingBlock:^(id _Nonnull key, id _Nonnull value, BOOL *) {
-        RLMDictionaryValidateMatchingObjectType(self, key, value);
-    }];
     changeDictionary(self, ^{
         for (id key in otherDictionary) {
+            RLMDictionaryValidateMatchingObjectType(self, key, otherDictionary[key]);
             [self setObject:otherDictionary[key] forKey:key];
         }
     });
@@ -262,10 +261,10 @@ static void changeDictionary(__unsafe_unretained RLMDictionary *const dictionary
     // reflect changes made during enumeration. This copy has to be autoreleased
     // (since there's nowhere for us to store a strong reference).
     __autoreleasing RLMDictionaryHolder *copy = [[RLMDictionaryHolder alloc] init];
-    copy->items = std::make_unique<id[]>(_backingCollection.count);
+    copy->items = std::make_unique<id[]>(_backingCollection.allKeys.count);
 
     NSUInteger i = 0;
-    for (id key in _backingCollection) {
+    for (id key in _backingCollection.allKeys) {
         copy->items[i++] = key;
     }
 
@@ -335,8 +334,6 @@ static void changeDictionary(__unsafe_unretained RLMDictionary *const dictionary
     }
 
     NSArray *values = [key isEqualToString:@"self"] ? _backingCollection.allValues : [_backingCollection.allValues valueForKey:key];
-    if (sum && (values.count == 0))
-        return nil;
 
     if (_optional) {
         // Filter out NSNull values to match our behavior on managed arrays
@@ -348,7 +345,7 @@ static void changeDictionary(__unsafe_unretained RLMDictionary *const dictionary
         }
     }
     id result = [values valueForKeyPath:[op stringByAppendingString:@".self"]];
-    return sum && !result ? nil : result;
+    return sum && !result ? @0 : result;
 }
 
 - (id)minOfProperty:(NSString *)property {
