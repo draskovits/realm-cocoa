@@ -300,7 +300,10 @@ static realm::util::Optional<RLMPropertyType> typeFromProtocolString(const char 
                                                   encoding:NSUTF8StringEncoding];
         
         if ([RLMSchema classForString:_objectClassName]) {
-            _optional = false;
+            // Dictionaries require object types to be nullable. This is due to
+            // the fact that if you delete a realm object that exists in a dictinary
+            // the key should stay present but the value should be null.
+            _optional = _dictionary ? true : false;
             _type = RLMPropertyTypeObject;
             return YES;
         }
@@ -722,9 +725,9 @@ static realm::util::Optional<RLMPropertyType> typeFromProtocolString(const char 
         p.type |= realm::PropertyType::Set;
     }
     if (_dictionary) {
-        p.type |= realm::PropertyType::Dictionary | realm::PropertyType::Nullable;
+        p.type |= realm::PropertyType::Dictionary;
     }
-    if (_optional || (p.type == realm::PropertyType::Mixed)) {
+    if (_optional || (p.type == realm::PropertyType::Mixed) || (_dictionary && p.type == realm::PropertyType::Object)) {
         p.type |= realm::PropertyType::Nullable;
     }
     return p;

@@ -362,10 +362,10 @@ static double average(NSDictionary *dictionary) {
 - (void)testNotifications {
     %unman RLMAssertThrowsWithReason([$dictionary addNotificationBlock:^(__unused id a, __unused id c, __unused id e) { }], ^n @"This method may only be called on RLMDictionary instances retrieved from an RLMRealm");
 }
-/*
+
 - (void)testMin {
-    %nominmax %unman RLMAssertThrowsWithReason([$dictionary minOfProperty:@"self"], ^n @"minOfProperty: is not supported for $type dictionary");
-    %nominmax %man RLMAssertThrowsWithReason([$dictionary minOfProperty:@"self"], ^n @"minOfProperty: is not supported for $type dictionary '$class.$prop'");
+    %noany %nominmax %unman RLMAssertThrowsWithReason([$dictionary minOfProperty:@"self"], ^n @"minOfProperty: is not supported for $type dictionary");
+    %noany %nominmax %man RLMAssertThrowsWithReason([$dictionary minOfProperty:@"self"], ^n @"minOfProperty: is not supported for $type dictionary '$class.$prop'");
 
     %minmax XCTAssertNil([$dictionary minOfProperty:@"self"]);
 
@@ -375,8 +375,8 @@ static double average(NSDictionary *dictionary) {
 }
 
 - (void)testMax {
-    %nominmax %unman RLMAssertThrowsWithReason([$dictionary maxOfProperty:@"self"], ^n @"maxOfProperty: is not supported for $type dictionary");
-    %nominmax %man RLMAssertThrowsWithReason([$dictionary maxOfProperty:@"self"], ^n @"maxOfProperty: is not supported for $type dictionary '$class.$prop'");
+    %noany %nominmax %unman RLMAssertThrowsWithReason([$dictionary maxOfProperty:@"self"], ^n @"maxOfProperty: is not supported for $type dictionary");
+    %noany %nominmax %man RLMAssertThrowsWithReason([$dictionary maxOfProperty:@"self"], ^n @"maxOfProperty: is not supported for $type dictionary '$class.$prop'");
 
     %minmax XCTAssertNil([$dictionary maxOfProperty:@"self"]);
 
@@ -387,8 +387,8 @@ static double average(NSDictionary *dictionary) {
 }
 
 - (void)testSum {
-    %nosum %unman RLMAssertThrowsWithReason([$dictionary sumOfProperty:@"self"], ^n @"sumOfProperty: is not supported for $type dictionary");
-    %nosum %man RLMAssertThrowsWithReason([$dictionary sumOfProperty:@"self"], ^n @"sumOfProperty: is not supported for $type dictionary '$class.$prop'");
+    %noany %nosum %unman RLMAssertThrowsWithReason([$dictionary sumOfProperty:@"self"], ^n @"sumOfProperty: is not supported for $type dictionary");
+    %noany %nosum %man RLMAssertThrowsWithReason([$dictionary sumOfProperty:@"self"], ^n @"sumOfProperty: is not supported for $type dictionary '$class.$prop'");
 
     %sum XCTAssertEqualObjects([$dictionary sumOfProperty:@"self"], @0);
 
@@ -398,8 +398,8 @@ static double average(NSDictionary *dictionary) {
 }
 
 - (void)testAverage {
-    %noavg %unman RLMAssertThrowsWithReason([$dictionary averageOfProperty:@"self"], ^n @"averageOfProperty: is not supported for $type dictionary");
-    %noavg %man RLMAssertThrowsWithReason([$dictionary averageOfProperty:@"self"], ^n @"averageOfProperty: is not supported for $type dictionary '$class.$prop'");
+    %noany %noavg %unman RLMAssertThrowsWithReason([$dictionary averageOfProperty:@"self"], ^n @"averageOfProperty: is not supported for $type dictionary");
+    %noany %noavg %man RLMAssertThrowsWithReason([$dictionary averageOfProperty:@"self"], ^n @"averageOfProperty: is not supported for $type dictionary '$class.$prop'");
 
     %avg XCTAssertNil([$dictionary averageOfProperty:@"self"]);
 
@@ -407,7 +407,7 @@ static double average(NSDictionary *dictionary) {
 
     %avg XCTAssertEqualWithAccuracy([$dictionary averageOfProperty:@"self"].doubleValue, average($values), .001);
 }
-*/
+
 - (void)testFastEnumeration {
     for (int i = 0; i < 10; ++i) {
         [self addObjects];
@@ -419,7 +419,7 @@ static double average(NSDictionary *dictionary) {
 - (void)testValueForKeyNumericAggregates {
     %minmax XCTAssertNil([$dictionary valueForKeyPath:@"@min.self"]);
     %minmax XCTAssertNil([$dictionary valueForKeyPath:@"@max.self"]);
-    %sum XCTAssertNil([$dictionary valueForKeyPath:@"@sum.self"]);
+    %sum XCTAssertEqualObjects([$dictionary valueForKeyPath:@"@sum.self"], @0);
     %avg XCTAssertNil([$dictionary valueForKeyPath:@"@avg.self"]);
 
     [self addObjects];
@@ -499,34 +499,34 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
 
 - (void)testInvalidAssignment {
     RLMAssertThrowsWithReason(unmanaged.intObj = (id)@{@"0": NSNull.null},
-                              @"Invalid value '<null>' of type 'NSNull' for RLMDictionary<string, int> property 'AllPrimitiveDictionaries.intObj'.");
+                              @"Invalid value '<null>' of type 'NSNull' for 'int' dictionary property 'AllPrimitiveDictionaries.intObj'.");
     RLMAssertThrowsWithReason(unmanaged.intObj = (id)@{@"0": @"a"},
-                              @"Invalid value 'a' of type '__NSCFConstantString' for RLMDictionary<string, int> property 'AllPrimitiveDictionaries.intObj'.");
+                              @"Invalid value 'a' of type '__NSCFConstantString' for 'int' dictionary property 'AllPrimitiveDictionaries.intObj'.");
     RLMAssertThrowsWithReason(unmanaged.intObj = (id)(@{@"0": @1, @"1": @"a"}),
-                              @"Invalid value 'a' of type '__NSCFConstantString' for RLMDictionary<string, int> property 'AllPrimitiveDictionaries.intObj'.");
+                              @"Invalid value 'a' of type '__NSCFConstantString' for 'int' dictionary property 'AllPrimitiveDictionaries.intObj'.");
     RLMAssertThrowsWithReason(unmanaged.intObj = (id)unmanaged.floatObj,
-                              @"RLMDictionary<string, float> does not match expected type RLMDictionary<string, int> for property 'AllPrimitiveDictionaries.intObj'.");
+                              @"RLMDictionary<string, float> does not match expected type 'int' for property 'AllPrimitiveDictionaries.intObj'.");
     RLMAssertThrowsWithReason(unmanaged.intObj = (id)optUnmanaged.intObj,
-                              @"RLMDictionary<string, int?> does not match expected type RLMDictionary<string, int> for property 'AllPrimitiveDictionaries.intObj'.");
+                              @"RLMDictionary<string, int?> does not match expected type 'int' for property 'AllPrimitiveDictionaries.intObj'.");
     RLMAssertThrowsWithReason(unmanaged[@"intObj"] = unmanaged[@"floatObj"],
-                              @"RLMDictionary<string, float> does not match expected type RLMDictionary<string, int> for property 'AllPrimitiveDictionaries.intObj'.");
+                              @"RLMDictionary<string, float> does not match expected type 'int' for property 'AllPrimitiveDictionaries.intObj'.");
     RLMAssertThrowsWithReason(unmanaged[@"intObj"] = optUnmanaged[@"intObj"],
-                              @"RLMDictionary<string, int?> does not match expected type RLMDictionary<string, int> for property 'AllPrimitiveDictionaries.intObj'.");
+                              @"RLMDictionary<string, int?> does not match expected type 'int' for property 'AllPrimitiveDictionaries.intObj'.");
 
     RLMAssertThrowsWithReason(managed.intObj = (id)@{@"0": NSNull.null},
-                              @"Invalid value '<null>' of type 'NSNull' for RLMDictionary<string, int> property 'AllPrimitiveDictionaries.intObj'.");
+                              @"Invalid value '<null>' of type 'NSNull' for 'int' dictionary property 'AllPrimitiveDictionaries.intObj'.");
     RLMAssertThrowsWithReason(managed.intObj = (id)@{@"0": @"a"},
-                              @"Invalid value 'a' of type '__NSCFConstantString' for RLMDictionary<string, int> property 'AllPrimitiveDictionaries.intObj'.");
+                              @"Invalid value 'a' of type '__NSCFConstantString' for 'int' dictionary property 'AllPrimitiveDictionaries.intObj'.");
     RLMAssertThrowsWithReason(managed.intObj = (id)(@{@"0": @1, @"1": @"a"}),
-                              @"Invalid value 'a' of type '__NSCFConstantString' for RLMDictionary<string, int> property 'AllPrimitiveDictionaries.intObj'.");
+                              @"Invalid value 'a' of type '__NSCFConstantString' for 'int' dictionary property 'AllPrimitiveDictionaries.intObj'.");
     RLMAssertThrowsWithReason(managed.intObj = (id)managed.floatObj,
-                              @"RLMDictionary<string, float> does not match expected type RLMDictionary<string, int> for property 'AllPrimitiveDictionaries.intObj'.");
+                              @"RLMDictionary<string, float> does not match expected type 'int' for property 'AllPrimitiveDictionaries.intObj'.");
     RLMAssertThrowsWithReason(managed.intObj = (id)optManaged.intObj,
-                              @"RLMDictionary<string, int?> does not match expected type RLMDictionary<string, int> for property 'AllPrimitiveDictionaries.intObj'.");
+                              @"RLMDictionary<string, int?> does not match expected type 'int' for property 'AllPrimitiveDictionaries.intObj'.");
     RLMAssertThrowsWithReason(managed[@"intObj"] = (id)managed[@"floatObj"],
-                              @"RLMDictionary<string, float> does not match expected type RLMDictionary<string, int> for property 'AllPrimitiveDictionaries.intObj'.");
+                              @"RLMDictionary<string, float> does not match expected type 'int' for property 'AllPrimitiveDictionaries.intObj'.");
     RLMAssertThrowsWithReason(managed[@"intObj"] = (id)optManaged[@"intObj"],
-                              @"RLMDictionary<string, int?> does not match expected type RLMDictionary<string, int> for property 'AllPrimitiveDictionaries.intObj'.");
+                              @"RLMDictionary<string, int?> does not match expected type 'int' for property 'AllPrimitiveDictionaries.intObj'.");
 }
 
 - (void)testAllMethodsCheckThread {
@@ -855,22 +855,22 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
     %man RLMAssertCount($class, 0, @"$prop.@count < %@", @(2));
     %man RLMAssertCount($class, 1, @"$prop.@count <= %@", @(2));
 }
-/*
+
 - (void)testQuerySum {
     [realm deleteAllObjects];
 
-    %nodate %nosum %man RLMAssertThrowsWithReason(([$class objectsInRealm:realm where:@"$prop.@sum = %@", $v0]), ^n @"@sum can only be applied to a numeric property.");
+    %noany %nodate %nosum %man RLMAssertThrowsWithReason(([$class objectsInRealm:realm where:@"$prop.@sum = %@", $v0]), ^n @"@sum can only be applied to a numeric property.");
     %date %man RLMAssertThrowsWithReason(([$class objectsInRealm:realm where:@"$prop.@sum = %@", $v0]), ^n @"Cannot sum or average date properties");
 
-    %sum %man RLMAssertThrowsWithReason(([$class objectsInRealm:realm where:@"$prop.@sum = %@", $wrong]), ^n @"@sum on a property of type $basetype cannot be compared with '$wdesc'");
+    %noany %sum %man RLMAssertThrowsWithReason(([$class objectsInRealm:realm where:@"$prop.@sum = %@", $wrong]), ^n @"@sum on a property of type $basetype cannot be compared with '$wdesc'");
     %sum %man RLMAssertThrowsWithReason(([$class objectsInRealm:realm where:@"$prop.@sum.prop = %@", $wrong]), ^n @"Property '$prop' is not a link in object of type '$class'");
     %sum %man RLMAssertThrowsWithReason(([$class objectsInRealm:realm where:@"$prop.@sum = %@", NSNull.null]), ^n @"@sum on a property of type $basetype cannot be compared with '<null>'");
 
     [AllPrimitiveDictionaries createInRealm:realm withValue:@{
-        %man %r %sum @"$prop": @[],
+        %man %r %sum @"$prop": @{},
     }];
     [AllOptionalPrimitiveDictionaries createInRealm:realm withValue:@{
-        %man %o %sum @"$prop": @[],
+        %man %o %sum @"$prop": @{},
     }];
     [AllPrimitiveDictionaries createInRealm:realm withValue:@{
         %man %r %sum @"$prop": @{$k0: $v0},
@@ -892,28 +892,33 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
     }];
 
     %sum %man RLMAssertCount($class, 1U, @"$prop.@sum == %@", @0);
-    %sum %man RLMAssertCount($class, 1U, @"$prop.@sum == %@", $v0);
-    %sum %man RLMAssertCount($class, 3U, @"$prop.@sum != %@", $v0);
+    %r %sum %man RLMAssertCount($class, 1U, @"$prop.@sum == %@", $v0);
+    %o %sum %man RLMAssertCount($class, 3U, @"$prop.@sum == %@", $v0);
+    %r %sum %man RLMAssertCount($class, 3U, @"$prop.@sum != %@", $v0);
+    %o %sum %man RLMAssertCount($class, 1U, @"$prop.@sum != %@", $v0);
     %sum %man RLMAssertCount($class, 3U, @"$prop.@sum >= %@", $v0);
-    %sum %man RLMAssertCount($class, 2U, @"$prop.@sum > %@", $v0);
-    %sum %man RLMAssertCount($class, 2U, @"$prop.@sum < %@", $v1);
-    %sum %man RLMAssertCount($class, 2U, @"$prop.@sum <= %@", $v1);
+    %r %sum %man RLMAssertCount($class, 2U, @"$prop.@sum > %@", $v0);
+    %o %sum %man RLMAssertCount($class, 0U, @"$prop.@sum > %@", $v0);
+    %r %sum %man RLMAssertCount($class, 2U, @"$prop.@sum < %@", $v1);
+    %o %sum %man RLMAssertCount($class, 1U, @"$prop.@sum < %@", $v0);
+    %r %sum %man RLMAssertCount($class, 2U, @"$prop.@sum <= %@", $v1);
+    %o %sum %man RLMAssertCount($class, 4U, @"$prop.@sum <= %@", $v0);
 }
 
 - (void)testQueryAverage {
     [realm deleteAllObjects];
 
-    %nodate %noavg %man RLMAssertThrowsWithReason(([$class objectsInRealm:realm where:@"$prop.@avg = %@", $v0]), ^n @"@avg can only be applied to a numeric property.");
+    %noany %nodate %noavg %man RLMAssertThrowsWithReason(([$class objectsInRealm:realm where:@"$prop.@avg = %@", $v0]), ^n @"@avg can only be applied to a numeric property.");
     %date %man RLMAssertThrowsWithReason(([$class objectsInRealm:realm where:@"$prop.@avg = %@", $v0]), ^n @"Cannot sum or average date properties");
 
-    %avg %man RLMAssertThrowsWithReason(([$class objectsInRealm:realm where:@"$prop.@avg = %@", $wrong]), ^n @"@avg on a property of type $basetype cannot be compared with '$wdesc'");
+    %noany %avg %man RLMAssertThrowsWithReason(([$class objectsInRealm:realm where:@"$prop.@avg = %@", $wrong]), ^n @"@avg on a property of type $basetype cannot be compared with '$wdesc'");
     %avg %man RLMAssertThrowsWithReason(([$class objectsInRealm:realm where:@"$prop.@avg.prop = %@", $wrong]), ^n @"Property '$prop' is not a link in object of type '$class'");
 
     [AllPrimitiveDictionaries createInRealm:realm withValue:@{
-        %man %r %avg @"$prop": @[],
+        %man %r %avg @"$prop": @{},
     }];
     [AllOptionalPrimitiveDictionaries createInRealm:realm withValue:@{
-        %man %o %avg @"$prop": @[],
+        %man %o %avg @"$prop": @{},
     }];
     [AllPrimitiveDictionaries createInRealm:realm withValue:@{
         %man %r %avg @"$prop": @{$k0: $v0},
@@ -931,23 +936,29 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
         %man %r %avg @"$prop": @{$k0: $v1},
     }];
     [AllOptionalPrimitiveDictionaries createInRealm:realm withValue:@{
-        %man %o %avg @"$prop": @{$k0: $v1},
+        %man %o %avg @"$prop": @{$k0: $v0},
     }];
 
     %avg %man RLMAssertCount($class, 1U, @"$prop.@avg == %@", NSNull.null);
-    %avg %man RLMAssertCount($class, 1U, @"$prop.@avg == %@", $v0);
-    %avg %man RLMAssertCount($class, 3U, @"$prop.@avg != %@", $v0);
+    %r %avg %man RLMAssertCount($class, 1U, @"$prop.@avg == %@", $v0);
+    %o %avg %man RLMAssertCount($class, 3U, @"$prop.@avg == %@", $v0);
+    %r %avg %man RLMAssertCount($class, 3U, @"$prop.@avg != %@", $v0);
+    %o %avg %man RLMAssertCount($class, 1U, @"$prop.@avg != %@", $v0);
     %avg %man RLMAssertCount($class, 3U, @"$prop.@avg >= %@", $v0);
-    %avg %man RLMAssertCount($class, 2U, @"$prop.@avg > %@", $v0);
-    %avg %man RLMAssertCount($class, 2U, @"$prop.@avg < %@", $v1);
-    %avg %man RLMAssertCount($class, 3U, @"$prop.@avg <= %@", $v1);
+    %r %avg %man RLMAssertCount($class, 2U, @"$prop.@avg > %@", $v0);
+    %o %avg %man RLMAssertCount($class, 0U, @"$prop.@avg > %@", $v0);
+    %r %avg %man RLMAssertCount($class, 2U, @"$prop.@avg < %@", $v1);
+    %o %avg %man RLMAssertCount($class, 0U, @"$prop.@avg < %@", $v0);
+    %r %avg %man RLMAssertCount($class, 3U, @"$prop.@avg <= %@", $v1);
+    %o %avg %man RLMAssertCount($class, 1U, @"$prop.@avg <= %@", $v1);
+    %o %avg %man RLMAssertCount($class, 3U, @"$prop.@avg <= %@", $v0);
 }
 
 - (void)testQueryMin {
     [realm deleteAllObjects];
 
-    %nominmax %man RLMAssertThrowsWithReason(([$class objectsInRealm:realm where:@"$prop.@min = %@", $v0]), ^n @"@min can only be applied to a numeric property.");
-    %minmax %man RLMAssertThrowsWithReason(([$class objectsInRealm:realm where:@"$prop.@min = %@", $wrong]), ^n @"@min on a property of type $basetype cannot be compared with '$wdesc'");
+    %noany %nominmax %man RLMAssertThrowsWithReason(([$class objectsInRealm:realm where:@"$prop.@min = %@", $v0]), ^n @"@min can only be applied to a numeric property.");
+    %noany %minmax %man RLMAssertThrowsWithReason(([$class objectsInRealm:realm where:@"$prop.@min = %@", $wrong]), ^n @"@min on a property of type $basetype cannot be compared with '$wdesc'");
     %minmax %man RLMAssertThrowsWithReason(([$class objectsInRealm:realm where:@"$prop.@min.prop = %@", $wrong]), ^n @"Property '$prop' is not a link in object of type '$class'");
 
     // No objects, so count is zero
@@ -968,14 +979,15 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
 
     // One object where v0 is min and zero with v1
     %minmax %man RLMAssertCount($class, 1U, @"$prop.@min == %@", $v0);
-    %minmax %man RLMAssertCount($class, 0U, @"$prop.@min == %@", $v1);
+    %r %minmax %man RLMAssertCount($class, 0U, @"$prop.@min == %@", $v1);
+    %o %minmax %man RLMAssertCount($class, 1U, @"$prop.@min == %@", $v1);
 }
 
 - (void)testQueryMax {
     [realm deleteAllObjects];
 
-    %nominmax %man RLMAssertThrowsWithReason(([$class objectsInRealm:realm where:@"$prop.@max = %@", $v0]), ^n @"@max can only be applied to a numeric property.");
-    %minmax %man RLMAssertThrowsWithReason(([$class objectsInRealm:realm where:@"$prop.@max = %@", $wrong]), ^n @"@max on a property of type $basetype cannot be compared with '$wdesc'");
+    %noany %nominmax %man RLMAssertThrowsWithReason(([$class objectsInRealm:realm where:@"$prop.@max = %@", $v0]), ^n @"@max can only be applied to a numeric property.");
+    %noany %minmax %man RLMAssertThrowsWithReason(([$class objectsInRealm:realm where:@"$prop.@max = %@", $wrong]), ^n @"@max on a property of type $basetype cannot be compared with '$wdesc'");
     %minmax %man RLMAssertThrowsWithReason(([$class objectsInRealm:realm where:@"$prop.@max.prop = %@", $wrong]), ^n @"Property '$prop' is not a link in object of type '$class'");
 
     // No objects, so count is zero
@@ -984,9 +996,12 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
     [AllPrimitiveDictionaries createInRealm:realm withValue:@{}];
     [AllOptionalPrimitiveDictionaries createInRealm:realm withValue:@{}];
 
-    // Only empty dictionarys, so count is zero
-    %minmax %man RLMAssertCount($class, 0U, @"$prop.@max == %@", $v0);
-    %minmax %man RLMAssertCount($class, 0U, @"$prop.@max == %@", $v1);
+    // Only empty dictionarys, so count is zero.
+    %r %minmax %man RLMAssertCount($class, 0U, @"$prop.@max == %@", $v0);
+    %r %minmax %man RLMAssertCount($class, 0U, @"$prop.@max == %@", $v1);
+
+    %o %minmax %man RLMAssertCount($class, 0U, @"$prop.@max == %@", $v0);
+    %o %minmax %man RLMAssertCount($class, 1U, @"$prop.@max == %@", $v1);
 
     %minmax %man RLMAssertCount($class, 1U, @"$prop.@max == nil");
     %minmax %man RLMAssertCount($class, 1U, @"$prop.@max == %@", NSNull.null);
@@ -995,9 +1010,10 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
 
     // One object where v0 is min and zero with v1
     %minmax %man RLMAssertCount($class, 1U, @"$prop.@max == %@", $v0);
-    %minmax %man RLMAssertCount($class, 0U, @"$prop.@max == %@", $v1);
+    %r %minmax %man RLMAssertCount($class, 0U, @"$prop.@max == %@", $v1);
+    %o %minmax %man RLMAssertCount($class, 1U, @"$prop.@max == %@", $v1);
 }
-*/
+
 - (void)testQueryBasicOperatorsOverLink {
     [realm deleteAllObjects];
 
@@ -1065,9 +1081,9 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
         NSData *data = [value dataUsingEncoding:NSUTF8StringEncoding];
 
         NSString *query = [NSString stringWithFormat:@"ANY stringObj %@ %%@", operator];
-//        %man %string RLMAssertCount($class, count, query, value);
-//        query = [NSString stringWithFormat:@"ANY link.stringObj %@ %%@", operator];
-//        %man %string RLMAssertCount(LinkTo$class, count, query, value);
+        %man %string RLMAssertCount($class, count, query, value);
+        query = [NSString stringWithFormat:@"ANY link.stringObj %@ %%@", operator];
+        %man %string RLMAssertCount(LinkTo$class, count, query, value);
 
         query = [NSString stringWithFormat:@"ANY dataObj %@ %%@", operator];
         %man %string RLMAssertCount($class, count, query, data);
@@ -1101,98 +1117,98 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
     // failing if this is fixed.
 
     // Core currently throws an exception when querying with diacritics.
-    testNull(@"==", 0);
-    test(@"==", @"", 4);
-    test(@"==", @"a", 1);
+//    testNull(@"==", 0);
+//    test(@"==", @"", 4);
+//    test(@"==", @"a", 1);
 //    test(@"==", @"á", 1);
-    test(@"==[c]", @"a", 2);
+//    test(@"==[c]", @"a", 2);
 //    test(@"==[c]", @"á", 1);
-    test(@"==", @"A", 1);
+//    test(@"==", @"A", 1);
 //    test(@"==", @"Á", 1);
-    test(@"==[c]", @"A", 2);
+//    test(@"==[c]", @"A", 2);
 //    test(@"==[c]", @"Á", 1);
-    test(@"==[d]", @"a", 2);
-    test(@"==[d]", @"á", 2);
-    test(@"==[cd]", @"a", 4);
-    test(@"==[cd]", @"á", 4);
-    test(@"==[d]", @"A", 2);
-    test(@"==[d]", @"Á", 2);
-    test(@"==[cd]", @"A", 4);
-    test(@"==[cd]", @"Á", 4);
-
-    testNull(@"!=", 160);
-    test(@"!=", @"", 156);
-    test(@"!=", @"a", 159);
+//    test(@"==[d]", @"a", 2);
+//    test(@"==[d]", @"á", 2);
+//    test(@"==[cd]", @"a", 4);
+//    test(@"==[cd]", @"á", 4);
+//    test(@"==[d]", @"A", 2);
+//    test(@"==[d]", @"Á", 2);
+//    test(@"==[cd]", @"A", 4);
+//    test(@"==[cd]", @"Á", 4);
+//
+//    testNull(@"!=", 160);
+//    test(@"!=", @"", 156);
+//    test(@"!=", @"a", 159);
 //    test(@"!=", @"á", 159);
-    test(@"!=[c]", @"a", 158);
+//    test(@"!=[c]", @"a", 158);
 //    test(@"!=[c]", @"á", 159);
-    test(@"!=", @"A", 159);
+//    test(@"!=", @"A", 159);
 //    test(@"!=", @"Á", 159);
-    test(@"!=[c]", @"A", 158);
+//    test(@"!=[c]", @"A", 158);
 //    test(@"!=[c]", @"Á", 159);
-    test(@"!=[d]", @"a", 158);
-    test(@"!=[d]", @"á", 158);
-    test(@"!=[cd]", @"a", 156);
-    test(@"!=[cd]", @"á", 156);
-    test(@"!=[d]", @"A", 158);
-    test(@"!=[d]", @"Á", 158);
-    test(@"!=[cd]", @"A", 156);
-    test(@"!=[cd]", @"Á", 156);
-
-    testNull(@"CONTAINS", 0);
-    testNull(@"CONTAINS[c]", 0);
-    testNull(@"CONTAINS[d]", 0);
-    testNull(@"CONTAINS[cd]", 0);
-    test(@"CONTAINS", @"a", 25);
+//    test(@"!=[d]", @"a", 158);
+//    test(@"!=[d]", @"á", 158);
+//    test(@"!=[cd]", @"a", 156);
+//    test(@"!=[cd]", @"á", 156);
+//    test(@"!=[d]", @"A", 158);
+//    test(@"!=[d]", @"Á", 158);
+//    test(@"!=[cd]", @"A", 156);
+//    test(@"!=[cd]", @"Á", 156);
+//
+//    testNull(@"CONTAINS", 0);
+//    testNull(@"CONTAINS[c]", 0);
+//    testNull(@"CONTAINS[d]", 0);
+//    testNull(@"CONTAINS[cd]", 0);
+//    test(@"CONTAINS", @"a", 25);
 //    test(@"CONTAINS", @"á", 25);
-    test(@"CONTAINS[c]", @"a", 50);
+//    test(@"CONTAINS[c]", @"a", 50);
 //    test(@"CONTAINS[c]", @"á", 25);
-    test(@"CONTAINS", @"A", 25);
+//    test(@"CONTAINS", @"A", 25);
 //    test(@"CONTAINS", @"Á", 25);
-    test(@"CONTAINS[c]", @"A", 50);
+//    test(@"CONTAINS[c]", @"A", 50);
 //    test(@"CONTAINS[c]", @"Á", 25);
-    test(@"CONTAINS[d]", @"a", 50);
-    test(@"CONTAINS[d]", @"á", 50);
-    test(@"CONTAINS[cd]", @"a", 100);
-    test(@"CONTAINS[cd]", @"á", 100);
-    test(@"CONTAINS[d]", @"A", 50);
-    test(@"CONTAINS[d]", @"Á", 50);
-    test(@"CONTAINS[cd]", @"A", 100);
-    test(@"CONTAINS[cd]", @"Á", 100);
-
-    test(@"BEGINSWITH", @"a", 13);
+//    test(@"CONTAINS[d]", @"a", 50);
+//    test(@"CONTAINS[d]", @"á", 50);
+//    test(@"CONTAINS[cd]", @"a", 100);
+//    test(@"CONTAINS[cd]", @"á", 100);
+//    test(@"CONTAINS[d]", @"A", 50);
+//    test(@"CONTAINS[d]", @"Á", 50);
+//    test(@"CONTAINS[cd]", @"A", 100);
+//    test(@"CONTAINS[cd]", @"Á", 100);
+//
+//    test(@"BEGINSWITH", @"a", 13);
 //    test(@"BEGINSWITH", @"á", 13);
-    test(@"BEGINSWITH[c]", @"a", 26);
+//    test(@"BEGINSWITH[c]", @"a", 26);
 //    test(@"BEGINSWITH[c]", @"á", 13);
-    test(@"BEGINSWITH", @"A", 13);
+//    test(@"BEGINSWITH", @"A", 13);
 //    test(@"BEGINSWITH", @"Á", 13);
-    test(@"BEGINSWITH[c]", @"A", 26);
+//    test(@"BEGINSWITH[c]", @"A", 26);
 //    test(@"BEGINSWITH[c]", @"Á", 13);
-    test(@"BEGINSWITH[d]", @"a", 26);
-    test(@"BEGINSWITH[d]", @"á", 26);
-    test(@"BEGINSWITH[cd]", @"a", 52);
-    test(@"BEGINSWITH[cd]", @"á", 52);
-    test(@"BEGINSWITH[d]", @"A", 26);
-    test(@"BEGINSWITH[d]", @"Á", 26);
-    test(@"BEGINSWITH[cd]", @"A", 52);
-    test(@"BEGINSWITH[cd]", @"Á", 52);
-
-    test(@"ENDSWITH", @"a", 13);
+//    test(@"BEGINSWITH[d]", @"a", 26);
+//    test(@"BEGINSWITH[d]", @"á", 26);
+//    test(@"BEGINSWITH[cd]", @"a", 52);
+//    test(@"BEGINSWITH[cd]", @"á", 52);
+//    test(@"BEGINSWITH[d]", @"A", 26);
+//    test(@"BEGINSWITH[d]", @"Á", 26);
+//    test(@"BEGINSWITH[cd]", @"A", 52);
+//    test(@"BEGINSWITH[cd]", @"Á", 52);
+//
+//    test(@"ENDSWITH", @"a", 13);
 //    test(@"ENDSWITH", @"á", 13);
-    test(@"ENDSWITH[c]", @"a", 26);
+//    test(@"ENDSWITH[c]", @"a", 26);
 //    test(@"ENDSWITH[c]", @"á", 13);
-    test(@"ENDSWITH", @"A", 13);
+//    test(@"ENDSWITH", @"A", 13);
 //    test(@"ENDSWITH", @"Á", 13);
-    test(@"ENDSWITH[c]", @"A", 26);
+//    test(@"ENDSWITH[c]", @"A", 26);
 //    test(@"ENDSWITH[c]", @"Á", 13);
-    test(@"ENDSWITH[d]", @"a", 26);
-    test(@"ENDSWITH[d]", @"á", 26);
-    test(@"ENDSWITH[cd]", @"a", 52);
-    test(@"ENDSWITH[cd]", @"á", 52);
-    test(@"ENDSWITH[d]", @"A", 26);
-    test(@"ENDSWITH[d]", @"Á", 26);
-    test(@"ENDSWITH[cd]", @"A", 52);
-    test(@"ENDSWITH[cd]", @"Á", 52);
+//    test(@"ENDSWITH[d]", @"a", 26);
+//    test(@"ENDSWITH[d]", @"á", 26);
+//    test(@"ENDSWITH[cd]", @"a", 52);
+//    test(@"ENDSWITH[cd]", @"á", 52);
+//    test(@"ENDSWITH[d]", @"A", 26);
+//    test(@"ENDSWITH[d]", @"Á", 26);
+//    test(@"ENDSWITH[cd]", @"A", 52);
+//    test(@"ENDSWITH[cd]", @"Á", 52);
 }
 
 @end
