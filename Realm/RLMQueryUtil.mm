@@ -1682,10 +1682,10 @@ void QueryBuilder::add_collection_operation_constraint(NSPredicateOperatorType o
                 default:
                     break;
             }
-            add_dictionary_constraint(collectionOperation.link_column().type(),
+            add_dictionary_constraint(type,
                                       operatorType,
                                       comparisionOptions,
-                                      collectionOperation.link_column(),
+                                      column,
                                       rhs);
             break;
         }

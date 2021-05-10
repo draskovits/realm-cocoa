@@ -190,11 +190,9 @@ void RLMObservationInfo::recordObserver(realm::Obj& objectRow, RLMClassInfo *obj
             ((RLMArray *)collection)->_key = key;
             ((RLMArray *)collection)->_parentObject = object;
         }
-        else if (prop.set) {
+        else if (prop.set || prop.dictionary) {
             ((RLMSet *)collection)->_key = key;
             ((RLMSet *)collection)->_parentObject = object;
-        } else {
-            REALM_UNREACHABLE();
         }
     }
     else if (auto swiftIvar = prop.swiftIvar;
