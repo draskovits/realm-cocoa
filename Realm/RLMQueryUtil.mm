@@ -1098,24 +1098,12 @@ void QueryBuilder::add_dictionary_constraint(RLMPropertyType type, NSPredicateOp
             });
             break;
         case RLMPropertyTypeObjectId:
-            if (operatorType == NSLikePredicateOperatorType ||
-                operatorType == NSBeginsWithPredicateOperatorType ||
-                operatorType == NSContainsPredicateOperatorType ||
-                operatorType == NSEndsWithPredicateOperatorType) {
-                unsupportedOperator(type, operatorType);
-            }
             convert_null(value, [&](auto&& value) {
                 add_bool_constraint(type, operatorType, column.resolve<Dictionary>(),
                                     value_of_type<ObjectId>(value));
             });
             break;
         case RLMPropertyTypeDate:
-            if (operatorType == NSLikePredicateOperatorType ||
-                operatorType == NSBeginsWithPredicateOperatorType ||
-                operatorType == NSContainsPredicateOperatorType ||
-                operatorType == NSEndsWithPredicateOperatorType) {
-                unsupportedOperator(type, operatorType);
-            }
             convert_null(value, [&](auto&& value) {
                 add_numeric_constraint(type, operatorType, column.resolve<Dictionary>(),
                                        value_of_type<Timestamp>(value));
@@ -1680,6 +1668,20 @@ void QueryBuilder::add_collection_operation_constraint(NSPredicateOperatorType o
             break;
         }
         case CollectionOperation::AllValues: {
+            auto& column = collectionOperation.link_column();
+            RLMPropertyType type = column.type();
+            switch (type) {
+                case RLMPropertyTypeObjectId:
+                case RLMPropertyTypeDate:
+                    if (operatorType == NSLikePredicateOperatorType ||
+                        operatorType == NSBeginsWithPredicateOperatorType ||
+                        operatorType == NSContainsPredicateOperatorType ||
+                        operatorType == NSEndsWithPredicateOperatorType) {
+                        unsupportedOperator(type, operatorType);
+                    }
+                default:
+                    break;
+            }
             add_dictionary_constraint(collectionOperation.link_column().type(),
                                       operatorType,
                                       comparisionOptions,
