@@ -154,8 +154,8 @@ static void changeDictionary(__unsafe_unretained RLMDictionary *const dictionary
 }
 
 - (void)setValue:(nullable id)value forKey:(nonnull NSString *)key {
-    RLMDictionaryValidateMatchingObjectType(self, key, value);
     changeDictionary(self, ^{
+        RLMDictionaryValidateMatchingObjectType(self, key, value);
         [_backingCollection setValue:value forKey:key];
     });
 }
@@ -170,15 +170,15 @@ static void changeDictionary(__unsafe_unretained RLMDictionary *const dictionary
 }
 
 - (void)setObject:(id)obj forKeyedSubscript:(id<RLMDictionaryKey>)key {
-    RLMDictionaryValidateMatchingObjectType(self, key, obj);
     changeDictionary(self, ^{
+        RLMDictionaryValidateMatchingObjectType(self, key, obj);
         _backingCollection[(id)key] = obj;
     });
 }
 
 - (void)setObject:(id)obj forKey:(id<RLMDictionaryKey>)key {
-    RLMDictionaryValidateMatchingObjectType(self, key, obj);
     changeDictionary(self, ^{
+        RLMDictionaryValidateMatchingObjectType(self, key, obj);
         [_backingCollection setObject:obj forKey:key];
     });
 }
