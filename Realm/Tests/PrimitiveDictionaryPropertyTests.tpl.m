@@ -565,7 +565,7 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
     
     RLMAssertThrowsWithReason([dictionary count], @"invalidated");
     RLMAssertThrowsWithReason([dictionary objectAtIndex:0], @"invalidated");
-    RLMAssertThrowsWithReason(dictionary[@"0"], @"invalidated");
+    XCTAssertNil(dictionary[@"0"]);
     RLMAssertThrowsWithReason([dictionary count], @"invalidated");
 
     RLMAssertThrowsWithReason([dictionary setObject:@0 forKey:@"thread"], @"invalidated");
@@ -577,9 +577,8 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
 
     RLMAssertThrowsWithReason([dictionary sortedResultsUsingKeyPath:@"self" ascending:YES], @"invalidated");
     RLMAssertThrowsWithReason([dictionary sortedResultsUsingDescriptors:@[[RLMSortDescriptor sortDescriptorWithKeyPath:@"self" ascending:YES]]], @"invalidated");
-    RLMAssertThrowsWithReason(dictionary[@"invalidated"], @"invalidated");
     RLMAssertThrowsWithReason(dictionary[@"invalidated"] = @0, @"invalidated");
-    RLMAssertThrowsWithReason([dictionary valueForKey:@"self"], @"invalidated");
+    XCTAssertNil([dictionary valueForKey:@"self"]);
     RLMAssertThrowsWithReason([dictionary setValue:@1 forKey:@"self"], @"invalidated");
     RLMAssertThrowsWithReason({for (__unused id obj in dictionary);}, @"invalidated");
 
@@ -631,7 +630,7 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
     [realm commitWriteTransaction];
 
     id expectation = [self expectationWithDescription:@""];
-    id token = [managed.intObj addNotificationBlock:^(RLMDictionary *dictionary, RLMCollectionChange *change, NSError *error) {
+    id token = [managed.intObj addNotificationBlock:^(RLMDictionary *dictionary, RLMDictionaryChange *change, NSError *error) {
         XCTAssertNotNil(dictionary);
         XCTAssertNil(change);
         XCTAssertNil(error);
@@ -647,14 +646,14 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
 
     __block bool first = true;
     __block id expectation = [self expectationWithDescription:@""];
-    id token = [managed.intObj addNotificationBlock:^(RLMDictionary *dictionary, RLMCollectionChange *change, NSError *error) {
+    id token = [managed.intObj addNotificationBlock:^(RLMDictionary *dictionary, RLMDictionaryChange *change, NSError *error) {
         XCTAssertNotNil(dictionary);
         XCTAssertNil(error);
         if (first) {
             XCTAssertNil(change);
         }
         else {
-            XCTAssertEqualObjects(change.insertions, @[@0]);
+            XCTAssertEqualObjects(change.insertions, @[@"testKey"]);
         }
 
         first = false;
@@ -679,7 +678,7 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
     [realm commitWriteTransaction];
 
     id expectation = [self expectationWithDescription:@""];
-    id token = [managed.intObj addNotificationBlock:^(__unused RLMDictionary *dictionary, __unused RLMCollectionChange *change, __unused NSError *error) {
+    id token = [managed.intObj addNotificationBlock:^(__unused RLMDictionary *dictionary, __unused RLMDictionaryChange *change, __unused NSError *error) {
         // will throw if it's incorrectly called a second time due to the
         // unrelated write transaction
         [expectation fulfill];
@@ -703,7 +702,7 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
     [realm commitWriteTransaction];
 
     __block id expectation = [self expectationWithDescription:@""];
-    id token = [managed.intObj addNotificationBlock:^(RLMDictionary *dictionary, __unused RLMCollectionChange *change, NSError *error) {
+    id token = [managed.intObj addNotificationBlock:^(RLMDictionary *dictionary, __unused RLMDictionaryChange *change, NSError *error) {
         XCTAssertNotNil(dictionary);
         XCTAssertNil(error);
         // will throw if it's called a second time before we create the new
@@ -733,37 +732,6 @@ static NSArray *sortedDistinctUnion(id array, NSString *type, NSString *prop) {
 
     [(RLMNotificationToken *)token invalidate];
 }
-
-- (void)testDeletingObjectWithNotificationsRegistered {
-    [managed.intObj addEntriesFromDictionary:@{@"a": @10, @"b": @20}];
-    [realm commitWriteTransaction];
-
-    __block bool first = true;
-    __block id expectation = [self expectationWithDescription:@""];
-    id token = [managed.intObj addNotificationBlock:^(RLMDictionary *dictionary, RLMCollectionChange *change, NSError *error) {
-        XCTAssertNotNil(dictionary);
-        XCTAssertNil(error);
-        if (first) {
-            XCTAssertNil(change);
-            first = false;
-        }
-        else {
-            XCTAssertEqualObjects(change.deletions, (@[@0, @1]));
-        }
-        [expectation fulfill];
-    }];
-    [self waitForExpectationsWithTimeout:2.0 handler:nil];
-
-    [realm beginWriteTransaction];
-    [realm deleteObject:managed];
-    [realm commitWriteTransaction];
-
-    expectation = [self expectationWithDescription:@""];
-    [self waitForExpectationsWithTimeout:2.0 handler:nil];
-
-    [(RLMNotificationToken *)token invalidate];
-}
-
 #pragma mark - Queries
 
 #define RLMAssertCount(cls, expectedCount, ...) \
