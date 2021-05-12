@@ -45,6 +45,11 @@ import Realm
     }
 }
 
+public protocol RealmMapValue: RealmCollectionValue {
+    associatedtype Key: MapKeyType
+    associatedtype Value: RealmCollectionValue
+}
+
 @frozen public struct RLMMapIterator<Element: RealmMapValue>: IteratorProtocol {
 
     private var generatorBase: NSFastEnumerationIterator
@@ -168,11 +173,6 @@ public protocol RealmCollectionValue: Hashable {
     static func _rlmDictionary() -> RLMDictionary<AnyObject, AnyObject>
     /// :nodoc:
     static func _nilValue() -> Self
-}
-
-public protocol RealmMapValue: RealmCollectionValue {
-    associatedtype Key: MapKeyType
-    associatedtype Value: RealmCollectionValue
 }
 
 extension RealmCollectionValue {
