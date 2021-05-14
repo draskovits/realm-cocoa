@@ -433,8 +433,8 @@ class MapSyncTests: SwiftSyncTestCase {
             executeChild()
             waitForDownloads(for: realm)
             checkCount(expected: 1, realm, SwiftCollectionSyncObject.self)
-             object = realm.objects(SwiftCollectionSyncObject.self).first!
-             collection = object[keyPath: keyPath]
+            object = realm.objects(SwiftCollectionSyncObject.self).first!
+            collection = object[keyPath: keyPath]
             XCTAssertEqual(collection.count, values.count)
             for element in values {
                 if let person = element.value as? SwiftPerson, let otherPerson = collection[element.key] as? SwiftPerson {
@@ -490,12 +490,9 @@ class MapSyncTests: SwiftSyncTestCase {
                 XCTAssertEqual(collection.count, 2)
             } else {
                 try realm.write {
-                    print(">>> collection \(collection)")
                     let keyA = collection.keys[0]
                     let keyB = collection.keys[1]
-                    print(">>> keys \(keyA)    \(keyB)")
                     collection[keyA] = collection[keyB]
-                    print(">>> collection \(collection)")
                 }
                 XCTAssertEqual(collection.count, 2)
             }
