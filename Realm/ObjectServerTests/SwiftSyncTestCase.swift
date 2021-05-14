@@ -116,17 +116,6 @@ public class SwiftCollectionSyncObject: Object {
     public let anyMap = Map<String, AnyRealmValue>()
     public let objectMap = Map<String, SwiftPerson>()
 
-    public let otherIntMap = Map<String, Int>()
-    public let otherStringMap = Map<String, String>()
-    public let otherDataMap = Map<String, Data>()
-    public let otherDateMap = Map<String, Date>()
-    public let otherDoubleMap = Map<String, Double>()
-    public let otherObjectIdMap = Map<String, ObjectId>()
-    public let otherDecimalMap = Map<String, Decimal128>()
-    public let otherUuidMap = Map<String, UUID>()
-    public let otherAnyMap = Map<String, AnyRealmValue>()
-    public let otherObjectMap = Map<String, SwiftPerson>()
-
     public override class func primaryKey() -> String? {
         return "_id"
     }
