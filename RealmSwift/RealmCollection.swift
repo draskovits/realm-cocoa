@@ -65,7 +65,7 @@ public protocol RealmMapValue: RealmCollectionValue {
         if let next = next as? Element.Key {
             let key: Element.Key = next
             let val: Element.Value = dynamicBridgeCast(fromObjectiveC: collection[key as! RLMDictionaryKey]!)
-            return Map<Element.Key, Element.Value>.SingleMapEntry(key: key, value: val) as? Element
+            return SingleMapEntry(key: key, value: val) as? Element
         }
         return nil
     }
@@ -1326,12 +1326,12 @@ extension ObservableCollection {
     }
 
     internal func wrapObserveBlock(_ block: @escaping (RealmCollectionChange<Self>) -> Void) -> ObjcCollectionChange {
-        var list: Self?
-        return { array, change, error in
-            if list == nil, let array = array {
-                list = self.isSameObjcCollection(array) ? self : Self(objc: array)
+        var col: Self?
+        return { collection, change, error in
+            if col == nil, let collection = collection {
+                col = self.isSameObjcCollection(collection) ? self : Self(objc: collection)
             }
-            block(RealmCollectionChange.fromObjc(value: list, change: change, error: error))
+            block(RealmCollectionChange.fromObjc(value: col, change: change, error: error))
         }
     }
 }
