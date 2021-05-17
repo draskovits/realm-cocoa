@@ -35,7 +35,7 @@ import Realm.Private
 ///
 /// You can also manually conform to `Identifiable` if you wish, but note that
 /// using the object's memory address does *not* work for managed objects.
-@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, *)
+@available(OSX 10.15, watchOS 6.0, iOS 13.0, iOSApplicationExtension 13.0, OSXApplicationExtension 10.15, tvOS 13.0, *)
 public protocol ObjectKeyIdentifiable: Identifiable, ObjectBase {
     /// The stable identity of the entity associated with `self`.
     var id: UInt64 { get }
@@ -338,27 +338,19 @@ extension Realm {
 extension Object: ObservableObject {
     /// A publisher that emits Void each time the object changes.
     ///
-    /// Despite the name, this actually emits *after* the object has changed.
+    /// Despite the name, this actually emits *after* the collection has changed.
     public var objectWillChange: RealmPublishers.WillChange<Object> {
         return RealmPublishers.WillChange(self)
     }
 }
+
 @available(OSX 10.15, watchOS 6.0, iOS 13.0, iOSApplicationExtension 13.0, OSXApplicationExtension 10.15, tvOS 13.0, *)
-extension EmbeddedObject: ObservableObject {
-    /// A publisher that emits Void each time the object changes.
-    ///
-    /// Despite the name, this actually emits *after* the embedded object has changed.
-    public var objectWillChange: RealmPublishers.WillChange<EmbeddedObject> {
-        return RealmPublishers.WillChange(self)
-    }
-}
-@available(OSX 10.15, watchOS 6.0, iOS 13.0, iOSApplicationExtension 13.0, OSXApplicationExtension 10.15, tvOS 13.0, *)
-extension ObjectBase: RealmSubscribable {
+extension Object: RealmSubscribable {
     /// :nodoc:
     // swiftlint:disable:next identifier_name
-    public func _observe<S>(on queue: DispatchQueue?, _ subscriber: S) -> NotificationToken
-    where S.Input: ObjectBase, S: Subscriber, S.Failure == Error {
-        return _observe(on: queue) { (change: ObjectChange<S.Input>) in
+    public func _observe<S: Subscriber>(on queue: DispatchQueue?, _ subscriber: S)
+    -> NotificationToken where S.Input: Object, S.Failure == Error {
+        return observe(on: queue) { (change: ObjectChange<S.Input>) in
             switch change {
             case .change(let object, _):
                 _ = subscriber.receive(object)
@@ -372,7 +364,7 @@ extension ObjectBase: RealmSubscribable {
     
     /// :nodoc:
     public func _observe<S: Subscriber>(_ subscriber: S) -> NotificationToken where S.Input == Void, S.Failure == Never {
-        return _observe { _ in _ = subscriber.receive() }
+        return observe { _ in _ = subscriber.receive() }
     }
 }
 
